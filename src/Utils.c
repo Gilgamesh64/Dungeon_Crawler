@@ -1,6 +1,59 @@
 #include "utils.h"
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
-int roll_dice(void) {
+/**
+ * Rolls a six sided dice and returns the result
+ */
+int roll_dice(void){
     return (rand() % DICE_SIDES) + 1;
+}
+
+/**
+ * Clears the terminal screen
+ */
+void clear_screen(void){
+    printf("\033[2J\033[H");
+    fflush(stdout);
+}
+
+/**
+ * Waits for a user click to continue
+ * @param string to show the user
+ */
+void click_to_continue(char* string){
+    printf("%s", string);
+    getchar();
+}
+
+/**
+ * Returns a string from the user
+ * @param prompt to show the user
+ */
+char *get_string(const char *prompt) {
+    static char buffer[256];
+
+    printf("%s", prompt);
+
+    if (fgets(buffer, sizeof(buffer), stdin) != NULL) {
+        buffer[strcspn(buffer, "\n")] = '\0'; 
+        return buffer;
+    }
+
+    buffer[0] = '\0';
+    return buffer;
+}
+
+/**
+ * Gets a string to the user and puts it into a given buffer
+ * @param buffer to put the string in
+ * @param size of the buffer
+ * @param prompt to show the user
+ */
+void get_string_buffer(char *buffer, size_t size, const char *prompt) {
+    printf("%s", prompt);
+    if (fgets(buffer, size, stdin) != NULL) {
+        buffer[strcspn(buffer, "\n")] = '\0';
+    }
 }
