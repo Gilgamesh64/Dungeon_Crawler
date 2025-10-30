@@ -6,4 +6,4 @@ mkdir build
 cd build
 cmake ..
 cmake --build .
-./DUNGEON_CRAWLER
+./DC (Dungeon_Crawler)

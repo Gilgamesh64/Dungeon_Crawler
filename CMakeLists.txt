@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)  # Minimum CMake version
-project(DUNGEON_CRAWLER C)                  # Project name and language
+project(DC C)                  # Project name and language
 
 # Set the C standard
 set(CMAKE_C_STANDARD 11)
@@ -12,4 +12,4 @@ include_directories(include)
 file(GLOB SOURCES "src/*.c")
 
 # Define the executable
-add_executable(DUNGEON_CRAWLER ${SOURCES})
+add_executable(DC ${SOURCES})
