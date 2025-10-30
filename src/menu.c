@@ -50,6 +50,7 @@ void main_menu(){
     {
     case 1:
         printf("Start game!\n");
+        village_menu();
         break;
     
     case 2: 
@@ -67,4 +68,10 @@ void load_save_menu(){
     int operation = selectOption("Select option for saving: ", "Load", "Delete", NULL);
 
     printf("Selected: %d with operation %d\n", selected, operation);
+}
+
+void village_menu(){
+    clear_screen();
+    int selected = selectOption("Menu del villaggio: ", "Riposati", "Inventario", "Salva la partita", "Esci", NULL);
+    printf("Selection: %d", selected);
 }
