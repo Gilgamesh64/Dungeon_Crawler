@@ -3,6 +3,9 @@
 
 #include <stddef.h>
 
+#define MAX_FILES 100
+#define MAX_LINE 1024
+
 typedef struct {
     int health_points;
     int coins;
@@ -15,6 +18,10 @@ GameData *get_game_data(void);
 void save();
 int load(const char* path);
 void print_data();
-int get_latest_filename(char *buffer, size_t size);
+int get_last_index();
+void get_file_name(char* buf, int index);
+int get_all_saves(char *buffers[]);
+int delete(const char *path);
+int get_nth_index(int n);
 
 #endif

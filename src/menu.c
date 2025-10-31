@@ -15,7 +15,7 @@
  * @return selected number
  */
 int select_option(const char *prompt, const char *first, ...) {
-    va_list args; //declare args list
+    va_list args;
     va_start(args, first);
 
     const char *str = first;
@@ -26,18 +26,17 @@ int select_option(const char *prompt, const char *first, ...) {
     printf("%s\n", prompt); 
 
 
-    //loops the args and prints the enumerated menu
     while (str != NULL) {
         printf("%d. %s\n", count, str);
         count++;
-        str = va_arg(args, const char *); //advances in the args array
+        str = va_arg(args, const char *);
     }
     va_end(args);
 
     do {
         printf("Select [1-%d]: ", count - 1);
-        if (scanf("%d", &selection) != 1) { //asks the user for a valid number
-            while (getchar() != '\n'); //flushes the stdin
+        if (scanf("%d", &selection) != 1) {
+            while (getchar() != '\n');
         }
     } while (selection <= 0 || selection >= count);
 
@@ -94,13 +93,55 @@ void main_menu(){
 
 void save_menu(){
     clear_screen();
+    char file_buffers[MAX_FILES][MAX_LINE];
+    const char *all_text[MAX_FILES];
+
+    for (int i = 0; i < MAX_FILES; i++) {
+        all_text[i] = file_buffers[i];
+    }
+
+    int total_files = get_all_saves((char **)all_text);
+
+    if (total_files <= 0) {
+        printf("No save files found.\n");
+        return;
+    }
+    int choice = select_option_array("Select a save file:", all_text, total_files);
+
+    char filename[100];
+    get_file_name(filename, get_nth_index(choice));
 
     printf("\n");
     int operation = select_option("Select option for saving: ", "Load", "Delete", NULL);
+
+    switch (operation){
+    case 1:
+        load(filename);
+        village_menu();
+        break;
+    
+    case 2: 
+        remove(filename);
+        main_menu();
+        break;
+    default:
+        break;
+    }
 }
 
 void village_menu(){
     clear_screen();
     int selected = select_option("Menu del villaggio: ", "Riposati", "Inventario", "Salva la partita", "Esci", NULL);
+    switch (selected){
+    case 1:
+        get_game_data() -> health_points = 20;
+        break;
+    case 3:
+        save();
+        break;
+    
+    default:
+        break;
+    }
     printf("Selection: %d", selected);
 }
