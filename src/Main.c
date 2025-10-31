@@ -1,5 +1,6 @@
 #include "utils.h"
 #include "menu.h"
+#include "data.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -13,7 +14,7 @@ int main(void){
     printf("%s\n", name);
 
     clear_screen();
-
+    
     main_menu();
     
     return 0;

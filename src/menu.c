@@ -1,5 +1,6 @@
 #include "menu.h"
 #include "utils.h"
+#include "data.h"
 #include <stdarg.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -13,7 +14,7 @@
  * Ex: select("Pick an option: ", "Menu", "Settings", "Quit", NULL)
  * @return selected number
  */
-int selectOption(const char *prompt, const char *first, ...) {
+int select_option(const char *prompt, const char *first, ...) {
     va_list args; //declare args list
     va_start(args, first);
 
@@ -43,9 +44,39 @@ int selectOption(const char *prompt, const char *first, ...) {
     return selection;
 }
 
+#include <stdio.h>
+
+/**
+ * Creates a menu asking the user for a selection
+ * @param prompt to ask the user for input
+ * @param options array of strings to display as menu
+ * @param count number of strings in the array
+ * @return selected number (1-based index)
+ */
+int select_option_array(const char *prompt, const char **options, int count) {
+    if (count <= 0) return -1;
+
+    int selection = -1;
+
+    printf("%s\n", prompt);
+    for (int i = 0; i < count; i++) {
+        printf("%d. %s\n", i + 1, options[i]);
+    }
+
+    do {
+        printf("Select [1-%d]: ", count);
+        if (scanf("%d", &selection) != 1) {
+            while (getchar() != '\n');
+        }
+    } while (selection <= 0 || selection > count);
+
+    return selection;
+}
+
+
 void main_menu(){
     clear_screen();
-    int selected = selectOption("Pick a menu option: ", "New save", "Load save", NULL);
+    int selected = select_option("Pick a menu option: ", "New save", "Load save", NULL);
     switch (selected)
     {
     case 1:
@@ -55,23 +86,21 @@ void main_menu(){
     
     case 2: 
         printf("Loading save menu!\n");
-        load_save_menu();
+        save_menu();
     default:
         break;
     }
 }
 
-void load_save_menu(){
+void save_menu(){
     clear_screen();
-    int selected = selectOption("Load save: ", "Save 1", "Save 2", NULL);
-    printf("\n");
-    int operation = selectOption("Select option for saving: ", "Load", "Delete", NULL);
 
-    printf("Selected: %d with operation %d\n", selected, operation);
+    printf("\n");
+    int operation = select_option("Select option for saving: ", "Load", "Delete", NULL);
 }
 
 void village_menu(){
     clear_screen();
-    int selected = selectOption("Menu del villaggio: ", "Riposati", "Inventario", "Salva la partita", "Esci", NULL);
+    int selected = select_option("Menu del villaggio: ", "Riposati", "Inventario", "Salva la partita", "Esci", NULL);
     printf("Selection: %d", selected);
 }
