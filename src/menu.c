@@ -1,6 +1,7 @@
 #include "menu.h"
 #include "utils.h"
 #include "data.h"
+#include "savings.h"
 #include <stdarg.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -135,13 +136,18 @@ void village_menu(){
     switch (selected){
     case 1:
         get_game_data() -> health_points = 20;
+        click_to_continue("Health restored!\n");
+        village_menu();
         break;
     case 3:
         save();
+        click_to_continue("Saved\n");
+        village_menu();
+        break;
+    case 4:
         break;
     
     default:
         break;
     }
-    printf("Selection: %d", selected);
 }
