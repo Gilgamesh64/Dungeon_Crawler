@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <time.h>
 
 
 /**
@@ -128,7 +129,19 @@ void save() {
 
     GameData *s = get_game_data();
 
-    fprintf(f, "%d P.VITA , %d MONETE , %d OGGETTI , %d MISSIONI COMPLETATE\n",
+    time_t now = time(NULL);
+    struct tm *t = localtime(&now);
+
+    char date_str[11];
+    char time_str[9];
+
+    strftime(date_str, sizeof(date_str), "%d/%m/%Y", t);
+    strftime(time_str, sizeof(time_str), "%H:%M:%S", t);
+
+
+    fprintf(f, "%s , %s , %d P.VITA , %d MONETE , %d OGGETTI , %d MISSIONI COMPLETATE\n",
+            date_str,
+            time_str,
             s->health_points,
             s->coins,
             s->items,

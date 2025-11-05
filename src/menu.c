@@ -76,17 +76,15 @@ int select_option_array(const char *prompt, const char **options, int count) {
 
 void main_menu(){
     clear_screen();
-    int selected = select_option("Pick a menu option: ", "New save", "Load save", NULL);
-    switch (selected)
-    {
+    int selected = select_option("Menu principale: ", "Nuova partita", "Carica salvataggio", NULL);
+    switch (selected){
     case 1:
-        printf("Start game!\n");
         village_menu();
         break;
     
     case 2: 
-        printf("Loading save menu!\n");
         save_menu();
+        break;
     default:
         break;
     }
@@ -104,16 +102,16 @@ void save_menu(){
     int total_files = get_all_saves((char **)all_text);
 
     if (total_files <= 0) {
-        printf("No save files found.\n");
+        printf("Nessun salvataggio trovato.\n");
         return;
     }
-    int choice = select_option_array("Select a save file:", all_text, total_files);
+    int choice = select_option_array("Seleziona un file di salvataggio:", all_text, total_files);
 
     char filename[100];
     get_file_name(filename, get_nth_index(choice));
 
     printf("\n");
-    int operation = select_option("Select option for saving: ", "Load", "Delete", NULL);
+    int operation = select_option("Seleziona un opzione sul salvataggio: ", "Carica", "Elimina", NULL);
 
     switch (operation){
     case 1:
@@ -122,8 +120,12 @@ void save_menu(){
         break;
     
     case 2: 
-        remove(filename);
-        main_menu();
+        int sure = select_option("Sei sicuro di voler eliminare definitivamente il salvataggio?: ", "SI", "NO ASPE", NULL);
+        if(sure == 1){
+            remove(filename);
+            main_menu();
+        }
+        else save_menu();
         break;
     default:
         break;

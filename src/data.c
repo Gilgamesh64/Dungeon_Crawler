@@ -2,7 +2,7 @@
 #include "stdio.h"
 
 GameData *get_game_data(void) {
-    static GameData data = {20, 0, 0, 0};
+    static GameData data = {DEFAULT_HEALTH, DEFAULT_MONEY, DEFAULT_ITEMS, DEFAULT_QUESTS};
     return &data;
 }
 
