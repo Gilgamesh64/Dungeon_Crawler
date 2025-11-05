@@ -4,7 +4,7 @@
 #include <string.h>
 
 /**
- * Rolls a six sided dice and returns the result
+ * @return the result of the die roll
  */
 int roll_dice(void){
     return (rand() % DICE_SIDES) + 1;
@@ -28,8 +28,8 @@ void click_to_continue(char* string){
 }
 
 /**
- * Returns a string from the user
  * @param prompt to show the user
+ * @return a string from the user
  */
 char *get_string(const char *prompt) {
     static char buffer[256];
@@ -38,10 +38,7 @@ char *get_string(const char *prompt) {
 
     if (fgets(buffer, sizeof(buffer), stdin) != NULL) {
         buffer[strcspn(buffer, "\n")] = '\0'; 
-        return buffer;
     }
-
-    buffer[0] = '\0';
     return buffer;
 }
 

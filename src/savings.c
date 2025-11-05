@@ -17,8 +17,8 @@ void get_file_name(char* buf, int index){
 }
 
 /**
- * Returns the index of the file 
  * EX. savings2.txt, savings3.txt, savings10.txt; filename = "savings3.txt" returns 3
+ * @return the index of the file 
  * @param filename to search
  */
 int get_file_index(const char *filename) {
@@ -30,8 +30,9 @@ int get_file_index(const char *filename) {
 
 
 /**
- * Returns the index of the file with the highest count
  * EX. saving2, saving4, saving10. Returns 10
+ * @return the index of the file with the highest count
+ * @see get_file_name()
  */
 int get_last_index() {
     char filename[256];
@@ -52,6 +53,8 @@ int get_last_index() {
  * Returns the saving in the Nth position desc
  * EX saving2, saving4, saving10; n = 1, returns 4
  * @param n positon
+ * @see get_file_name()
+ * @see get_file_index()
  */
 int get_nth_index(int n) {
     int count = 0;
@@ -98,6 +101,9 @@ void read_inside(const char *path, char *buf, size_t bufsize) {
 /**
  * Reads every save file and puts its content into a new array inside a buffer
  * @param buffers for the savings content
+ * @see get_file_name()
+ * @see read_inside()
+ * @see get_last_index()
  */
 int get_all_saves(char *buffers[]) {
     char filename[256];
@@ -117,7 +123,9 @@ int get_all_saves(char *buffers[]) {
 }
 
 /**
- * Save using current game_data
+ * @brief save using current game_data
+ * 
+ * Creates a new saving file with index based on the last save file index
  */
 void save() {
     char filename[100];
@@ -155,9 +163,9 @@ void save() {
  * Loads savings
  * @param path to the savings file
  */
-int load(const char* path) {
+void load(const char* path) {
     FILE *f = fopen(path, "r");
-    if (!f) return 1;
+    if (!f) return;
 
     GameData *s = get_game_data();
 
@@ -168,6 +176,6 @@ int load(const char* path) {
            &s->missions_completed);
 
     fclose(f);
-    return 0;
+    return;
 }
 

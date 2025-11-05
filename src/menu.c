@@ -10,9 +10,9 @@
 
 /**
  * Creates a menu asking the user for a selection
+ * Ex: select("Pick an option: ", "Menu", "Settings", "Quit", NULL)
  * @param prompt to ask the user for input
  * @param first list of strings that will form the menu ended with NULL
- * Ex: select("Pick an option: ", "Menu", "Settings", "Quit", NULL)
  * @return selected number
  */
 int select_option(const char *prompt, const char *first, ...) {
