@@ -1,33 +1,59 @@
 #include "savings.h"
 #include "data.h"
+#include <dirent.h>
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 
-
 /**
- * Returns the name of the saving file 
+ * Returns the name of the saving file
  * EX. savings2.txt, savings3.txt, savings10.txt; index = 3 puts into buf "savings3.txt"
  * @param buf to store the name
  * @param index of the file
  */
-void get_file_name(char* buf, int index){
-    sprintf(buf, "saving%d.txt", index);
+void get_file_name(char *buf, int index) {
+    sprintf(buf, "savings/saving%d.txt", index);
 }
 
 /**
  * EX. savings2.txt, savings3.txt, savings10.txt; filename = "savings3.txt" returns 3
- * @return the index of the file 
+ * @return the index of the file
  * @param filename to search
  */
 int get_file_index(const char *filename) {
     int index = -1;
-    sscanf(filename, "saving%d.txt", &index);
-    
+    sscanf(filename, "savings/saving%d.txt", &index);
+
     return index;
 }
 
+/**
+ * Counts the number of files in the savings directory
+ */
+int count_files() {
+    DIR *dir = opendir("savings");
+    int file_count = 0;
+
+    if (dir == NULL) {
+        printf("Error opening 'savings' folder, please create one");
+        return -1;
+    }
+
+    struct dirent *entry;
+    while ((entry = readdir(dir)) != NULL) {
+        // Skip "." and ".."
+        if (entry->d_name[0] == '.' &&
+            (entry->d_name[1] == '\0' ||
+             (entry->d_name[1] == '.' && entry->d_name[2] == '\0')))
+            continue;
+
+        file_count++;
+    }
+
+    closedir(dir);
+    return file_count;
+}
 
 /**
  * EX. saving2, saving4, saving10. Returns 10
@@ -36,17 +62,22 @@ int get_file_index(const char *filename) {
  */
 int get_last_index() {
     char filename[256];
+    int found = 0;
+    int last_index = 0;
+    int file_number = count_files();
 
-    for (int i = MAX_FILES; i >= 0; --i) {
+    for (int i = 0; found < file_number; i++) {
+
         get_file_name(filename, i);
 
         FILE *file = fopen(filename, "r");
         if (file) {
             fclose(file);
-            return i;
+            found++;
+            last_index = i;
         }
     }
-    return 0;
+    return last_index;
 }
 
 /**
@@ -64,17 +95,17 @@ int get_nth_index(int n) {
         get_file_name(filename, i);
 
         FILE *f = fopen(filename, "r");
-        if (!f) continue;
+        if (!f)
+            continue;
         fclose(f);
 
         count++;
-        if (count == n){
+        if (count == n) {
             return get_file_index(filename);
-        } 
+        }
     }
     return -1;
 }
-
 
 /**
  * Reads inside a file and puts its content into a buffer
@@ -85,7 +116,7 @@ int get_nth_index(int n) {
 void read_inside(const char *path, char *buf, size_t bufsize) {
     FILE *file = fopen(path, "r");
     if (!file) {
-        perror("Failed to open file");
+        printf("Failed to open file");
         return;
     }
 
@@ -105,35 +136,38 @@ void read_inside(const char *path, char *buf, size_t bufsize) {
  * @see read_inside()
  * @see get_last_index()
  */
-int get_all_saves(char *buffers[]) {
+void get_all_saves(char *buffers[]) {
     char filename[256];
-    int count = 0;
+    int found = 0;
+    int file_count = count_files();
 
-    for (int i = get_last_index(); i >= 0 && count <= get_last_index(); i--) {
+    for (int i = get_last_index(); found < file_count; i--) {
         get_file_name(filename, i);
 
         FILE *f = fopen(filename, "r");
-        if (!f) continue;
+        if (!f)
+            continue;
         fclose(f);
 
-        read_inside(filename, buffers[count], MAX_LINE);
-        count++;
+        read_inside(filename, buffers[found], 100);
+
+        found++;
     }
-    return count;
 }
 
 /**
  * @brief save using current game_data
- * 
+ *
  * Creates a new saving file with index based on the last save file index
  */
 void save() {
     char filename[100];
 
     get_file_name(filename, get_last_index() + 1);
-    
+
     FILE *f = fopen(filename, "w");
-    if (!f) return;
+    if (!f)
+        return;
 
     GameData *s = get_game_data();
 
@@ -146,7 +180,6 @@ void save() {
     strftime(date_str, sizeof(date_str), "%d/%m/%Y", t);
     strftime(time_str, sizeof(time_str), "%H:%M:%S", t);
 
-
     fprintf(f, "%s , %s , %d P.VITA , %d MONETE , %d OGGETTI , %d MISSIONI COMPLETATE\n",
             date_str,
             time_str,
@@ -158,14 +191,14 @@ void save() {
     fclose(f);
 }
 
-
 /**
  * Loads savings
  * @param path to the savings file
  */
-void load(const char* path) {
+void load(const char *path) {
     FILE *f = fopen(path, "r");
-    if (!f) return;
+    if (!f)
+        return;
 
     GameData *s = get_game_data();
 
@@ -178,4 +211,3 @@ void load(const char* path) {
     fclose(f);
     return;
 }
-

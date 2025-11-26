@@ -1,0 +1,9 @@
+BasedOnStyle: LLVM
+IndentWidth: 4
+ColumnLimit: 0
+BraceWrapping:
+  AfterFunction: false
+  AfterClass: true
+  AfterControlStatement: true
+  AfterNamespace: true
+  BeforeElse: true

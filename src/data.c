@@ -9,12 +9,12 @@ GameData *get_game_data(void) {
 /**
  * Prints current game_data
  */
-void print_data(){
+void print_data() {
     GameData *s = get_game_data();
 
     printf("%d P.VITA , %d MONETE , %d OGGETTI , %d MISSIONI COMPLETATE",
-            s->health_points,
-            s->coins,
-            s->items,
-            s->missions_completed);
+           s->health_points,
+           s->coins,
+           s->items,
+           s->missions_completed);
 }
