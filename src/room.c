@@ -1,7 +1,8 @@
 #include "room.h"
+#include "utils.h"
 
 Room generate_room(){
-	int type = dice_rool()%3;
+	int type = roll_dice()%3;
 	Room rtnRoom;
 	
 	
@@ -12,7 +13,7 @@ Room generate_room(){
 			break;
 		case 1:
 			rtnRoom.trap = false;
-			rtnRoom.enemy = generate_enemy();
+			//rtnRoom.enemy = generate_enemy();
 			break;
 		case 2:
 			rtnRoom.trap = true;

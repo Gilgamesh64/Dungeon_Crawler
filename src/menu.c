@@ -1,8 +1,8 @@
 #include "menu.h"
 #include "data.h"
+#include "mission.h"
 #include "savings.h"
 #include "utils.h"
-#include "mission.h"
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -141,19 +141,21 @@ void village_menu() {
     clear_screen();
     int selected = select_option("Menu del villaggio: ", "Inizia missione", "Riposati", "Inventario", "Salva la partita", "Esci", NULL);
     switch (selected) {
-    case 1: 
-        //mission_selection_menu();
+    case 1:
+        // mission_selection_menu();
         break;
     case 2:
         get_game_data()->health_points = 20;
+        clear_screen();
         click_to_continue("Health restored!\n");
         village_menu();
         break;
     case 3:
-        //inventory_menu();
+        // inventory_menu();
         break;
     case 4:
         save();
+        clear_screen();
         click_to_continue("Saved\n");
         village_menu();
         break;
@@ -165,54 +167,53 @@ void village_menu() {
     }
 }
 
-void mission_selection_menu(){
-	//Mission* missions = generate_missions(); ???
-	
-	clear_screen();
-	/*int selected = select_option("Menu di Selezione Missione: ", missions->location, (++missions)->location, (++missions)->location);
-	switch (selected){
-	case 1:
-		//mission_menu(missions-2); ???
-		break;
-	case 2:
-		//mission_menu(missions-1); ???
-		break;
-	case 3:
-		//mission_menu(missions); ???
-		break;
-		
-	default:
-		break;
-	}????*/ 
+void mission_selection_menu() {
+    // Mission* missions = generate_missions(); ???
+
+    clear_screen();
+    /*int selected = select_option("Menu di Selezione Missione: ", missions->location, (++missions)->location, (++missions)->location);
+    switch (selected){
+    case 1:
+            //mission_menu(missions-2); ???
+            break;
+    case 2:
+            //mission_menu(missions-1); ???
+            break;
+    case 3:
+            //mission_menu(missions); ???
+            break;
+
+    default:
+            break;
+    }????*/
 }
 
-void mission_menu(Mission mission){
-	clear_screen();
-	int selected = select_option("Menu di Missione: ", "Esplora stanza del Dungeon", "Negozio", "Inventario", "Torna al Villaggio");
-	
-	switch (selected){
-	case 1:
-		break;
-	case 2:
-		//shop_menu();
-		break;
-	case 3:
-		//inventory_menu();
-		break;
-	case 4:
-		
-		break;
-		
-	default:
-		break;
-	}
+void mission_menu(Mission mission) {
+    clear_screen();
+    int selected = select_option("Menu di Missione: ", "Esplora stanza del Dungeon", "Negozio", "Inventario", "Torna al Villaggio");
+
+    switch (selected) {
+    case 1:
+        break;
+    case 2:
+        // shop_menu();
+        break;
+    case 3:
+        // inventory_menu();
+        break;
+    case 4:
+
+        break;
+
+    default:
+        break;
+    }
 }
 
-void shop_menu(){
-	clear_screen();
-	
+void shop_menu() {
+    clear_screen();
 }
 
-void inventory_menu(){
-	clear_screen();
+void inventory_menu() {
+    clear_screen();
 }

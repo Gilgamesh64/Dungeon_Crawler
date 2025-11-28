@@ -8,6 +8,6 @@ typedef struct {
 	
 } Mission;
 
-char** generate_missions();
+Mission* generate_missions();
 
 #endif

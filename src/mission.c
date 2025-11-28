@@ -1,4 +1,6 @@
 #include "mission.h"
+#include "utils.h"
+#include <stdlib.h>
 
 Mission* generate_missions(){
 	static Mission allMissions[] = {

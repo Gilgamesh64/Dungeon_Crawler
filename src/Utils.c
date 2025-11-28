@@ -23,7 +23,11 @@ void clear_screen(void){
  * @param string to show the user
  */
 void click_to_continue(char* string){
-    printf("%s", string);
+    printf("%s\nClick anything to continue\n->", string);
+
+    int c;
+
+    while ((c = getchar()) != '\n' && c != EOF) {} //clear buffer
     getchar();
 }
 
