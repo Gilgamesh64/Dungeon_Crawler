@@ -2,7 +2,7 @@
 #define ENTITY_H
 
 typedef struct{
-    char* name;
+    const char* name;
     int fatal;
     int damage;
     int coins;
@@ -10,31 +10,140 @@ typedef struct{
 } Entity;
 
 static const Entity PALUDE_PUTRESCENTE[6] = {
-    { "Cane Selvaggio",      4,   15,  5, 0 },
-    { "Goblin",              3,   12,  4, 0 },
-    { "Scheletro",           5,   20,  3, 0 },
-    { "Orco",                8,   35,  2, 0 },
-    { "Acquitrino Velenoso", 0,    0,  0, 1 },
-    { "Generale Orco",      12,   50,  3, 0 }
+    {
+        .name  = "Cane Selvaggio",
+        .fatal = 4,
+        .damage = 15,
+        .coins = 5,
+        .trap = 0
+    },
+    {
+        .name  = "Goblin",
+        .fatal = 3,
+        .damage = 12,
+        .coins = 4,
+        .trap = 0
+    },
+    {
+        .name  = "Scheletro",
+        .fatal = 5,
+        .damage = 20,
+        .coins = 3,
+        .trap = 0
+    },
+    {
+        .name  = "Orco",
+        .fatal = 8,
+        .damage = 35,
+        .coins = 2,
+        .trap = 0
+    },
+    {
+        .name  = "Acquitrino Velenoso",
+        .fatal = 0,
+        .damage = 0,
+        .coins = 0,
+        .trap = 1
+    },
+    {
+        .name  = "Generale Orco",
+        .fatal = 12,
+        .damage = 50,
+        .coins = 3,
+        .trap = 0
+    }
 };
 
 static const Entity MAGIONE_INFESTATA[6] = {
-    { "Botola Buia",         0,    0,  0, 1 },
-    { "Pipistrello",         2,    8,  8, 0 },
-    { "Zombie",              4,   30,  1, 0 },
-    { "Fantasma",            6,   25,  7, 0 },
-    { "Vampiro Superiore",  10,   60,  6, 0 },
-    { "Demone Custode",     15,   80,  4, 0 }
+    {
+        .name  = "Botola Buia",
+        .fatal = 0,
+        .damage = 0,
+        .coins = 0,
+        .trap = 1
+    },
+    {
+        .name  = "Pipistrello",
+        .fatal = 2,
+        .damage = 8,
+        .coins = 8,
+        .trap = 0
+    },
+    {
+        .name  = "Zombie",
+        .fatal = 4,
+        .damage = 30,
+        .coins = 1,
+        .trap = 0
+    },
+    {
+        .name  = "Fantasma",
+        .fatal = 6,
+        .damage = 25,
+        .coins = 7,
+        .trap = 0
+    },
+    {
+        .name  = "Vampiro Superiore",
+        .fatal = 10,
+        .damage = 60,
+        .coins = 6,
+        .trap = 0
+    },
+    {
+        .name  = "Demone Custode",
+        .fatal = 15,
+        .damage = 80,
+        .coins = 4,
+        .trap = 0
+    }
 };
 
 static const Entity GROTTA_DI_CRISTALLO[6] = {
-    { "Stanza Vuota",         0,    0,  0, 0 },
-    { "Cristalli Cadenti",    0,    0,  0, 1 },
-    { "Ponte Pericolante",    0,    0,  0, 1 },
-    { "Forziere Misterioso",  0,    0,  0, 1 },
-    { "Rupe Scoscesa",        0,    0,  0, 1 },
-    { "Drago Antico",       25,  250,  5, 0 }
+    {
+        .name  = "Stanza Vuota",
+        .fatal = 0,
+        .damage = 0,
+        .coins = 0,
+        .trap = 0
+    },
+    {
+        .name  = "Cristalli Cadenti",
+        .fatal = 0,
+        .damage = 0,
+        .coins = 0,
+        .trap = 1
+    },
+    {
+        .name  = "Ponte Pericolante",
+        .fatal = 0,
+        .damage = 0,
+        .coins = 0,
+        .trap = 1
+    },
+    {
+        .name  = "Forziere Misterioso",
+        .fatal = 0,
+        .damage = 0,
+        .coins = 0,
+        .trap = 1
+    },
+    {
+        .name  = "Rupe Scoscesa",
+        .fatal = 0,
+        .damage = 0,
+        .coins = 0,
+        .trap = 1
+    },
+    {
+        .name  = "Drago Antico",
+        .fatal = 25,
+        .damage = 250,
+        .coins = 5,
+        .trap = 0
+    }
 };
+
 
 static const Entity* LEVEL_TABLE[] = {
     PALUDE_PUTRESCENTE,
@@ -42,10 +151,6 @@ static const Entity* LEVEL_TABLE[] = {
     GROTTA_DI_CRISTALLO
 };
 
-#define LEVEL_COUNT (sizeof(LEVEL_TABLE) / sizeof(LEVEL_TABLE[0]))
-
-
 Entity spawn_entity(int current_level);
-
 
 #endif
