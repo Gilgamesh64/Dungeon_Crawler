@@ -1,34 +1,13 @@
 #include "room.h"
 #include "utils.h"
+#include "entity.h"
 
-Room generate_room(){
-	int type = roll_dice()%3;
-	Room rtnRoom;
-	
-	
-	switch (type){
-		case 0:
-			rtnRoom.trap = false;
-			//rtnRoom.enemy = something;
-			break;
-		case 1:
-			rtnRoom.trap = false;
-			//rtnRoom.enemy = generate_enemy();
-			break;
-		case 2:
-			rtnRoom.trap = true;
-			//rtnRoom.enemy = something else;
-			break; 
-	};
-	
-	return rtnRoom;
-}
+#include <stdio.h>
 
-Enemy generate_enemy(){
-	Enemy rtnEnemy;
-	rtnEnemy.name = "nome mostro";
-	rtnEnemy.health_points = 10;
-	rtnEnemy.damage = 1;
-	
-	return rtnEnemy;
+void generate_entities(int mission){
+	Entity en = generate_entity("gigi", 10, 1000000, -70);
+	for (int i = 0; i < MAX_ROOM_COUNT; i++){
+		entities[i]->danno = roll_dice();
+		printf("Generated: %d", entities[i]->danno);
+	}
 }
