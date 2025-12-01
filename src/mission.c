@@ -1,6 +1,5 @@
-#include "mission.h"
 #include "utils.h"
-#include <stdlib.h>
+#include <stdlib.h>/*
 
 Mission* generate_missions(){
 	static Mission allMissions[] = {
@@ -24,4 +23,4 @@ Mission* generate_missions(){
 	Mission* rtnMissions = &allMissions;
 	
 	return realloc(rtnMissions, 3 * sizeof(Mission));
-}
+}*/

@@ -1,6 +1,7 @@
 #include "entity.h"
+#include "utils.h"
+#include <stdio.h>
 
-Entity *generate_entity(char* nome, int colpo_fatale, int danno, int monete){
-    Entity entity = {nome, colpo_fatale, danno, monete};
-    return &entity;
+Entity spawn_entity(int current_level){
+    return LEVEL_TABLE[current_level][roll_dice()];
 }

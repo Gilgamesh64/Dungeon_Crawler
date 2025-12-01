@@ -1,8 +1,8 @@
 #include "menu.h"
 #include "data.h"
-#include "mission.h"
 #include "savings.h"
 #include "utils.h"
+#include "entity.h"
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -138,11 +138,12 @@ void save_menu() {
 }
 
 void village_menu() {
-    clear_screen();
     int selected = select_option("Menu del villaggio: ", "Inizia missione", "Riposati", "Inventario", "Salva la partita", "Esci", NULL);
     switch (selected) {
     case 1:
-        // mission_selection_menu();
+        Entity spawned = spawn_entity(0);
+        printf("Entity spawned: %s\n", spawned.name);
+        village_menu();
         break;
     case 2:
         get_game_data()->health_points = 20;
@@ -188,7 +189,7 @@ void mission_selection_menu() {
     }????*/
 }
 
-void mission_menu(Mission mission) {
+/*void mission_menu(Mission mission) {
     clear_screen();
     int selected = select_option("Menu di Missione: ", "Esplora stanza del Dungeon", "Negozio", "Inventario", "Torna al Villaggio");
 
@@ -208,7 +209,7 @@ void mission_menu(Mission mission) {
     default:
         break;
     }
-}
+}*/
 
 void shop_menu() {
     clear_screen();
