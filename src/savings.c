@@ -30,6 +30,7 @@ int get_file_index(const char *filename) {
 
 /**
  * Counts the number of files in the savings directory
+ * @return the number of files in the 'savings' dir
  */
 int count_files() {
     DIR *dir = opendir("savings");
