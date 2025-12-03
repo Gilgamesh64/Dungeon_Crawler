@@ -3,10 +3,10 @@
 
 typedef struct{
     const char* name;
-    int fatal;
-    int damage;
-    int coins;
-    int trap;
+    const int fatal;
+    const int damage;
+    const int coins;
+    const int trap;
 } Entity;
 
 static const Entity PALUDE_PUTRESCENTE[6] = {

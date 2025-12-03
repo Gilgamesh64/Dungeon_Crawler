@@ -77,7 +77,7 @@ int select_option_array(const char *prompt, const char **options, int count) {
 
 void main_menu() {
     clear_screen();
-    int selected = select_option("Menu principale: ", "Nuova partita", "Carica salvataggio", NULL);
+    int selected = select_option("Menu principale: ", "Nuova partita", "Carica salvataggio", "Spawn Enemy", NULL);
     switch (selected) {
     case 1:
         village_menu();
@@ -86,6 +86,11 @@ void main_menu() {
     case 2:
         save_menu();
         break;
+    case 3:
+        Entity spawned = spawn_entity(0);
+        printf("Spawned: %s\n", spawned.name);
+        click_to_continue("Confirm ");
+        main_menu();
     default:
         break;
     }
@@ -141,9 +146,7 @@ void village_menu() {
     int selected = select_option("Menu del villaggio: ", "Inizia missione", "Riposati", "Inventario", "Salva la partita", "Esci", NULL);
     switch (selected) {
     case 1:
-        Entity spawned = spawn_entity(0);
-        printf("Entity spawned: %s\n", spawned.name);
-        village_menu();
+        //mission_selection_menu();
         break;
     case 2:
         get_game_data()->health_points = 20;
