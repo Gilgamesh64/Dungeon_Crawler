@@ -146,7 +146,7 @@ void village_menu() {
     int selected = select_option("Menu del villaggio: ", "Inizia missione", "Riposati", "Inventario", "Salva la partita", "Esci", NULL);
     switch (selected) {
     case 1:
-        //mission_selection_menu();
+        mission_selection_menu();
         break;
     case 2:
         get_game_data()->health_points = 20;
@@ -172,32 +172,22 @@ void village_menu() {
 }
 
 void mission_selection_menu() {
-    // Mission* missions = generate_missions(); ???
-
+    
     clear_screen();
-    /*int selected = select_option("Menu di Selezione Missione: ", missions->location, (++missions)->location, (++missions)->location);
-    switch (selected){
-    case 1:
-            //mission_menu(missions-2); ???
-            break;
-    case 2:
-            //mission_menu(missions-1); ???
-            break;
-    case 3:
-            //mission_menu(missions); ???
-            break;
+    int selected = select_option("Menu di Selezione Missione: ", "Palude Putrescente", "Magione Infestata", "Grotta di Cristallo");
+    generate_dungeon(selected);
+    mission_menu();
 
-    default:
-            break;
-    }????*/
 }
 
-/*void mission_menu(Mission mission) {
+void mission_menu() {
     clear_screen();
     int selected = select_option("Menu di Missione: ", "Esplora stanza del Dungeon", "Negozio", "Inventario", "Torna al Villaggio");
 
     switch (selected) {
     case 1:
+        get_game_data()->current_rooms++;
+        room_menu();
         break;
     case 2:
         // shop_menu();
@@ -212,8 +202,108 @@ void mission_selection_menu() {
     default:
         break;
     }
-}*/
+}
 
+ void room_menu(){
+    int room = get_game_data()->current_rooms;
+    if(get_game_data()->dungeonAttuale[room].trap){
+        trap_menu();
+     }
+    else if(strcmp(get_game_data()->dungeonAttuale[room].name, "Stanza Vuota")){
+        printf("La stanza è vuota...\n");
+    }
+    else{
+        combat_menu();
+    }
+ }
+
+void trap_menu(){
+    int room = get_game_data()->current_rooms;
+    int tipo_trappola = get_game_data()->dungeonAttuale[room].fatal;
+
+    print("Hai attivato una trappola: ");
+
+    switch (tipo_trappola)
+    {
+    case 0:
+        if (get_game_data()->dungeonAttuale[room].damage!=0)
+        {
+            printf("L'eroe ha preso %d danno\n" , get_game_data()->dungeonAttuale[room].damage);
+        }else{
+            printf("L'eroe ha perso %d monete.\n", get_game_data()->dungeonAttuale[room].coins);
+        }
+
+        get_game_data()->health_points -= get_game_data()->dungeonAttuale[room].damage;
+        get_game_data()->coins += get_game_data()->dungeonAttuale[room].coins;
+        break;
+
+    case 1:
+        get_game_data()->dungeonAttuale[room].damage = roll_dice();
+        get_game_data()->health_points -= get_game_data()->dungeonAttuale[room].damage;
+        printf("L'eroe ha preso %d danno e rimane con %d punti vita\n" , get_game_data()->dungeonAttuale[room].damage, get_game_data()->health_points);
+        break;
+
+    case 2:
+    //il lancio della moneta è semplicemente un controllo pari/dispari
+        if(roll_dice()%2==0){
+            get_game_data()->health_points -= get_game_data()->dungeonAttuale[room].damage;
+            printf("L'eroe ha preso %d danno e rimane con %d punti vita\n" , get_game_data()->dungeonAttuale[room].damage, get_game_data()->health_points);
+        }else{
+            printf("L'eroe ha guadagnato %d monete.\n", get_game_data()->dungeonAttuale[room].coins) ;
+            get_game_data()->coins += get_game_data()->dungeonAttuale[room].coins;
+        }
+        break;
+    
+    default:
+        break;
+    }  
+    mission_menu();
+}
+
+void combat_menu(){
+    int room = get_game_data()->current_rooms;
+    int danno_giocatore;
+    
+
+    printf("L'eroe incontra un %s e inizia il combattimento.\n" , get_game_data()->dungeonAttuale[room].name);
+
+    do
+    {
+        printf("Viene lanciato un dado per stabilire l'attacco dell'eroe\n");
+        danno_giocatore = roll_dice();
+        printf("il risultato: %d\n" , danno_giocatore);
+        if(danno_giocatore>=get_game_data()->dungeonAttuale[room].fatal){
+            printf("Il %s viene sconfitto (%d>%d). l'eroe rimane con %d punti vita e riceve %d monete \n" ,
+                get_game_data()->dungeonAttuale[room].name ,
+                get_game_data()->dungeonAttuale[room].fatal ,
+                danno_giocatore ,
+                get_game_data()->health_points ,
+                get_game_data()->dungeonAttuale[room].coins
+            );
+            get_game_data()->coins += get_game_data()->dungeonAttuale[room].coins; 
+        }else
+        {
+            printf("Attacco non sufficente per sconfiggere lo %s (%d<Colpo Fatale=%d) \n" , 
+                get_game_data()->dungeonAttuale[room].name , 
+                danno_giocatore , 
+                get_game_data()->dungeonAttuale[room].fatal 
+            );
+            get_game_data()->health_points-= get_game_data()->dungeonAttuale[room].damage; 
+            printf("Il %s infligge %d danni all'eroe. L'eroe rimane con %d punti vita\n" ,
+                get_game_data()->dungeonAttuale[room].name , 
+                get_game_data()->dungeonAttuale[room].damage , 
+                get_game_data()->health_points
+            );
+
+        }
+        
+
+    } while (danno_giocatore<get_game_data()->dungeonAttuale[room].fatal);
+    
+    mission_menu();
+}
+
+ 
 void shop_menu() {
     clear_screen();
 }

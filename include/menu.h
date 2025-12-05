@@ -5,4 +5,8 @@ void main_menu();
 void save_menu();
 void village_menu();
 
+void room_menu();
+void trap_menu();
+void combat_menu();
+
 #endif
