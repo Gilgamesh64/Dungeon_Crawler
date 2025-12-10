@@ -1,26 +1,66 @@
+#include "mission.h"
 #include "utils.h"
-#include <stdlib.h>/*
+#include "entity.h"
+#include <stdlib.h>
+#include <stdio.h>
 
-Mission* generate_missions(){
-	static Mission allMissions[] = {
-		{"quest 1", "target 1"},
-		{"quest 2", "target 2"},
-		{"quest 3", "target 3"},
-		{"quest 4", "target 4"},
-		{"quest 5", "target 5"},
-		{"quest 6", "target 6"},
-	};
-	Mission temp;
-	int n1, n2;
-	for(int i = 0; i < 15; i++){
-		n1 = roll_dice();
-		n2 = roll_dice();
-		temp = allMissions[n1];
-		allMissions[n1] = allMissions[n2];
-		allMissions[n2] = temp;
+void generate_dungeon(int current_level){
+
+	dungeon.rooms = malloc(sizeof(Entity*)*MAX_DIM);
+
+	int n_stanze;
+    int id_entity;
+
+
+    switch (current_level) {
+    case 0:
+        n_stanze = 3;
+        id_entity = 5;
+
+        break;
+    case 1:
+        n_stanze = 1;
+        id_entity = 4;
+        break;
+
+    case 2:
+        n_stanze = 1;
+        id_entity = 5;
+
+        break;
+
+    default:
+        break;
+    }
+
+    printf("%d %d %d\n", current_level, n_stanze, id_entity);
+
+	for(dungeon.dim = 0; dungeon.dim < MAX_DIM && n_stanze > 0; dungeon.dim++){
+		if(dungeon.dim+n_stanze < MAX_DIM) {
+			Entity t = spawn_entity(current_level);
+            dungeon.rooms = &t;
+        }
+        else{
+            dungeon.rooms = &LEVEL_TABLE[current_level][id_entity];
+            printf("forced dio can\n");
+        }
+
+
+        //check non funziona
+        if(dungeon.rooms == &LEVEL_TABLE[current_level][id_entity]){
+            printf("generato missione\n");
+            n_stanze--;
+            //hey cristian ;3
+        }
+        printf("%s\n", dungeon.rooms->name);
+		dungeon.rooms++;
 	}
-	
-	Mission* rtnMissions = &allMissions;
-	
-	return realloc(rtnMissions, 3 * sizeof(Mission));
-}*/
+
+	realloc(dungeon.rooms, dungeon.dim);
+    dungeon.current_room = 0;
+}
+
+Dungeon* get_dungeon(){
+    return &dungeon;
+}
+
