@@ -11,7 +11,7 @@ GameData *get_game_data(void) {
  * Prints current game_data
  */
 
-void generateDungeon(int current_level) {
+void generate_dungeon(int current_level) {
     // hey Cristian :3
     get_game_data()->dungeon_id = current_level;
 
@@ -40,7 +40,7 @@ void generateDungeon(int current_level) {
     }
 
     for (int i = 0; i < DIM_DUNGEON; i++) {
-
+/*
         if(i+n_stanze <= DIM_DUNGEON) {
             get_game_data()->dungeonAttuale[i] = spawn_entity(current_level);
         }
@@ -53,6 +53,7 @@ void generateDungeon(int current_level) {
             n_stanze--;
             //hey cristian ;3
         }
+            */
 
     }
 }

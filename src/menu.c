@@ -221,7 +221,7 @@ void trap_menu(){
     int room = get_game_data()->current_rooms;
     int tipo_trappola = get_game_data()->dungeonAttuale[room].fatal;
 
-    print("Hai attivato una trappola: ");
+    printf("Hai attivato una trappola: ");
 
     switch (tipo_trappola)
     {
@@ -238,7 +238,7 @@ void trap_menu(){
         break;
 
     case 1:
-        get_game_data()->dungeonAttuale[room].damage = roll_dice();
+        //get_game_data()->dungeonAttuale[room].damage = roll_dice();
         get_game_data()->health_points -= get_game_data()->dungeonAttuale[room].damage;
         printf("L'eroe ha preso %d danno e rimane con %d punti vita\n" , get_game_data()->dungeonAttuale[room].damage, get_game_data()->health_points);
         break;
