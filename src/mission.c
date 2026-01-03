@@ -42,7 +42,6 @@ void generate_dungeon(int current_level){
         }
         else{
             dungeon.rooms = &LEVEL_TABLE[current_level][id_entity];
-            printf("forced dio can\n");
         }
 
 

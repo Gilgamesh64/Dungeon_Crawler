@@ -4,6 +4,7 @@
 #include "utils.h"
 #include "entity.h"
 #include "mission.h"
+#include "item.h"
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -177,7 +178,7 @@ void mission_selection_menu() {
     clear_screen();
     int selected = select_option("Menu di Selezione Missione: ", "Palude Putrescente", "Magione Infestata", "Grotta di Cristallo", NULL)-1;
     
-    printf("%d\n", selected);
+    //printf("%d\n", selected);
     
     generate_dungeon(selected);
 
@@ -266,6 +267,7 @@ void trap_menu(){
     default:
         break;
     }  
+    click_to_continue(NULL);
     mission_menu();
 }
 
@@ -309,15 +311,68 @@ void combat_menu(){
 
     } while (danno_giocatore<get_dungeon()->rooms[room].fatal);
 
-    
+    click_to_continue(NULL);
     mission_menu();
 }
 
  
 void shop_menu() {
     clear_screen();
+    char * item_names = (char*) malloc(NUM_ITEMS_GIOCO*sizeof(char*));
+    int shop_item_realloc_length = 0;
+    for(int i = 0 ; i < NUM_ITEMS_GIOCO ; i++){
+        if(get_item(i).costo>0){
+            item_names[shop_item_realloc_length++] = get_item(i).name;
+        }
+    }
+    
+    realloc(item_names , shop_item_realloc_length);
+    
+    int selected;
+    bool correct_selection = false;
+    do
+    {
+        //controlla la selezione dell'oggetto da acquistare
+        //se è già stato acquistato allora non è una selezione valida
+        selected = select_option_array("Negozio:", item_names , shop_item_realloc_length);
+        if(selected>0  &&  selected < shop_item_realloc_length){
+            //oggetto già presente nell'inventario
+            if (get_game_data()->inventory[selected]==0)
+            {
+                //controllo soldi per acquisto
+                if(get_item(selected).costo <= get_game_data()->coins)
+                {
+                    correct_selection = true;   
+                }
+                
+            }
+        }
+    } while (!correct_selection);
+    //aggiornamento variabili
+    get_game_data()->coins-=get_item(selected).costo;
+    get_game_data()->inventory[selected]++;
+    get_game_data()->items++;
+    
+
+    click_to_continue(NULL);
+    mission_menu();
+
+
+
+    
 }
 
 void inventory_menu() {
     clear_screen();
+    printf("Inventario dell'Eroe\n");
+
+    for(int i = 0; i < NUM_ITEMS_GIOCO; i++){
+        if(get_game_data()->inventory[i] > 0){
+            //ho un oggetto da stampare
+            printf("-%d %s\n", get_game_data()->inventory[i], get_item(i).name);
+        }
+    }
+
+    click_to_continue(NULL);
+    mission_menu();
 }

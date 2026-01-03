@@ -10,6 +10,7 @@ typedef struct {
     int health_points;
     int coins;
     int items;
+    int  * inventory;
     int missions_completed;
     
 } GameData;
