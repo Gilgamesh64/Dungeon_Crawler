@@ -318,10 +318,10 @@ void combat_menu(){
  
 void shop_menu() {
     clear_screen();
-    char * item_names = (char*) malloc(NUM_ITEMS_GIOCO*sizeof(char*));
+    char * item_names = (char*) malloc(NUM_ITEMS*sizeof(char*));
     int shop_item_realloc_length = 0;
-    for(int i = 0 ; i < NUM_ITEMS_GIOCO ; i++){
-        if(get_item(i).costo>0){
+    for(int i = 0 ; i < NUM_ITEMS ; i++){
+        if(get_item(i).cost>0){
             item_names[shop_item_realloc_length++] = get_item(i).name;
         }
     }
@@ -340,7 +340,7 @@ void shop_menu() {
             if (get_game_data()->inventory[selected]==0)
             {
                 //controllo soldi per acquisto
-                if(get_item(selected).costo <= get_game_data()->coins)
+                if(get_item(selected).cost <= get_game_data()->coins)
                 {
                     correct_selection = true;   
                 }
@@ -349,7 +349,7 @@ void shop_menu() {
         }
     } while (!correct_selection);
     //aggiornamento variabili
-    get_game_data()->coins-=get_item(selected).costo;
+    get_game_data()->coins-=get_item(selected).cost;
     get_game_data()->inventory[selected]++;
     get_game_data()->items++;
     
@@ -366,7 +366,7 @@ void inventory_menu() {
     clear_screen();
     printf("Inventario dell'Eroe\n");
 
-    for(int i = 0; i < NUM_ITEMS_GIOCO; i++){
+    for(int i = 0; i < NUM_ITEMS; i++){
         if(get_game_data()->inventory[i] > 0){
             //ho un oggetto da stampare
             printf("-%d %s\n", get_game_data()->inventory[i], get_item(i).name);

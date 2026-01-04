@@ -1,43 +1,43 @@
 #ifndef ITEM_H
 #define ITEM_H
-#endif
-
-const int NUM_ITEMS_GIOCO = 5; // numero di items presenti nel gioco
 
 
+#define NUM_ITEMS 5
 
 typedef struct{
     const char* name;
-    const char* descrizione;
-    const int costo;
+    const char* description;
+    const int cost;
 } Item;
 
 Item get_item(int);
 
-static const  Item items[NUM_ITEMS_GIOCO]  = {
+static const  Item items[NUM_ITEMS]  = {
     {
         .name = "Pozione Curativa",
-        .descrizione = "ripristina fino a 6 PUNTI VITA (lancia un dado a 6 facce)",
-        .costo = 4
+        .description = "ripristina fino a 6 PUNTI VITA (lancia un dado a 6 facce)",
+        .cost = 4
     },
     {
         .name = "Spada",
-        .descrizione = "+1 all'attacco dell'eroe (acquistabile una sola volta)",
-        .costo = 5
+        .description = "+1 all'attacco dell'eroe (acquistabile una sola volta)",
+        .cost = 5
     },
     {
         .name = "Armatura",
-        .descrizione = "-1 al Danno del nemico/trappola (acquistabile una sola volta)",
-        .costo = 10
+        .description = "-1 al Danno del nemico/trappola (acquistabile una sola volta)",
+        .cost = 10
     },
     {
         .name = "Chiave del castello del SIGNORE OSCURO",
-        .descrizione = "permette all'eroe di accedere al castello del SIGNORE OSCURO",
-        .costo = -1
+        .description = "permette all'eroe di accedere al castello del SIGNORE OSCURO",
+        .cost = -1
     },
     {
         .name = "SPADA DELL'EROE",
-        .descrizione = "+1 all'attacco dell'eroe",
-        .costo = -1
+        .description = "+1 all'attacco dell'eroe",
+        .cost = -1
     }
 };
+
+#endif
