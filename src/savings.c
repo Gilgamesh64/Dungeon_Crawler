@@ -1,9 +1,9 @@
 #include "savings.h"
 #include "data.h"
 #ifdef _WIN32
-#include "dirent.h"   // Windows version
+#include "dirent.h"
 #else
-#include <dirent.h>   // POSIX
+#include <dirent.h>
 #endif
 #include <stdio.h>
 #include <stdlib.h>
