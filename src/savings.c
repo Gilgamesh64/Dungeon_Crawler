@@ -1,21 +1,17 @@
 #include "savings.h"
 #include "data.h"
-#ifdef _WIN32
-#include "dirent.h"
-#else
-#include <dirent.h>
-#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 
-/**
- * Returns the name of the saving file
- * EX. savings2.txt, savings3.txt, savings10.txt; index = 3 puts into buf "savings3.txt"
- * @param buf to store the name
- * @param index of the file
- */
+#ifdef _WIN32
+#include "dirent.h"
+#else
+#include <dirent.h>
+#endif
+
+
 void get_file_name(char *buf, int index) {
     sprintf(buf, "savings/saving%d.txt", index);
 }
@@ -32,10 +28,7 @@ int get_file_index(const char *filename) {
     return index;
 }
 
-/**
- * Counts the number of files in the savings directory
- * @return the number of files in the 'savings' dir
- */
+
 int count_files() {
     DIR *dir = opendir("savings");
     int file_count = 0;
@@ -60,11 +53,7 @@ int count_files() {
     return file_count;
 }
 
-/**
- * EX. saving2, saving4, saving10. Returns 10
- * @return the index of the file with the highest count
- * @see get_file_name()
- */
+
 int get_last_index() {
     char filename[256];
     int found = 0;
@@ -85,13 +74,7 @@ int get_last_index() {
     return last_index;
 }
 
-/**
- * Returns the saving in the Nth position desc
- * EX saving2, saving4, saving10; n = 1, returns 4
- * @param n positon
- * @see get_file_name()
- * @see get_file_index()
- */
+
 int get_nth_index(int n) {
     int count = 0;
 
@@ -134,13 +117,7 @@ void read_inside(const char *path, char *buf, size_t bufsize) {
     buf[strcspn(buf, "\n")] = '\0';
 }
 
-/**
- * Reads every save file and puts its content into a new array inside a buffer
- * @param buffers for the savings content
- * @see get_file_name()
- * @see read_inside()
- * @see get_last_index()
- */
+
 void get_all_saves(char *buffers[]) {
     char filename[256];
     int found = 0;
@@ -160,11 +137,6 @@ void get_all_saves(char *buffers[]) {
     }
 }
 
-/**
- * @brief save using current game_data
- *
- * Creates a new saving file with index based on the last save file index
- */
 void save() {
     char filename[100];
 
@@ -196,10 +168,7 @@ void save() {
     fclose(f);
 }
 
-/**
- * Loads savings
- * @param path to the savings file
- */
+
 void load(const char *path) {
     FILE *f = fopen(path, "r");
     if (!f)
