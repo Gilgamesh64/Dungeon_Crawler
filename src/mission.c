@@ -1,16 +1,15 @@
 #include "mission.h"
-#include "utils.h"
 #include "entity.h"
-#include <stdlib.h>
+#include "utils.h"
 #include <stdio.h>
+#include <stdlib.h>
 
-void generate_dungeon(int current_level){
-
-	dungeon.rooms = malloc(sizeof(Entity*)*MAX_DIM);
-
-	int n_stanze;
+void generate_dungeon(int current_level) {
+    int n_stanze;
     int id_entity;
 
+    dungeon.dim = 10;
+    dungeon.current_room = 0;
 
     switch (current_level) {
     case 0:
@@ -33,33 +32,31 @@ void generate_dungeon(int current_level){
         break;
     }
 
-    //printf("%d %d %d\n", current_level, n_stanze, id_entity);
+    /*for(dungeon.dim = 0; dungeon.dim < MAX_DIM && n_stanze > 0; dungeon.dim++){
+            if(dungeon.dim+n_stanze < MAX_DIM) {
+                    Entity t = spawn_entity(current_level);
+        dungeon.rooms = &t;
+    }
+    else{
+        dungeon.rooms = &LEVEL_TABLE[current_level][id_entity];
+    }
 
-	for(dungeon.dim = 0; dungeon.dim < MAX_DIM && n_stanze > 0; dungeon.dim++){
-		if(dungeon.dim+n_stanze < MAX_DIM) {
-			Entity t = spawn_entity(current_level);
-            dungeon.rooms = &t;
-        }
-        else{
-            dungeon.rooms = &LEVEL_TABLE[current_level][id_entity];
-        }
+    if(dungeon.rooms == &LEVEL_TABLE[current_level][id_entity]){
+        n_stanze--;
+    }
+    printf("%s\n", dungeon.rooms->name);
+            dungeon.rooms++;
+    }*/
 
+    for (size_t i = 0; i < 10; i++) {
+        dungeon.rooms[i] = spawn_entity(current_level); // assign struct to struct
+        printf("%s\n", dungeon.rooms[i]->name);
+    }
 
-        //check non funziona
-        if(dungeon.rooms == &LEVEL_TABLE[current_level][id_entity]){
-            //printf("generato missione\n");
-            n_stanze--;
-            //hey cristian ;3
-        }
-        //printf("%s\n", dungeon.rooms->name);
-		dungeon.rooms++;
-	}
-
-	dungeon.rooms = realloc(dungeon.rooms, dungeon.dim);
+    // dungeon.rooms = realloc(dungeon.rooms, sizeof (Entity*) * dungeon.dim); //TODO
     dungeon.current_room = 0;
 }
 
-Dungeon* get_dungeon(){
+Dungeon *get_dungeon() {
     return &dungeon;
 }
-

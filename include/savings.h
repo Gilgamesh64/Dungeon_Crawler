@@ -1,6 +1,17 @@
 #ifndef SAVINGS_H
 #define SAVINGS_H
 
+#include "data.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+#ifdef _WIN32
+#include "dirent.h"
+#else
+#include <dirent.h>
+#endif
 
 /**
  * Returns the name of the saving file

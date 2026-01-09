@@ -1,16 +1,4 @@
 #include "savings.h"
-#include "data.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
-
-#ifdef _WIN32
-#include "dirent.h"
-#else
-#include <dirent.h>
-#endif
-
 
 void get_file_name(char *buf, int index) {
     sprintf(buf, "savings/saving%d.txt", index);
@@ -131,14 +119,14 @@ void get_all_saves(char *buffers[]) {
             continue;
         fclose(f);
 
-        read_inside(filename, buffers[found], 100);
+        read_inside(filename, buffers[found], 256);
 
         found++;
     }
 }
 
 void save() {
-    char filename[100];
+    char filename[256];
 
     get_file_name(filename, get_last_index() + 1);
 

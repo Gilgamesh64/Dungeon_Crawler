@@ -176,7 +176,7 @@ static const Entity* LEVEL_TABLE[] = {
 /**
  * Spawns an Entity from the given mission
  */
-Entity spawn_entity(int current_level);
+Entity* spawn_entity(int current_level);
 
 
 #endif

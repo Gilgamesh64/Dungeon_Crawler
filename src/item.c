@@ -7,14 +7,14 @@ Item get_item(int pos_item){
 
 
 bool has_sword(){
-    return get_game_data()->items % 10 == 0;
+    return get_game_data()->items % 10 != 0;
 }
 void set_sword(){
     get_game_data() -> items += 1;
 }
 
 bool has_armor(){
-    return (get_game_data()->items / 10) % 10 == 0;
+    return (get_game_data()->items / 10) % 10 != 0;
 }
 void set_armor(){
     get_game_data() -> items += 10;
@@ -22,14 +22,14 @@ void set_armor(){
 
 
 bool has_key(){
-    return (get_game_data()->items / 100) % 10 == 0;
+    return (get_game_data()->items / 100) % 10 != 0;
 }
 void set_key(){
     get_game_data() -> items += 100;
 }
 
 bool has_hero_sword(){
-    return (get_game_data()->items / 1000) % 10 == 0;
+    return (get_game_data()->items / 1000) % 10 != 0;
 }
 void set_hero_sword(){
     get_game_data() -> items += 1000;

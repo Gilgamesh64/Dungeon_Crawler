@@ -5,7 +5,7 @@
 #define MAX_DIM 10
 
 typedef struct{
-    Entity* rooms;
+    const Entity* rooms[MAX_DIM];
     int dim;
     int current_room;
 } Dungeon;
