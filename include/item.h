@@ -1,6 +1,8 @@
 #ifndef ITEM_H
 #define ITEM_H
 
+#include "data.h"
+#include <stdbool.h>
 
 #define NUM_ITEMS 5
 
@@ -11,6 +13,22 @@ typedef struct{
 } Item;
 
 Item get_item(int);
+
+bool has_sword();
+void set_sword();
+
+bool has_armor();
+void set_armor();
+
+bool has_key();
+void set_key();
+
+bool has_hero_sword();
+void set_hero_sword();
+
+int get_potions();
+void add_potion();
+void sub_potion();
 
 static const  Item items[NUM_ITEMS]  = {
     {

@@ -33,7 +33,7 @@ void generate_dungeon(int current_level){
         break;
     }
 
-    printf("%d %d %d\n", current_level, n_stanze, id_entity);
+    //printf("%d %d %d\n", current_level, n_stanze, id_entity);
 
 	for(dungeon.dim = 0; dungeon.dim < MAX_DIM && n_stanze > 0; dungeon.dim++){
 		if(dungeon.dim+n_stanze < MAX_DIM) {
@@ -47,15 +47,15 @@ void generate_dungeon(int current_level){
 
         //check non funziona
         if(dungeon.rooms == &LEVEL_TABLE[current_level][id_entity]){
-            printf("generato missione\n");
+            //printf("generato missione\n");
             n_stanze--;
             //hey cristian ;3
         }
-        printf("%s\n", dungeon.rooms->name);
+        //printf("%s\n", dungeon.rooms->name);
 		dungeon.rooms++;
 	}
 
-	realloc(dungeon.rooms, dungeon.dim);
+	dungeon.rooms = realloc(dungeon.rooms, dungeon.dim);
     dungeon.current_room = 0;
 }
 

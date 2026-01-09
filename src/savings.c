@@ -181,7 +181,7 @@ void save() {
     strftime(date_str, sizeof(date_str), "%d/%m/%Y", t);
     strftime(time_str, sizeof(time_str), "%H:%M:%S", t);
 
-    fprintf(f, "%s , %s , %d P.VITA , %d MONETE , %d OGGETTI , %d MISSIONI COMPLETATE\n",
+    fprintf(f, "%s DATA , %s ORA , %d P.VITA , %d MONETE , %d OGGETTI , %d MISSIONI COMPLETATE\n",
             date_str,
             time_str,
             s->health_points,
@@ -201,13 +201,18 @@ void load(const char *path) {
     if (!f)
         return;
 
-    GameData *s = get_game_data();
+    GameData *data = get_game_data();
+    char line[256];
+    fgets(line, sizeof line, f);
 
-    fscanf(f, "%d P.VITA , %d MONETE , %d OGGETTI , %d MISSIONI COMPLETATE",
-           &s->health_points,
-           &s->coins,
-           &s->items,
-           &s->missions_completed);
+    printf("%s\n", line);
+
+    sscanf(line,
+           "%*s DATA , %*s ORA , %d P.VITA , %d MONETE , %d OGGETTI , %d MISSIONI COMPLETATE",
+           &data->health_points,
+           &data->coins,
+           &data->items,
+           &data->missions_completed);
 
     fclose(f);
     return;
