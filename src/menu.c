@@ -320,11 +320,13 @@ void trap_menu() {
         }
 
         get_game_data()->health_points -= get_dungeon()->rooms[room]->damage;
+        health_control();
         get_game_data()->coins += get_dungeon()->rooms[room]->coins;
         break;
 
     case 1:
         get_game_data()->health_points -= roll_dice();
+        health_control();
         printf("L'eroe ha preso %d danno e rimane con %d punti vita\n", get_dungeon()->rooms[room]->damage, get_game_data()->health_points);
         break;
 
@@ -332,6 +334,7 @@ void trap_menu() {
         // il lancio della moneta è semplicemente un controllo pari/dispari
         if (roll_dice() % 2 == 0) {
             get_game_data()->health_points -= get_dungeon()->rooms[room]->damage;
+            health_control();
             printf("L'eroe ha preso %d danno e rimane con %d punti vita\n", get_dungeon()->rooms[room]->damage, get_game_data()->health_points);
         } else {
             printf("L'eroe ha guadagnato %d monete.\n", get_dungeon()->rooms[room]->coins);
@@ -385,6 +388,7 @@ void combat_menu() {
                 get_game_data()->health_points += 1;
             }
 
+            health_control();
             printf("Il %s infligge %d danni all'eroe. L'eroe rimane con %d punti vita\n",
                 get_dungeon()->rooms[room]->name,
                 get_dungeon()->rooms[room]->damage,
