@@ -2,6 +2,7 @@
 #include "utils.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 void generate_dungeon(int current_level) {
@@ -38,7 +39,7 @@ void generate_dungeon(int current_level) {
             dungeon.rooms[i] = &LEVEL_TABLE[current_level][dungeon.target_entity];
         }
 
-        if(dungeon.rooms[i] == &LEVEL_TABLE[current_level][dungeon.target_entity]){
+        if(!strcmp(dungeon.rooms[i]->name, (&LEVEL_TABLE[current_level][dungeon.target_entity])->name)){
             count--;
         }
     }

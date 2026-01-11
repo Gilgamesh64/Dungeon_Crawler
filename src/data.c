@@ -1,7 +1,10 @@
 #include "data.h"
 #include "entity.h"
 #include "item.h"
+#include "utils.h"
+#include "menu.h"
 #include <stdio.h>
+
 
 GameData *get_game_data(void) {
     static GameData data = {DEFAULT_HEALTH, DEFAULT_MONEY, DEFAULT_ITEMS, DEFAULT_QUESTS};
@@ -25,6 +28,8 @@ void health_control(){
     }
     if(get_game_data()->health_points <= 0){
         printf("sei morto!\n");
+        click_to_continue("Torna al villaggio");
+        village_menu();
     }
 }
 

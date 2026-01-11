@@ -24,4 +24,10 @@ GameData *get_game_data(void);
  */
 void print_data();
 
+
+/**
+ * Checks if player health is in bounds 0<health<=20
+ */
+void health_control();
+
 #endif

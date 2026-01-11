@@ -15,7 +15,7 @@ void clear_screen(void){
 
 
 void click_to_continue(char* string){
-    printf("%s\nClicca per continuare\n->", string);
+    printf("%s\n", strlen(string) ? string : "Clicca per continuare");
 
     int c;
 

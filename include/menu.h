@@ -13,6 +13,10 @@ void save_menu();
  * village menu displayed when in the village
  */
 void village_menu();
+/**
+ * inventory menu to see stats and consume potions
+ */
+void inventory_menu();
 
 /**
  * mission selection menu displayed when choosing a dungeon
