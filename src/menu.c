@@ -1,5 +1,14 @@
 #include "menu.h"
-
+#include "data.h"
+#include "entity.h"
+#include "item.h"
+#include "mission.h"
+#include "savings.h"
+#include "utils.h"
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
  * Creates a menu asking the user for a selection
@@ -146,6 +155,15 @@ void inventory_menu() {
     printf("Chiave: %s\n", has_key() ? "In possesso" : "Non in possesso");
     printf("Spada dell'eroe: %s\n", has_hero_sword() ? "In possesso" : "Non in possesso");
     printf("Pozioni: %d\n", get_potions());
+
+    if(get_potions()>0){
+        int consume = select_option("Desideri consumare una pozione?", "SI", "NO", NULL);
+        if(consume == 1) {
+            sub_potion();
+            get_game_data() -> health_points += roll_dice();
+            health_control();
+        }
+    }
 }
 
 void shop_menu() {
@@ -328,33 +346,62 @@ void trap_menu() {
 
 void combat_menu() {
     int room = get_dungeon()->current_room;
-    int danno_giocatore;
+    int player_damage;
 
     printf("L'eroe incontra un %s e inizia il combattimento.\n", get_dungeon()->rooms[room]->name);
+    if(has_hero_sword()) {
+            player_damage += 2;
+
+            if(get_dungeon()->rooms[room] == &LEVEL_TABLE[0][5]) { // Generale Orco della Palude Putrescente
+                player_damage += 1; //il generale orco prende un danno extra dalla spada dell'eroe
+            }
+
+        }
+    else if(has_sword()) player_damage += 1;
+
 
     do {
         printf("Viene lanciato un dado per stabilire l'attacco dell'eroe\n");
-        danno_giocatore = roll_dice();
-        printf("il risultato: %d\n", danno_giocatore);
-        if (danno_giocatore >= get_dungeon()->rooms[room]->fatal) {
+        player_damage = roll_dice();
+
+        printf("il risultato: %d\n", player_damage);
+        if (player_damage >= get_dungeon()->rooms[room]->fatal) {
             printf("Il %s viene sconfitto (%d>%d). l'eroe rimane con %d punti vita e riceve %d monete \n",
-                   get_dungeon()->rooms[room]->name,
-                   get_dungeon()->rooms[room]->fatal,
-                   danno_giocatore,
-                   get_game_data()->health_points,
-                   get_dungeon()->rooms[room]->coins);
+            get_dungeon()->rooms[room]->name,
+            get_dungeon()->rooms[room]->fatal,
+            player_damage,
+            get_game_data()->health_points,
+            get_dungeon()->rooms[room]->coins);
             get_game_data()->coins += get_dungeon()->rooms[room]->coins;
         } else {
             printf("Attacco non sufficente per sconfiggere lo %s (%d<Colpo Fatale=%d) \n",
-                   get_dungeon()->rooms[room]->name,
-                   danno_giocatore,
-                   get_dungeon()->rooms[room]->fatal);
-            get_game_data()->health_points -= get_dungeon()->rooms[room]->damage;
-            printf("Il %s infligge %d danni all'eroe. L'eroe rimane con %d punti vita\n",
-                   get_dungeon()->rooms[room]->name,
-                   get_dungeon()->rooms[room]->damage,
-                   get_game_data()->health_points);
-        }
+                get_dungeon()->rooms[room]->name,
+                player_damage,
+                get_dungeon()->rooms[room]->fatal);
 
-    } while (danno_giocatore < get_dungeon()->rooms[room]->fatal);
+            get_game_data()->health_points -= get_dungeon()->rooms[room]->damage;
+
+            if(has_armor()) {
+                get_game_data()->health_points += 1;
+            }
+
+            printf("Il %s infligge %d danni all'eroe. L'eroe rimane con %d punti vita\n",
+                get_dungeon()->rooms[room]->name,
+                get_dungeon()->rooms[room]->damage,
+                get_game_data()->health_points);
+      }
+
+    } while (player_damage < get_dungeon()->rooms[room]->fatal);
+
+
+    if(get_dungeon()->rooms[room] == &LEVEL_TABLE[ get_dungeon()->dungeon ][ get_dungeon()->target_entity ]) {
+        get_dungeon()->target_count--;
+    }
+
+    if(get_dungeon()->target_count <= 0) {
+        clear_screen();
+        printf("Complimenti! Hai completato la missione!\n");
+        click_to_continue("Torna al villaggio");
+        village_menu();
+    }
 }

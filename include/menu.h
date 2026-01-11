@@ -1,17 +1,6 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include "data.h"
-#include "entity.h"
-#include "item.h"
-#include "mission.h"
-#include "savings.h"
-#include "utils.h"
-#include <stdarg.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 /**
  * main menu displayed at the start of the game
  */

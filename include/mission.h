@@ -2,18 +2,16 @@
 #define MISSION_H
 
 #include "entity.h"
-#include "entity.h"
-#include "utils.h"
-#include <stdio.h>
-#include <stdlib.h>
-
 
 #define MAX_DIM 10
 
 typedef struct{
     const Entity* rooms[MAX_DIM];
-    int dim;
     int current_room;
+
+    int dungeon;
+    int target_entity;
+    int target_count;
 } Dungeon;
 
 static Dungeon dungeon;

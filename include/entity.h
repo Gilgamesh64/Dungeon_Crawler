@@ -2,8 +2,6 @@
 #define ENTITY_H
 
 #include <stdbool.h>
-#include "utils.h"
-#include <stdio.h>
 
 /**
  * struct defining an entity, which could be either an enemy or a trap

@@ -1,10 +1,6 @@
 #ifndef DATA_H
 #define DATA_H
 
-#include "entity.h"
-#include "item.h"
-#include <stdio.h>
-
 #define DEFAULT_HEALTH 20
 #define DEFAULT_MONEY 0
 #define DEFAULT_ITEMS 0

@@ -71,6 +71,11 @@ void sub_potion();
 
 static const  Item items[NUM_ITEMS]  = {
     {
+        .name = "Pozione Curativa",
+        .description = "ripristina fino a 6 PUNTI VITA (lancia un dado a 6 facce)",
+        .cost = 4
+    },
+    {
         .name = "Spada",
         .description = "+1 all'attacco dell'eroe (acquistabile una sola volta)",
         .cost = 5
@@ -89,11 +94,6 @@ static const  Item items[NUM_ITEMS]  = {
         .name = "SPADA DELL'EROE",
         .description = "+1 all'attacco dell'eroe",
         .cost = -1
-    },
-    {
-        .name = "Pozione Curativa",
-        .description = "ripristina fino a 6 PUNTI VITA (lancia un dado a 6 facce)",
-        .cost = 4
     }
 };
 

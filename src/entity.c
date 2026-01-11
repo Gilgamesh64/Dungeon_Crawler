@@ -1,5 +1,6 @@
 #include "entity.h"
-
+#include "utils.h"
+#include <stdio.h>
 
 /**
  * current level is the index in the main array
