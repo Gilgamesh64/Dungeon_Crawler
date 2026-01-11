@@ -1,14 +1,5 @@
 #include "menu.h"
-#include "data.h"
-#include "entity.h"
-#include "item.h"
-#include "mission.h"
-#include "savings.h"
-#include "utils.h"
-#include <stdarg.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
 
 /**
  * Creates a menu asking the user for a selection
@@ -247,6 +238,55 @@ void mission_selection_menu() {
     mission_menu();
 }
 
+void mission_menu() {
+    clear_screen();
+    int selected = select_option("Menu di Missione: ", "Esplora stanza del Dungeon", "Negozio", "Inventario", "Torna al Villaggio", NULL);
+
+    switch (selected) {
+    case 1:
+        room_menu();
+        get_dungeon()->current_room++;
+        break;
+    case 2:
+        shop_menu();
+        break;
+    case 3:
+        inventory_menu();
+        break;
+    case 4:
+        int sure = select_option("Ti costera' 50 monete, sei sicuro?", "SI", "NO", NULL);
+        if(sure == 1){
+            if(get_game_data()->coins >= 50){
+                get_game_data()->coins -= 50;
+                click_to_continue("Ritornando al menu di villaggio");
+                village_menu();
+            }
+            else{
+                printf("Non hai abbastanza monete");
+            }
+        }
+        break;
+
+    default:
+        break;
+    }
+    click_to_continue("");
+    mission_menu();
+}
+
+void room_menu() {
+    int room = get_dungeon()->current_room;
+    printf("%d\n", get_dungeon()->rooms[room]->trap);
+    printf("%s\n", get_dungeon()->rooms[room]->name);
+    if (get_dungeon()->rooms[room]->trap) {
+        trap_menu();
+    } else if (!strcmp(get_dungeon()->rooms[room]->name, "Stanza Vuota")) {
+        printf("La stanza e' vuota...\n");
+    } else {
+        combat_menu();
+    }
+}
+
 void trap_menu() {
     int room = get_dungeon()->current_room;
     int tipo_trappola = get_dungeon()->rooms[room]->fatal;
@@ -266,8 +306,7 @@ void trap_menu() {
         break;
 
     case 1:
-        // get_game_data()->dungeonAttuale[room].damage = roll_dice();
-        get_game_data()->health_points -= get_dungeon()->rooms[room]->damage;
+        get_game_data()->health_points -= roll_dice();
         printf("L'eroe ha preso %d danno e rimane con %d punti vita\n", get_dungeon()->rooms[room]->damage, get_game_data()->health_points);
         break;
 
@@ -319,55 +358,3 @@ void combat_menu() {
 
     } while (danno_giocatore < get_dungeon()->rooms[room]->fatal);
 }
-
-void room_menu() {
-    int room = get_dungeon()->current_room;
-    printf("%d\n", get_dungeon()->rooms[room]->trap);
-    printf("%s\n", get_dungeon()->rooms[room]->name);
-    if (get_dungeon()->rooms[room]->trap) {
-        trap_menu();
-    } else if (!strcmp(get_dungeon()->rooms[room]->name, "Stanza Vuota")) {
-        printf("La stanza e' vuota...\n");
-    } else {
-        combat_menu();
-    }
-}
-
-void mission_menu() {
-    clear_screen();
-    int selected = select_option("Menu di Missione: ", "Esplora stanza del Dungeon", "Negozio", "Inventario", "Torna al Villaggio", NULL);
-
-    switch (selected) {
-    case 1:
-        room_menu();
-        get_dungeon()->current_room++;
-        break;
-    case 2:
-        shop_menu();
-        break;
-    case 3:
-        inventory_menu();
-        break;
-    case 4:
-        int sure = select_option("Ti costera' 50 monete, sei sicuro?", "SI", "NO", NULL);
-        if(sure == 1){
-            if(get_game_data()->coins >= 50){
-                get_game_data()->coins -= 50;
-                click_to_continue("Ritornando al menu di villaggio");
-                village_menu();
-            }
-            else{
-                printf("Non hai abbastanza monete");
-            }
-        }
-        break;
-
-    default:
-        break;
-    }
-    click_to_continue("");
-    mission_menu();
-}
-
-
-

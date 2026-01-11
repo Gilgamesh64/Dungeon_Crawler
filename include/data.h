@@ -1,6 +1,10 @@
 #ifndef DATA_H
 #define DATA_H
 
+#include "entity.h"
+#include "item.h"
+#include <stdio.h>
+
 #define DEFAULT_HEALTH 20
 #define DEFAULT_MONEY 0
 #define DEFAULT_ITEMS 0
@@ -14,8 +18,14 @@ typedef struct {
     
 } GameData;
 
+/**
+ * Returns the pointer to the static game data object
+ */
 GameData *get_game_data(void);
 
+/**
+ * Prints current game data
+ */
 void print_data();
 
 #endif

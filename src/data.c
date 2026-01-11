@@ -1,7 +1,4 @@
 #include "data.h"
-#include "entity.h"
-#include "item.h"
-#include <stdio.h>
 
 GameData *get_game_data(void) {
     static GameData data = {DEFAULT_HEALTH, DEFAULT_MONEY, DEFAULT_ITEMS, DEFAULT_QUESTS};
@@ -11,7 +8,6 @@ GameData *get_game_data(void) {
 /**
  * Prints current game_data
  */
-
 void print_data() {
     GameData *s = get_game_data();
 

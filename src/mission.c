@@ -1,8 +1,5 @@
 #include "mission.h"
-#include "entity.h"
-#include "utils.h"
-#include <stdio.h>
-#include <stdlib.h>
+
 
 void generate_dungeon(int current_level) {
     int n_stanze;

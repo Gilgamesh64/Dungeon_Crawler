@@ -2,6 +2,8 @@
 #define ENTITY_H
 
 #include <stdbool.h>
+#include "utils.h"
+#include <stdio.h>
 
 /**
  * struct defining an entity, which could be either an enemy or a trap
@@ -21,11 +23,10 @@ typedef struct{
  * Their index in the array is the die roll required to spawn them -1
  */
 
-/** Le trappole hanno l'attributo "fatal" che classifica le loro meccaniche particolari
- * fatal = 0 ---> nessuna meccanica extra
- * fatal = 1 ---> randomizzazione danno
+/**Traps "fatal" attribute classifies special mechanics
+ * fatal = 0 ---> nothing
+ * fatal = 1 ---> random damage
  * fatal = 2 ---> coin flip
- * perché proprio l'attributo fatal? perché non veniva usato nelle trappole :3
  * */
 
 static const Entity PALUDE_PUTRESCENTE[6] = {
