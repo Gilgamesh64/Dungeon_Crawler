@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 /**
  * Creates a menu asking the user for a selection
@@ -36,7 +37,7 @@ int select_option(const char *prompt, const char *first, ...) {
     va_end(args);
 
     do {
-        printf("Select [1-%d]: ", count - 1);
+        printf("Seleziona [1-%d]: ", count - 1);
         if (scanf("%d", &selection) != 1) {
             while (getchar() != '\n')
                 ;
@@ -45,8 +46,6 @@ int select_option(const char *prompt, const char *first, ...) {
 
     return selection - 1;
 }
-
-#include <stdio.h>
 
 /**
  * Creates a menu asking the user for a selection
@@ -397,7 +396,7 @@ void combat_menu() {
 
     } while (player_damage < get_dungeon()->rooms[room]->fatal);
 
-    if (!stricmp(get_dungeon()->rooms[room]->name, (&LEVEL_TABLE[get_dungeon()->dungeon][get_dungeon()->target_entity])->name)){
+    if (!strcmp(get_dungeon()->rooms[room]->name, (&LEVEL_TABLE[get_dungeon()->dungeon][get_dungeon()->target_entity])->name)){
         get_dungeon()->target_count--;
     }
 

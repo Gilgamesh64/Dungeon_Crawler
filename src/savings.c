@@ -1,4 +1,15 @@
 #include "savings.h"
+#include "data.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+#ifdef _WIN32
+#include "dirent.h"
+#else
+#include <dirent.h>
+#endif
 
 void get_file_name(char *buf, int index) {
     sprintf(buf, "savings/saving%d.txt", index);

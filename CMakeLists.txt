@@ -11,5 +11,15 @@ add_executable(DC ${SOURCES})
 
 target_include_directories(DC PRIVATE
     ${CMAKE_SOURCE_DIR}/include
-    ${CMAKE_SOURCE_DIR}/external/dirent
 )
+
+# Windows-only dirent support
+if (WIN32)
+    target_sources(DC PRIVATE
+        ${CMAKE_SOURCE_DIR}/external/dirent/dirent.c
+    )
+
+    target_include_directories(DC PRIVATE
+        ${CMAKE_SOURCE_DIR}/external/dirent
+    )
+endif()
