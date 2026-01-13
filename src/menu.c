@@ -176,10 +176,15 @@ void inventory_menu() {
     printf("Monete: %d\n", get_game_data()->coins);
     printf("Vita: %d\n\n", get_game_data()->health_points);
 
-    printf("Spada: %s\n", has_sword() ? "In possesso" : "Non in possesso");
-    printf("Armatura: %s\n", has_armor() ? "In possesso" : "Non in possesso");
-    printf("Chiave: %s\n", has_key() ? "In possesso" : "Non in possesso");
-    printf("Spada dell'eroe: %s\n", has_hero_sword() ? "In possesso" : "Non in possesso");
+    printf(has_completed(SWAMP_ID) ? "Palude Putrescente completata\n" : "");
+    printf(has_completed(MANSION_ID) ? "Magione Infestata completata\n" : "");
+    printf(has_completed(CAVE_ID) ? "Grotta di Cristallo completata\n" : "");
+    printf(has_completed(BOSS_ID) ? "Boss Finale completato\n" : "");
+
+    printf("Spada: %s\n", has_item(ARMOR_ID) ? "In possesso" : "Non in possesso");
+    printf("Armatura: %s\n", has_item(ARMOR_ID) ? "In possesso" : "Non in possesso");
+    printf("Chiave: %s\n", has_item(KEY_ID) ? "In possesso" : "Non in possesso");
+    printf("Spada dell'eroe: %s\n", has_item(HERO_SWORD_ID) ? "In possesso" : "Non in possesso");
     printf("Pozioni: %d\n", get_potions());
 
     if (get_potions() > 0) {
@@ -211,9 +216,9 @@ void shop_menu() {
     }
 
     if (select == 1)
-        can_buy &= !has_sword();
+        can_buy &= !has_item(SWORD_ID);
     if (select == 2)
-        can_buy &= !has_armor();
+        can_buy &= !has_item(ARMOR_ID);
 
     if (!can_buy) {
         printf("Possiedi già questo item\n");
@@ -227,12 +232,12 @@ void shop_menu() {
         break;
 
     case 1:
-        set_sword();
+        set_item(SWORD_ID);
         get_game_data()->coins -= 5;
         break;
 
     case 2:
-        set_armor();
+        set_item(ARMOR_ID);
         get_game_data()->coins -= 10;
         break;
 
@@ -260,6 +265,7 @@ void mission_menu() {
         if (!select_option("Ti costera' 50 monete, sei sicuro?", "SI", "NO", NULL)) {
             if (get_game_data()->coins >= 50) {
                 get_game_data()->coins -= 50;
+                complete_mission(get_dungeon()->dungeon);
                 click_to_continue("Ritornando al menu di villaggio");
                 village_menu();
             } else {
@@ -297,7 +303,7 @@ void trap_menu() {
     case 0:
         if (get_dungeon()->rooms[room]->damage != 0) {
             printf("L'eroe ha preso %d danno\n", get_dungeon()->rooms[room]->damage);
-            if(has_armor()){
+            if(has_item(ARMOR_ID)){
                 printf("Grazie all'armatura subisci 1 di danno in meno\n");
                 get_game_data() -> health_points++;
             }
@@ -313,7 +319,7 @@ void trap_menu() {
         int dmg = roll_dice();
         get_game_data()->health_points -= dmg;
         printf("L'eroe ha preso %d danno e rimane con %d punti vita\n", dmg, get_game_data()->health_points);
-        if(has_armor()){
+        if(has_item(ARMOR_ID)){
                 printf("Grazie all'armatura subisci 1 di danno in meno\n");
                 get_game_data() -> health_points++;
             }
@@ -324,7 +330,7 @@ void trap_menu() {
         if (roll_dice() % 2 == 0) {
             get_game_data()->health_points -= get_dungeon()->rooms[room]->damage;
             printf("L'eroe ha preso %d danno e rimane con %d punti vita\n", get_dungeon()->rooms[room]->damage, get_game_data()->health_points);
-            if(has_armor()){
+            if(has_item(ARMOR_ID)){
                 printf("Grazie all'armatura subisci 1 di danno in meno\n");
                 get_game_data() -> health_points++;
             }
@@ -351,7 +357,7 @@ void combat_menu() {
         printf("Viene lanciato un dado per stabilire l'attacco dell'eroe\n");
         player_damage = roll_dice();
 
-        if (has_hero_sword()) {
+        if (has_item(HERO_SWORD_ID)) {
             player_damage += 2;
             printf("Grazie alla spada dell'eroe, il giocatore effettua due di danno aggiuntivi\n");
 
@@ -360,7 +366,7 @@ void combat_menu() {
                 printf("Grazie alla spada dell'eroe, il Generale Orco subisce uno di danno in più"); 
             }
 
-        } else if (has_sword()){
+        } else if (has_item(SWORD_ID)){
             player_damage += 1;
             printf("Grazie alla spada, il giocatore effettua uno di danno aggiuntivo\n");
         }
@@ -382,7 +388,7 @@ void combat_menu() {
 
             get_game_data()->health_points -= get_dungeon()->rooms[room]->damage;
 
-            if (has_armor()) {
+            if (has_item(SWORD_ID)) {
                 get_game_data()->health_points += 1;
                 printf("Grazie all'armatura subisci 1 di danno in meno\n");
             }
@@ -393,7 +399,7 @@ void combat_menu() {
                    get_dungeon()->rooms[room]->damage,
                    get_game_data()->health_points);
         }
-
+        if(player_damage < get_dungeon()->rooms[room]->fatal) click_to_continue("");
     } while (player_damage < get_dungeon()->rooms[room]->fatal);
 
     if (!strcmp(get_dungeon()->rooms[room]->name, (&LEVEL_TABLE[get_dungeon()->dungeon][get_dungeon()->target_entity])->name)){
@@ -401,8 +407,9 @@ void combat_menu() {
     }
 
     if (get_dungeon()->target_count <= 0) {
+        complete_mission(get_dungeon()->dungeon);
+        click_to_continue("Complimenti! Hai completato la missione!\n");
         clear_screen();
-        printf("Complimenti! Hai completato la missione!\n");
         click_to_continue("Torna al villaggio");
         village_menu();
     }

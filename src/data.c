@@ -11,25 +11,13 @@ GameData *get_game_data(void) {
     return &data;
 }
 
-/**
- * Prints current game_data
- */
-
-
-/*
-    controls the HP of the character 
-    hp > 20? if so the function will cap them at the maximum of 20
-    if the health points go below 1 then the it's game over 
-
-*/
 void health_control(){
     if(get_game_data()->health_points>20){
         get_game_data()->health_points = 20;
     }
     if(get_game_data()->health_points <= 0){
-        printf("sei morto!\n");
-        click_to_continue("Torna al villaggio");
-        village_menu();
+        click_to_continue("\nGAME OVER!\n");
+        main_menu();
     }
 }
 

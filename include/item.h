@@ -6,11 +6,11 @@
 
 #define NUM_ITEMS 5
 
-#define SWORD_POS 1
-#define ARMOR_POS 10
-#define KEY_POS 100
-#define HERO_SWORD_POS 1000
-#define POTION_POS 10000
+#define SWORD_ID 1
+#define ARMOR_ID 10
+#define KEY_ID 100
+#define HERO_SWORD_ID 1000
+#define POTION_ID 10000
 
 typedef struct{
     const char* name;
@@ -20,46 +20,13 @@ typedef struct{
 
 Item get_item(int);
 
-/**
- * Returns true if the player has the sword
- */
-bool has_sword();
-/**
- * Sets the player as having the sword
- */
-void set_sword();
-
-/**
- * Returns true if the player has the armor
- */
-bool has_armor();
-/**
- * Sets the player as having the armor
- */
-void set_armor();
-
-/**
- * Returns true if the player has the last level key
- */
-bool has_key();
-/**
- * Sets the player as having the last level key
- */
-void set_key();
-
-/**
- * Returns true if the player has the hero sword
- */
-bool has_hero_sword();
-/**
- * Sets the player as having the hero sword
- */
-void set_hero_sword();
+bool has_item(int item_id);
+void set_item(int item_id);
 
 /**
  * Returns the number of potions the player has
  */
-int get_potions();
+long get_potions();
 /**
  * Adds 1 potion to the player's inventory
  */

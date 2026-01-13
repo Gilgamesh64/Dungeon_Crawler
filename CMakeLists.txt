@@ -16,7 +16,7 @@ target_include_directories(DC PRIVATE
 # Windows-only dirent support
 if (WIN32)
     target_sources(DC PRIVATE
-        ${CMAKE_SOURCE_DIR}/external/dirent/dirent.c
+        ${CMAKE_SOURCE_DIR}/external/dirent/dirent.h
     )
 
     target_include_directories(DC PRIVATE

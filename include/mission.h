@@ -5,6 +5,11 @@
 
 #define MAX_DIM 10
 
+#define SWAMP_ID 0
+#define MANSION_ID 1
+#define CAVE_ID 2
+#define BOSS_ID 3
+
 typedef struct{
     const Entity* rooms[MAX_DIM];
     int current_room;
@@ -26,5 +31,15 @@ void generate_dungeon(int current_level);
  * Returns the current dungeon
  */
 Dungeon* get_dungeon();
+
+/**
+ * Updates the missions_completed variable and if possible unlocks the final mission
+ */
+void complete_mission(int mission_number);
+
+/**
+ * @return true if the mission with the given id has been completed
+ */
+bool has_completed(int mission_number);
 
 #endif

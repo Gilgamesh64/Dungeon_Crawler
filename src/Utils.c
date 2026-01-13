@@ -15,12 +15,12 @@ void clear_screen(void){
 
 
 void click_to_continue(char* string){
-    printf("%s\n", strlen(string) ? string : "Clicca per continuare");
+    printf("%s\n", string && *string ? string : "Clicca per continuare");
+
+    fflush(stdin);
 
     int c;
-
-    while ((c = getchar()) != '\n' && c != EOF) {} //clear buffer
-    getchar();
+    while (c = getchar() != '\n' && c != EOF) {}
 }
 
 

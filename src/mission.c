@@ -1,8 +1,10 @@
 #include "mission.h"
 #include "utils.h"
+#include "data.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 
 void generate_dungeon(int current_level) {
@@ -43,6 +45,14 @@ void generate_dungeon(int current_level) {
             count--;
         }
     }
+}
+
+void complete_mission(int mission_number){
+    get_game_data() -> missions_completed += pow(10, mission_number);
+}
+
+bool has_completed(int mission_number){
+    return (get_game_data() -> missions_completed / (int) pow(10, mission_number)) % 10;
 }
 
 Dungeon *get_dungeon() {
