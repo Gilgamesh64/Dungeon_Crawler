@@ -9,7 +9,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 
 /**
  * Creates a menu asking the user for a selection
@@ -181,7 +180,7 @@ void inventory_menu() {
     printf(has_completed(CAVE_ID) ? "Grotta di Cristallo completata\n" : "");
     printf(has_completed(BOSS_ID) ? "Boss Finale completato\n" : "");
 
-    printf("Spada: %s\n", has_item(ARMOR_ID) ? "In possesso" : "Non in possesso");
+    printf("Spada: %s\n", has_item(SWORD_ID) ? "In possesso" : "Non in possesso");
     printf("Armatura: %s\n", has_item(ARMOR_ID) ? "In possesso" : "Non in possesso");
     printf("Chiave: %s\n", has_item(KEY_ID) ? "In possesso" : "Non in possesso");
     printf("Spada dell'eroe: %s\n", has_item(HERO_SWORD_ID) ? "In possesso" : "Non in possesso");
@@ -263,10 +262,10 @@ void mission_menu() {
             if (get_game_data()->coins >= 50) {
                 get_game_data()->coins -= 50;
                 complete_mission(get_dungeon()->dungeon);
-                click_to_continue("Ritornando al menu di villaggio");
+                click_to_continue("Ritornando al menu di villaggio\n");
                 village_menu();
             } else {
-                printf("Non hai abbastanza monete");
+                printf("Non hai abbastanza monete\n");
             }
         }
         break;
@@ -280,7 +279,7 @@ void mission_menu() {
 
 void room_menu() {
     int room = get_dungeon()->current_room;
-    
+
     if (get_dungeon()->rooms[room]->trap) {
         trap_menu();
     } else if (!strcmp(get_dungeon()->rooms[room]->name, "Stanza Vuota")) {
@@ -300,9 +299,9 @@ void trap_menu() {
     case 0:
         if (get_dungeon()->rooms[room]->damage != 0) {
             printf("L'eroe ha preso %d danno\n", get_dungeon()->rooms[room]->damage);
-            if(has_item(ARMOR_ID)){
+            if (has_item(ARMOR_ID)) {
                 printf("Grazie all'armatura subisci 1 di danno in meno\n");
-                get_game_data() -> health_points++;
+                get_game_data()->health_points++;
             }
         } else {
             printf("L'eroe ha perso %d monete.\n", get_dungeon()->rooms[room]->coins);
@@ -316,10 +315,10 @@ void trap_menu() {
         int dmg = roll_dice();
         get_game_data()->health_points -= dmg;
         printf("L'eroe ha preso %d danno e rimane con %d punti vita\n", dmg, get_game_data()->health_points);
-        if(has_item(ARMOR_ID)){
-                printf("Grazie all'armatura subisci 1 di danno in meno\n");
-                get_game_data() -> health_points++;
-            }
+        if (has_item(ARMOR_ID)) {
+            printf("Grazie all'armatura subisci 1 di danno in meno\n");
+            get_game_data()->health_points++;
+        }
         break;
 
     case 2:
@@ -327,9 +326,9 @@ void trap_menu() {
         if (roll_dice() % 2 == 0) {
             get_game_data()->health_points -= get_dungeon()->rooms[room]->damage;
             printf("L'eroe ha preso %d danno e rimane con %d punti vita\n", get_dungeon()->rooms[room]->damage, get_game_data()->health_points);
-            if(has_item(ARMOR_ID)){
+            if (has_item(ARMOR_ID)) {
                 printf("Grazie all'armatura subisci 1 di danno in meno\n");
-                get_game_data() -> health_points++;
+                get_game_data()->health_points++;
             }
         } else {
             printf("L'eroe ha guadagnato %d monete.\n", get_dungeon()->rooms[room]->coins);
@@ -343,38 +342,69 @@ void trap_menu() {
     health_control();
 }
 
+void apply_armor() {
+    if (has_item(ARMOR_ID)) {
+        get_game_data()->health_points += 1;
+        printf("Grazie all'armatura subisci 1 di danno in meno\n");
+    }
+}
+
+int apply_sword(int room) {
+    int bonus = 0;
+    if (has_item(HERO_SWORD_ID)) {
+        bonus += 2;
+        printf("Grazie alla spada dell'eroe, il giocatore effettua due di danno aggiuntivi\n");
+
+        if (!strcmp(get_dungeon()->rooms[room]->name, (&LEVEL_TABLE[0][5])->name)) { // Generale Orco della Palude Putrescente
+            bonus += 1;                                                              // il generale orco prende un danno extra dalla spada dell'eroe
+            printf("Grazie alla spada dell'eroe, il Generale Orco subisce uno di danno in più");
+        }
+
+    } else if (has_item(SWORD_ID)) {
+        bonus += 1;
+        printf("Grazie alla spada, il giocatore effettua uno di danno aggiuntivo\n");
+    }
+    return bonus;
+}
+
+/**
+ * @return true if damage is not taken, false otherwise
+ */
+bool dragon_combat(int room) {
+    printf("Attenzione! Stai per affrontare il Drago Antico\n");
+
+    int rnd = rand() % 500 + 1;
+    bool is_in = is_in_paduvan_sequence(rnd);
+
+    char text[128];
+
+    snprintf(
+        text,
+        sizeof(text),
+        "Il Drago ti chiede: il numero %d fa parte della sequenza di Padovan?",
+        rnd);
+
+    if (is_in == !select_option(text, "SI", "NO", NULL)) {
+        printf("Hai indovinato! Il drago non ti attacca\n");
+        return true;
+    }
+    return false;
+}
+
 void combat_menu() {
     int room = get_dungeon()->current_room;
     int player_damage;
 
     printf("L'eroe incontra un %s e inizia il combattimento.\n", get_dungeon()->rooms[room]->name);
-
-    
-
-
-
     do {
-        
-
         printf("Viene lanciato un dado per stabilire l'attacco dell'eroe\n");
         player_damage = roll_dice();
 
-        if (has_item(HERO_SWORD_ID)) {
-            player_damage += 2;
-            printf("Grazie alla spada dell'eroe, il giocatore effettua due di danno aggiuntivi\n");
-
-            if (!strcmp(get_dungeon()->rooms[room]->name, (&LEVEL_TABLE[0][5])->name)) { // Generale Orco della Palude Putrescente
-                player_damage += 1;    // il generale orco prende un danno extra dalla spada dell'eroe
-                printf("Grazie alla spada dell'eroe, il Generale Orco subisce uno di danno in più"); 
-            }
-
-        } else if (has_item(SWORD_ID)){
-            player_damage += 1;
-            printf("Grazie alla spada, il giocatore effettua uno di danno aggiuntivo\n");
-        }
-
         printf("il risultato: %d\n", player_damage);
-        if (player_damage >= get_dungeon()->rooms[room]->fatal) {
+
+        apply_sword(room);
+
+        if (player_damage >= get_dungeon()->rooms[room]->fatal) { // kill range
             printf("Il %s viene sconfitto (%d>%d). l'eroe rimane con %d punti vita e riceve %d monete \n",
                    get_dungeon()->rooms[room]->name,
                    get_dungeon()->rooms[room]->fatal,
@@ -382,68 +412,37 @@ void combat_menu() {
                    get_game_data()->health_points,
                    get_dungeon()->rooms[room]->coins);
             get_game_data()->coins += get_dungeon()->rooms[room]->coins;
-        } else {
+
+        } else { // did not kill
             printf("Attacco non sufficente per sconfiggere lo %s (%d<Colpo Fatale=%d) \n",
                    get_dungeon()->rooms[room]->name,
                    player_damage,
                    get_dungeon()->rooms[room]->fatal);
-            
 
-            if(!strcmp(get_dungeon()->rooms[room]->name, "Drago Antico")){ //gestione combattimento contro il Drago Antico
-                printf("Attenzione! Stai per affrontare il Drago Antico\n");
+            if (!strcmp(get_dungeon()->rooms[room]->name, "Drago Antico") && dragon_combat(room))
+                continue;
 
-                //il drago chiede se un numero da 1 a 500 fa parte della asequenza di paduvan
-                int numero_scelto = rand() % 500 + 1;
-                bool risposta_corretta = is_in_paduvan_sequence(numero_scelto);
+            get_game_data()->health_points -= get_dungeon()->rooms[room]->damage;
 
-                printf("Il Drago ti chiede: il numero %d fa parte della sequenza di Padovan? (1 = Si, 0 = No): ", numero_scelto);
-                int risposta_utente = -1;
-                do{
-                    if (scanf("%d", &risposta_utente) != 1) {
-                        while (getchar() != '\n')
-                            ;
-                    }
-                }while(risposta_utente != 0 && risposta_utente != 1);
-
-                risposta_corretta = (risposta_utente == 1) == risposta_corretta; //se la risposta dell'utente corrisponde alla verità l'eroe non prende danni
-
-                if(risposta_corretta){
-                    printf("Hai indovinato! Il drago non ti attacca\n");
-                } else {
-                    printf("Hai sbagliato. Il drago ti attacca!\n");
-                    get_game_data()->health_points -= get_dungeon()->rooms[room]->damage;
-                    health_control();
-                    printf("Il %s infligge %d danni all'eroe. L'eroe rimane con %d punti vita\n",
-                        get_dungeon()->rooms[room]->name,
-                        get_dungeon()->rooms[room]->damage,
-                        get_game_data()->health_points);
-                }
-            }else{ 
-                get_game_data()->health_points -= get_dungeon()->rooms[room]->damage;
-                printf("Il %s infligge %d danni all'eroe. L'eroe rimane con %d punti vita\n",
-                    get_dungeon()->rooms[room]->name,
-                    get_dungeon()->rooms[room]->damage,
-                    get_game_data()->health_points);
-            }
-
-            if (has_item(SWORD_ID)) {
-                get_game_data()->health_points += 1;
-                printf("Grazie all'armatura subisci 1 di danno in meno\n");
-            }
-
-            health_control();
-            
+            printf("Il %s infligge %d danni all'eroe. L'eroe rimane con %d punti vita\n",
+                   get_dungeon()->rooms[room]->name,
+                   get_dungeon()->rooms[room]->damage,
+                   get_game_data()->health_points);
+            apply_armor();
         }
-        if(player_damage < get_dungeon()->rooms[room]->fatal) click_to_continue("");
+
+        health_control();
+        if (player_damage < get_dungeon()->rooms[room]->fatal)
+            click_to_continue("");
     } while (player_damage < get_dungeon()->rooms[room]->fatal);
 
-    if (!strcmp(get_dungeon()->rooms[room]->name, (&LEVEL_TABLE[get_dungeon()->dungeon][get_dungeon()->target_entity])->name)){
+    if (!strcmp(get_dungeon()->rooms[room]->name, (&LEVEL_TABLE[get_dungeon()->dungeon][get_dungeon()->target_entity])->name)) {
         get_dungeon()->target_count--;
     }
 
-    if(!strcmp(get_dungeon()->rooms[room]->name, "Drago Antico")){ //se la stanza appena battuta è i ldrago antico, l'eroe riceve la spada dell'eroe
+    if (!strcmp(get_dungeon()->rooms[room]->name, "Drago Antico")) { // se la stanza appena battuta è i ldrago antico, l'eroe riceve la spada dell'eroe
         printf("Complimenti! Hai sconfitto il Drago Antico e ottenuto la Spada dell'Eroe!\n");
-        set_hero_sword();
+        set_item(HERO_SWORD_ID);
     }
 
     if (get_dungeon()->target_count <= 0) {
@@ -455,7 +454,7 @@ void combat_menu() {
     }
 }
 
-void SIGNORE_OSCURO_mennu(){
+void SIGNORE_OSCURO_mennu() {
     clear_screen();
 
     int wins = 0;
@@ -463,9 +462,9 @@ void SIGNORE_OSCURO_mennu(){
     printf("Incontri il Signore Oscuro e inizia il combattimento!\n");
     printf("Devi vincere 3 round per sconfiggerlo!\n");
 
-    for(int i = 0; i < 5; i++){
+    for (int i = 0; i < 5; i++) {
         int scelta = select_option("Scegli la tua azione: ", "Scudo", "Magia", "Spada", NULL);
-        switch (scelta){
+        switch (scelta) {
         case 1:
             printf("L'eroe ha scelto lo Scudo\n");
             break;
@@ -475,28 +474,27 @@ void SIGNORE_OSCURO_mennu(){
         case 3:
             printf("L'eroe ha scelto la Spada\n");
             break;
-        
+
         default:
             break;
         }
-        
-        if(shield_magic_sword(scelta)){
+
+        if (shield_magic_sword(scelta)) {
             printf("Hai vinto questo round contro il Signore Oscuro!\n");
             wins++;
-            
         }
     }
-
 }
 
-//P(n) = P(n-2) + P(n-3)
+// P(n) = P(n-2) + P(n-3)
 bool is_in_paduvan_sequence(int n) {
     int pN = 1, pNmin1 = 1, pNmin2 = 1, pNmin3 = 1;
 
-    if(n == 1) return true;
+    if (n == 1)
+        return true;
 
-    while(pN < 500){
-        if(pN == n){
+    while (pN < 500) {
+        if (pN == n) {
             return true;
         }
         pN = pNmin2 + pNmin3;
@@ -506,14 +504,13 @@ bool is_in_paduvan_sequence(int n) {
     }
 
     return false;
-
 }
 
 bool shield_magic_sword(int player_choice) {
-    //shield = 1, magic = 2, sword = 3
+    // shield = 1, magic = 2, sword = 3
     int computer_choice = roll_dice() / 2;
 
-    switch (computer_choice){
+    switch (computer_choice) {
     case 1:
         printf("Il Signore Oscuro ha scelto lo Scudo\n");
         break;
@@ -523,17 +520,19 @@ bool shield_magic_sword(int player_choice) {
     case 3:
         printf("Il Signore Oscuro ha scelto la Spada\n");
         break;
-    
+
     default:
         break;
     }
 
-    //DA DECIDERE COME GESTIRE I PAREGGI
-    if(player_choice == computer_choice) {
-        return false; 
-        //return rock_paper_scissors(player_choice); //draw, play again
+    // DA DECIDERE COME GESTIRE I PAREGGI
+    if (player_choice == computer_choice) {
+        return false;
+        // return rock_paper_scissors(player_choice); //draw, play again
     }
 
-    if(player_choice == (computer_choice%3)+1) return true; //plaer wins
-    else return false; //computer wins
+    if (player_choice == (computer_choice % 3) + 1)
+        return true; // plaer wins
+    else
+        return false; // computer wins
 }

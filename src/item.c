@@ -1,4 +1,5 @@
 #include "item.h"
+#include <stdio.h>
 
 
 Item get_item(int pos_item){
