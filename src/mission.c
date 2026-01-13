@@ -47,12 +47,37 @@ void generate_dungeon(int current_level) {
     }
 }
 
-void complete_mission(int mission_number){
+void complete_mission(const int mission_number){
     get_game_data() -> missions_completed += pow(10, mission_number);
 }
 
-bool has_completed(int mission_number){
+bool has_completed(const int mission_number){
     return (get_game_data() -> missions_completed / (int) pow(10, mission_number)) % 10;
+}
+
+bool is_final_mission_unlocked(){
+    return has_completed(SWAMP_ID) && has_completed(MANSION_ID) && has_completed(CAVE_ID);
+}
+
+char* get_mission_name(int mission_number){
+    switch (mission_number){
+    case SWAMP_ID:
+        return "Palude Putrescente";
+        break;
+    case MANSION_ID:
+        return "Magione Infestata";
+        break;
+    case CAVE_ID:
+        return "Caverna di Cristallo";
+        break;
+    case BOSS_ID:
+        return "Castello del signore Oscuro";
+        break;
+    
+    default:
+        break;
+    }
+    return "";
 }
 
 Dungeon *get_dungeon() {

@@ -1,8 +1,6 @@
 #ifndef SAVINGS_H
 #define SAVINGS_H
 
-
-
 /**
  * Returns the name of the saving file
  * EX. savings2.txt, savings3.txt, savings10.txt; index = 3 puts into buf "savings3.txt"

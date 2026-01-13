@@ -28,18 +28,28 @@ static Dungeon dungeon;
 void generate_dungeon(int current_level);
 
 /**
- * Returns the current dungeon
+ * @return the current dungeon
  */
 Dungeon* get_dungeon();
 
 /**
  * Updates the missions_completed variable and if possible unlocks the final mission
+ * @param mission_number to set
  */
-void complete_mission(int mission_number);
+void complete_mission(const int mission_number);
 
 /**
- * @return true if the mission with the given id has been completed
+ * @param mission_number of the mission
+ * @return true if the mission has been completed
  */
-bool has_completed(int mission_number);
+bool has_completed(const int mission_number);
+
+/**
+ * @return true if the final mission has been unlocked
+ */
+bool is_final_mission_unlocked();
+
+
+char* get_mission_name(int mission_number);
 
 #endif

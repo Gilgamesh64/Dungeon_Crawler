@@ -55,5 +55,6 @@ bool is_in_paduvan_sequence(int number);
  */
 bool shield_magic_sword(int player_choice);
 
+void boss_menu();
 
 #endif

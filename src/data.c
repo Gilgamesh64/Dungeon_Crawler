@@ -17,6 +17,7 @@ void health_control(){
     }
     if(get_game_data()->health_points <= 0){
         click_to_continue("\nGAME OVER!\n");
+        reset_data();
         main_menu();
     }
 }
@@ -31,4 +32,12 @@ void print_data() {
            s->coins,
            s->items,
            s->missions_completed);
+}
+
+void reset_data(){
+    GameData* g = get_game_data();
+    g -> health_points = DEFAULT_HEALTH;
+    g -> coins = DEFAULT_MONEY;
+    g -> items = DEFAULT_ITEMS;
+    g -> missions_completed = DEFAULT_QUESTS;
 }

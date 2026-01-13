@@ -51,7 +51,7 @@ int select_option(const char *prompt, const char *first, ...) {
  * @param prompt to ask the user for input
  * @param options array of strings to display as menu
  * @param count number of strings in the array
- * @return selected number (1-based index)
+ * @return selected number (0-based index)
  */
 int select_option_array(const char *prompt, const char **options, int count) {
     if (count <= 0)
@@ -120,7 +120,27 @@ void village_menu() {
 void mission_selection_menu() {
     clear_screen();
 
-    generate_dungeon(select_option("Menu di Selezione Missione: ", "Palude Putrescente", "Magione Infestata", "Grotta di Cristallo", NULL));
+    if(is_final_mission_unlocked()) {
+        select_option("Menu di Selezione Missione: ", "Castello del signore Oscuro", NULL);
+        boss_menu();
+        return;
+    }
+    const char *available_missions[3];
+    int available_indexes[3];
+    int available_count = 0;
+
+    for (int i = 0; i < 3; i++) {
+        if (!has_completed(i)) {
+            available_missions[available_count] = get_mission_name(i); 
+            available_indexes[available_count] = i;
+            available_count++;
+        }
+    }
+
+    int choice = select_option_array("Menu di Selezione Missione: ", available_missions, available_count);
+
+    int mission_index = available_indexes[choice];
+    generate_dungeon(mission_index);
 
     mission_menu();
 }
@@ -178,7 +198,7 @@ void inventory_menu() {
     printf(has_completed(SWAMP_ID) ? "Palude Putrescente completata\n" : "");
     printf(has_completed(MANSION_ID) ? "Magione Infestata completata\n" : "");
     printf(has_completed(CAVE_ID) ? "Grotta di Cristallo completata\n" : "");
-    printf(has_completed(BOSS_ID) ? "Boss Finale completato\n" : "");
+    printf(has_completed(BOSS_ID) ? "Boss Finale completato\n\n" : "");
 
     printf("Spada: %s\n", has_item(SWORD_ID) ? "In possesso" : "Non in possesso");
     printf("Armatura: %s\n", has_item(ARMOR_ID) ? "In possesso" : "Non in possesso");
@@ -454,7 +474,7 @@ void combat_menu() {
     }
 }
 
-void SIGNORE_OSCURO_mennu() {
+void boss_menu() {
     clear_screen();
 
     int wins = 0;
@@ -463,8 +483,8 @@ void SIGNORE_OSCURO_mennu() {
     printf("Devi vincere 3 round per sconfiggerlo!\n");
 
     for (int i = 0; i < 5; i++) {
-        int scelta = select_option("Scegli la tua azione: ", "Scudo", "Magia", "Spada", NULL);
-        switch (scelta) {
+        int selection = select_option("Scegli la tua azione: ", "Scudo", "Magia", "Spada", NULL);
+        switch (selection) {
         case 1:
             printf("L'eroe ha scelto lo Scudo\n");
             break;
@@ -479,7 +499,7 @@ void SIGNORE_OSCURO_mennu() {
             break;
         }
 
-        if (shield_magic_sword(scelta)) {
+        if (shield_magic_sword(selection)) {
             printf("Hai vinto questo round contro il Signore Oscuro!\n");
             wins++;
         }
@@ -531,8 +551,5 @@ bool shield_magic_sword(int player_choice) {
         // return rock_paper_scissors(player_choice); //draw, play again
     }
 
-    if (player_choice == (computer_choice % 3) + 1)
-        return true; // plaer wins
-    else
-        return false; // computer wins
+    return player_choice == (computer_choice % 3) + 1;
 }
