@@ -1,6 +1,8 @@
 #ifndef MENU_H
 #define MENU_H
 
+#include <stdbool.h>
+
 /**
  * main menu displayed at the start of the game
  */
@@ -39,5 +41,19 @@ void trap_menu();
  * combat menu managing the combat nessages when combat is triggered
  */
 void combat_menu();
+/**
+ * shop menu managing the shop interactions
+ */
+void shop_menu();
+
+/**
+ * Checks if a number is in the Padovan sequence
+ */
+bool is_in_paduvan_sequence(int number);
+/**
+ * Plays rock paper scissors game
+ */
+bool shield_magic_sword(int player_choice);
+
 
 #endif
