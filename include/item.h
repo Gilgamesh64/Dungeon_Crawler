@@ -16,9 +16,9 @@ typedef struct{
     const char* name;
     const char* description;
     const int cost;
-} Item;
+} item_t;
 
-Item get_item(int);
+item_t get_item(int);
 
 bool has_item(int item_id);
 void set_item(int item_id);
@@ -36,7 +36,7 @@ void add_potion();
  */
 void sub_potion();
 
-static const  Item items[NUM_ITEMS]  = {
+static const  item_t items[NUM_ITEMS]  = {
     {
         .name = "Pozione Curativa",
         .description = "ripristina fino a 6 PUNTI VITA (lancia un dado a 6 facce)",

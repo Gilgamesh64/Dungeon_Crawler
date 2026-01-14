@@ -95,7 +95,7 @@ void boss_menu();
 /**
  * Plays rock paper scissors game
  */
-bool shield_magic_sword(int player_choice);
+bool shield_magic_sword();
 
 
 

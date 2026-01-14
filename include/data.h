@@ -11,25 +11,21 @@ typedef struct {
     int coins;
     long items;
     int missions_completed;
-    
-} GameData;
+} game_data_t;
 
 /**
- * Returns the pointer to the static game data object
+ * @return a pointer to the static game data object
  */
-GameData *get_game_data(void);
+game_data_t *get_game_data(void);
 
 /**
- * Prints current game data
+ * Resets game data to default
  */
-void print_data();
-
 void reset_data();
 
-
 /**
- * Checks if player health is in bounds 0<health<=20
+ * Checks if player health is in bounds 0<health<=20 and if money is >= 0
  */
-void health_control();
+void data_control();
 
 #endif

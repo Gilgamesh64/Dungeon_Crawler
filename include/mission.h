@@ -10,18 +10,21 @@
 #define CAVE_ID 2
 #define BOSS_ID 3
 
+/**
+ * Set to true with cheats
+ */
 extern bool is_boss_unlocked_cheating;
 
 typedef struct{
-    const Entity* rooms[MAX_DIM];
+    entity_t* rooms[MAX_DIM];
     int current_room;
 
-    int dungeon;
+    int dungeon_id;
     int target_entity;
     int target_count;
-} Dungeon;
+} dungeon_t;
 
-static Dungeon dungeon;
+static dungeon_t dungeon;
 
 /**
  * Generates a dungeon for the current level
@@ -32,16 +35,18 @@ void generate_dungeon(int current_level);
 /**
  * @return the current dungeon
  */
-Dungeon* get_dungeon();
+dungeon_t* get_dungeon();
 
 /**
  * Updates the missions_completed variable and if possible unlocks the final mission
  * @param mission_number to set
+ * @see defined constants
  */
 void complete_mission(const int mission_number);
 
 /**
  * @param mission_number of the mission
+ * @see defined constants
  * @return true if the mission has been completed
  */
 bool has_completed(const int mission_number);
@@ -51,7 +56,11 @@ bool has_completed(const int mission_number);
  */
 bool is_final_mission_unlocked();
 
-
+/**
+ * @param mission_number
+ * @see defined constants
+ * @return the name of the mission
+ */
 char* get_mission_name(int mission_number);
 
 #endif

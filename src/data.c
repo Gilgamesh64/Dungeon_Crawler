@@ -6,38 +6,28 @@
 #include <stdio.h>
 
 
-GameData *get_game_data(void) {
-    static GameData data = {DEFAULT_HEALTH, DEFAULT_MONEY, DEFAULT_ITEMS, DEFAULT_QUESTS};
+game_data_t *get_game_data(void) {
+    static game_data_t data = {DEFAULT_HEALTH, DEFAULT_MONEY, DEFAULT_ITEMS, DEFAULT_QUESTS};
     return &data;
 }
 
-void health_control(){
-    if(get_game_data()->health_points>20){
-        get_game_data()->health_points = 20;
-    }
-    if(get_game_data()->health_points <= 0){
+void data_control(){
+    game_data_t* data = get_game_data();
+
+    if(data -> coins < 0) data -> coins = 0; 
+    if(data->health_points>20) data->health_points = 20;
+    
+    if(data->health_points <= 0){
         click_to_continue("\nGAME OVER!\n");
         reset_data();
         main_menu();
     }
 }
 
-void print_data() {
-    GameData *s = get_game_data();
-
-    printf("%s DATA, %s ORA, %d P.VITA , %d MONETE , %d OGGETTI , %d MISSIONI COMPLETATE\n",
-           "Data",
-           "Ora",
-           s->health_points,
-           s->coins,
-           s->items,
-           s->missions_completed);
-}
-
 void reset_data(){
-    GameData* g = get_game_data();
-    g -> health_points = DEFAULT_HEALTH;
-    g -> coins = DEFAULT_MONEY;
-    g -> items = DEFAULT_ITEMS;
-    g -> missions_completed = DEFAULT_QUESTS;
+    game_data_t* data = get_game_data();
+    data -> health_points = DEFAULT_HEALTH;
+    data -> coins = DEFAULT_MONEY;
+    data -> items = DEFAULT_ITEMS;
+    data -> missions_completed = DEFAULT_QUESTS;
 }

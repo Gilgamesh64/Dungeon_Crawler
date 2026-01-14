@@ -9,7 +9,7 @@
 
 void generate_dungeon(int current_level) {
     dungeon.current_room = 0;
-    dungeon.dungeon = current_level;
+    dungeon.dungeon_id = current_level;
 
     switch (current_level) {
     case 0:
@@ -38,10 +38,10 @@ void generate_dungeon(int current_level) {
         if(i + count < MAX_DIM) {
             dungeon.rooms[i] = spawn_entity(current_level);
         } else {
-            dungeon.rooms[i] = &LEVEL_TABLE[current_level][dungeon.target_entity];
+            dungeon.rooms[i] = get_entity(current_level, dungeon.target_entity);
         }
 
-        if(!strcmp(dungeon.rooms[i]->name, (&LEVEL_TABLE[current_level][dungeon.target_entity])->name)){
+        if(!strcmp(dungeon.rooms[i]->name, get_entity(current_level, dungeon.target_entity)->name)){
             count--;
         }
     }
@@ -82,6 +82,6 @@ char* get_mission_name(int mission_number){
     return "";
 }
 
-Dungeon *get_dungeon() {
+dungeon_t *get_dungeon() {
     return &dungeon;
 }

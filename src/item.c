@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 
-Item get_item(int pos_item){
+item_t get_item(int pos_item){
     return items[pos_item];
 }
 
