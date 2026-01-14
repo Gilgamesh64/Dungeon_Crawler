@@ -12,12 +12,12 @@ typedef struct{
     const int damage;
     const int coins;
     const bool trap;
-} Entity;
+} entity_t;
 
 
 /**
- * Arrays of entities, one for room
- * Each one contains an Entity
+ * Arrays of entities, one for each room
+ * Each entry contains an entity_t
  * Their index in the array is the die roll required to spawn them -1
  */
 
@@ -27,7 +27,7 @@ typedef struct{
  * fatal = 2 ---> coin flip
  * */
 
-static const Entity PALUDE_PUTRESCENTE[6] = {
+static entity_t PALUDE_PUTRESCENTE[6] = {
     {
         .name  = "Cane Selvaggio",
         .fatal = 2,
@@ -72,7 +72,7 @@ static const Entity PALUDE_PUTRESCENTE[6] = {
     }
 };
 
-static const Entity MAGIONE_INFESTATA[6] = {
+static entity_t MAGIONE_INFESTATA[6] = {
     {
         .name  = "Botola Buia",
         .fatal = 0,
@@ -117,7 +117,7 @@ static const Entity MAGIONE_INFESTATA[6] = {
     }
 };
 
-static const Entity GROTTA_DI_CRISTALLO[6] = {
+static entity_t GROTTA_DI_CRISTALLO[6] = {
     {
         .name  = "Stanza Vuota",
         .fatal = 0,
@@ -166,16 +166,25 @@ static const Entity GROTTA_DI_CRISTALLO[6] = {
  * Array of missions, each index is a mission
  * Each index in a mission is an enemy
  */
-static const Entity* LEVEL_TABLE[] = {
+static entity_t* LEVEL_TABLE[] = {
     PALUDE_PUTRESCENTE,
     MAGIONE_INFESTATA,
     GROTTA_DI_CRISTALLO
 };
 
 /**
- * Spawns an Entity from the given mission
+ * @param current_level is the index in the mission array
+ * the other index is the entity spawned randomly
+ * @return a pointer to a random entity of the given level
  */
-Entity* spawn_entity(int current_level);
+entity_t* spawn_entity(int current_level);
+
+/**
+ * @param level id of the level
+ * @param entity_id id of the entity
+ * @return the entity with the correct id in the specified level
+ */
+entity_t* get_entity(int level, int entity_id);
 
 
 #endif

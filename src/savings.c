@@ -145,7 +145,7 @@ void save() {
     if (!f)
         return;
 
-    GameData *s = get_game_data();
+    game_data_t *s = get_game_data();
 
     time_t now = time(NULL);
     struct tm *t = localtime(&now);
@@ -173,7 +173,7 @@ void load(const char *path) {
     if (!f)
         return;
 
-    GameData *data = get_game_data();
+    game_data_t *data = get_game_data();
     char line[256];
     fgets(line, sizeof line, f);
 
