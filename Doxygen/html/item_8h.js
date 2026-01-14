@@ -8,7 +8,7 @@ var item_8h =
     [ "POTION_ID", "item_8h.html#a4df3dc4d89ca73e449c1a65a11f02a07", null ],
     [ "SWORD_ID", "item_8h.html#aeb49310324d24b8a207717006e8bd967", null ],
     [ "add_potion", "item_8h.html#a3a455470f53eea12d7c653d96274d9e4", null ],
-    [ "get_item", "item_8h.html#ad3202e79b7e7b4d85d18ffbdb28da550", null ],
+    [ "get_item", "item_8h.html#aaa28d9e1581880cabc911586d1545456", null ],
     [ "get_potions", "item_8h.html#a06f6731bc393e11aeb87ba1755aac140", null ],
     [ "has_item", "item_8h.html#a5a57ee9ee8c8ec6edb2a536f5fbdaf81", null ],
     [ "set_item", "item_8h.html#ac495f4cca4bc23d26b574029dcb1ee42", null ],

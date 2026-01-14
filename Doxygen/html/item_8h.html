@@ -91,6 +91,9 @@ $(function(){initNavTree('item_8h.html','',''); });
   <div class="headertitle"><div class="title">item.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>handles items and collectibles  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="data_8h_source.html">data.h</a>&quot;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 </div>
@@ -111,14 +114,21 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad3202e79b7e7b4d85d18ffbdb28da550" id="r_ad3202e79b7e7b4d85d18ffbdb28da550"><td class="memItemLeft"><a class="el" href="structitem__t.html">item_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#ad3202e79b7e7b4d85d18ffbdb28da550">get_item</a> (int)</td></tr>
+<tr class="memitem:aaa28d9e1581880cabc911586d1545456" id="r_aaa28d9e1581880cabc911586d1545456"><td class="memItemLeft"><a class="el" href="structitem__t.html">item_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#aaa28d9e1581880cabc911586d1545456">get_item</a> (int pos_item)</td></tr>
 <tr class="memitem:a5a57ee9ee8c8ec6edb2a536f5fbdaf81" id="r_a5a57ee9ee8c8ec6edb2a536f5fbdaf81"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5a57ee9ee8c8ec6edb2a536f5fbdaf81">has_item</a> (int item_id)</td></tr>
 <tr class="memitem:ac495f4cca4bc23d26b574029dcb1ee42" id="r_ac495f4cca4bc23d26b574029dcb1ee42"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac495f4cca4bc23d26b574029dcb1ee42">set_item</a> (int item_id)</td></tr>
 <tr class="memitem:a06f6731bc393e11aeb87ba1755aac140" id="r_a06f6731bc393e11aeb87ba1755aac140"><td class="memItemLeft">long&#160;</td><td class="memItemRight"><a class="el" href="#a06f6731bc393e11aeb87ba1755aac140">get_potions</a> ()</td></tr>
 <tr class="memitem:a3a455470f53eea12d7c653d96274d9e4" id="r_a3a455470f53eea12d7c653d96274d9e4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3a455470f53eea12d7c653d96274d9e4">add_potion</a> ()</td></tr>
 <tr class="memitem:ac5bdc153a921934a500ed02f96db3c64" id="r_ac5bdc153a921934a500ed02f96db3c64"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac5bdc153a921934a500ed02f96db3c64">sub_potion</a> ()</td></tr>
 </table>
-<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>handles items and collectibles </p>
+<p>Each item has its associated value that is power of ten.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="savings_8h.html" title="manages saving files">savings.h</a> In <a class="el" href="savings_8h.html#aae2c382151ef7c9aa913361172b30db6" title="save using current game_data">save</a> files, items are stored as a single integer value. </dd>
+<dd>
+<a class="el" href="mission_8h.html" title="handles missions and their completion">mission.h</a> that uses a similar method</dd></dl>
+<p>How? Well... </p>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a52dc9289bc64c85b15647e6eeb79bc10" name="a52dc9289bc64c85b15647e6eeb79bc10"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a52dc9289bc64c85b15647e6eeb79bc10">&#9670;&#160;</a></span>ARMOR_ID</h2>
 
@@ -172,6 +182,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2item_8h-example.html#_a7">C:/Users/chto2/Desktop/Dungeon_Crawler/include/item.h</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -219,11 +231,13 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Adds 1 potion to the player's inventory </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2item_8h-example.html#a5">C:/Users/chto2/Desktop/Dungeon_Crawler/include/item.h</a>.</dd>
+</dl>
 
 </div>
 </div>
-<a id="ad3202e79b7e7b4d85d18ffbdb28da550" name="ad3202e79b7e7b4d85d18ffbdb28da550"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3202e79b7e7b4d85d18ffbdb28da550">&#9670;&#160;</a></span>get_item()</h2>
+<a id="aaa28d9e1581880cabc911586d1545456" name="aaa28d9e1581880cabc911586d1545456"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa28d9e1581880cabc911586d1545456">&#9670;&#160;</a></span>get_item()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -236,6 +250,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos_item</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the item at the position in the array </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2item_8h-example.html#a1">C:/Users/chto2/Desktop/Dungeon_Crawler/include/item.h</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -254,6 +277,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Returns the number of potions the player has </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2item_8h-example.html#a4">C:/Users/chto2/Desktop/Dungeon_Crawler/include/item.h</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -271,6 +296,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item_id</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if player has item </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2item_8h-example.html#a2">C:/Users/chto2/Desktop/Dungeon_Crawler/include/item.h</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -288,6 +322,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Gives the item to the player </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item_id</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2item_8h-example.html#a3">C:/Users/chto2/Desktop/Dungeon_Crawler/include/item.h</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -306,6 +348,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Subtracts 1 potion from the player's inventory </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2item_8h-example.html#a6">C:/Users/chto2/Desktop/Dungeon_Crawler/include/item.h</a>.</dd>
+</dl>
 
 </div>
 </div>

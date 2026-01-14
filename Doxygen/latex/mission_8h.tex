@@ -1,5 +1,10 @@
 \doxysection{include/\+mission.h File Reference}
 \hypertarget{mission_8h}{}\label{mission_8h}\index{include/mission.h@{include/mission.h}}
+
+
+handles missions and their completion  
+
+
 {\ttfamily \+\#include "{}entity.\+h"{}}\newline
 \doxysubsubsection*{Data Structures}
 \begin{DoxyCompactItemize}
@@ -41,6 +46,18 @@ bool \doxymbox{\hyperlink{mission_8h_a15cd3b4969a391b08783597d1cec688f}{is\+\_\+
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+handles missions and their completion 
+
+Each mission has its associated value that is power of ten.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{savings_8h}{savings.\+h} In \doxylink{savings_8h_aae2c382151ef7c9aa913361172b30db6}{save} files, missions are stored as a single integer value. 
+
+\doxylink{item_8h}{item.\+h} that uses a similar method
+\end{DoxySeeAlso}
+How? Well... 
+
 \label{doc-define-members}
 \Hypertarget{mission_8h_doc-define-members}
 \doxysubsection{Macro Definition Documentation}
@@ -68,6 +85,9 @@ bool \doxymbox{\hyperlink{mission_8h_a15cd3b4969a391b08783597d1cec688f}{is\+\_\+
 {\footnotesize\ttfamily \label{mission_8h_a7ba3949b1f197baf0354d41124bdbe88} 
 \+\#define MAX\+\_\+\+DIM~10}
 
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2mission_8h-example}{C:\+/\+\+Users/\+chto2/\+\+Desktop/\+\+Dungeon\+\_\+\+Crawler/\+include/\+mission.\+h}}.\end{Desc}
 \Hypertarget{mission_8h_a16d643719b9cb09db3da7391564ef9ce}\index{mission.h@{mission.h}!SWAMP\_ID@{SWAMP\_ID}}
 \index{SWAMP\_ID@{SWAMP\_ID}!mission.h@{mission.h}}
 \doxysubsubsection{\texorpdfstring{SWAMP\_ID}{SWAMP\_ID}}
@@ -93,6 +113,9 @@ Updates the missions\+\_\+completed variable and if possible unlocks the final m
 \begin{DoxySeeAlso}{See also}
 defined constants 
 \end{DoxySeeAlso}
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2mission_8h-example}{C:\+/\+\+Users/\+chto2/\+\+Desktop/\+\+Dungeon\+\_\+\+Crawler/\+include/\+mission.\+h}}.\end{Desc}
 \Hypertarget{mission_8h_aa554778ecc5641aa99e55d14e3e7448c}\index{mission.h@{mission.h}!generate\_dungeon@{generate\_dungeon}}
 \index{generate\_dungeon@{generate\_dungeon}!mission.h@{mission.h}}
 \doxysubsubsection{\texorpdfstring{generate\_dungeon()}{generate\_dungeon()}}
@@ -104,6 +127,9 @@ Generates a dungeon for the current level
 {\em current\+\_\+level} & index of the current level \\
 \hline
 \end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2mission_8h-example}{C:\+/\+\+Users/\+chto2/\+\+Desktop/\+\+Dungeon\+\_\+\+Crawler/\+include/\+mission.\+h}}.\end{Desc}
 \Hypertarget{mission_8h_a61ae5ff9fc3d71f45929fe4f80880e7f}\index{mission.h@{mission.h}!get\_dungeon@{get\_dungeon}}
 \index{get\_dungeon@{get\_dungeon}!mission.h@{mission.h}}
 \doxysubsubsection{\texorpdfstring{get\_dungeon()}{get\_dungeon()}}
@@ -113,6 +139,9 @@ Generates a dungeon for the current level
 \begin{DoxyReturn}{Returns}
 the current dungeon 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2mission_8h-example}{C:\+/\+\+Users/\+chto2/\+\+Desktop/\+\+Dungeon\+\_\+\+Crawler/\+include/\+mission.\+h}}.\end{Desc}
 \Hypertarget{mission_8h_a45c1ce7cf38f55de5c9d3c41ace01760}\index{mission.h@{mission.h}!get\_mission\_name@{get\_mission\_name}}
 \index{get\_mission\_name@{get\_mission\_name}!mission.h@{mission.h}}
 \doxysubsubsection{\texorpdfstring{get\_mission\_name()}{get\_mission\_name()}}
@@ -130,6 +159,9 @@ defined constants
 \begin{DoxyReturn}{Returns}
 the name of the mission 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2mission_8h-example}{C:\+/\+\+Users/\+chto2/\+\+Desktop/\+\+Dungeon\+\_\+\+Crawler/\+include/\+mission.\+h}}.\end{Desc}
 \Hypertarget{mission_8h_af34218d43d7e26ed710dfb171da4d006}\index{mission.h@{mission.h}!has\_completed@{has\_completed}}
 \index{has\_completed@{has\_completed}!mission.h@{mission.h}}
 \doxysubsubsection{\texorpdfstring{has\_completed()}{has\_completed()}}
@@ -147,6 +179,9 @@ defined constants
 \begin{DoxyReturn}{Returns}
 true if the mission has been completed 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2mission_8h-example}{C:\+/\+\+Users/\+chto2/\+\+Desktop/\+\+Dungeon\+\_\+\+Crawler/\+include/\+mission.\+h}}.\end{Desc}
 \Hypertarget{mission_8h_a86fe16216cedd9eacbb984c81f88f127}\index{mission.h@{mission.h}!is\_final\_mission\_unlocked@{is\_final\_mission\_unlocked}}
 \index{is\_final\_mission\_unlocked@{is\_final\_mission\_unlocked}!mission.h@{mission.h}}
 \doxysubsubsection{\texorpdfstring{is\_final\_mission\_unlocked()}{is\_final\_mission\_unlocked()}}
@@ -156,6 +191,9 @@ bool is\+\_\+final\+\_\+mission\+\_\+unlocked (\begin{DoxyParamCaption}{}{}\end{
 \begin{DoxyReturn}{Returns}
 true if the final mission has been unlocked 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2mission_8h-example}{C:\+/\+\+Users/\+chto2/\+\+Desktop/\+\+Dungeon\+\_\+\+Crawler/\+include/\+mission.\+h}}.\end{Desc}
 
 
 \label{doc-var-members}
@@ -167,4 +205,6 @@ true if the final mission has been unlocked
 {\footnotesize\ttfamily \label{mission_8h_a15cd3b4969a391b08783597d1cec688f} 
 bool is\+\_\+boss\+\_\+unlocked\+\_\+cheating\hspace{0.3cm}{\ttfamily [extern]}}
 
-Set to true with cheats 
+Set to true with cheats \begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2mission_8h-example}{C:\+/\+\+Users/\+chto2/\+\+Desktop/\+\+Dungeon\+\_\+\+Crawler/\+include/\+mission.\+h}}.\end{Desc}

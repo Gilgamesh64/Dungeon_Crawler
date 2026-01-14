@@ -2,63 +2,66 @@
 \hypertarget{item_8h_source}{}\label{item_8h_source}\index{include/item.h@{include/item.h}}
 \doxymbox{\hyperlink{item_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ITEM\_H}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ITEM\_H}}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{data_8h}{data.h}}"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ NUM\_ITEMS\ 5}}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ SWORD\_ID\ 1}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ ARMOR\_ID\ 10}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ KEY\_ID\ 100}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ HERO\_SWORD\_ID\ 1000}}
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ POTION\_ID\ 10000}}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{structitem__t_a8f8f80d37794cde9472343e4487ba3eb}{name}};}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{structitem__t_a68344fa88cf4e86b5079fd69a5c22d57}{description}};}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structitem__t_aaa398efc91112baf0044148c7c57e6ab}{cost}};}
-\DoxyCodeLine{00019\ \}\ \doxymbox{\hyperlink{structitem__t}{item\_t}};}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \doxymbox{\hyperlink{structitem__t}{item\_t}}\ \doxymbox{\hyperlink{item_8h_ad3202e79b7e7b4d85d18ffbdb28da550}{get\_item}}(\textcolor{keywordtype}{int});}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{item_8h_a5a57ee9ee8c8ec6edb2a536f5fbdaf81}{has\_item}}(\textcolor{keywordtype}{int}\ item\_id);}
-\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{item_8h_ac495f4cca4bc23d26b574029dcb1ee42}{set\_item}}(\textcolor{keywordtype}{int}\ item\_id);}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00029\ \textcolor{keywordtype}{long}\ \doxymbox{\hyperlink{item_8h_a06f6731bc393e11aeb87ba1755aac140}{get\_potions}}();}
-\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{item_8h_a3a455470f53eea12d7c653d96274d9e4}{add\_potion}}();}
-\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{item_8h_ac5bdc153a921934a500ed02f96db3c64}{sub\_potion}}();}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \ \doxymbox{\hyperlink{structitem__t}{item\_t}}\ items[\doxymbox{\hyperlink{item_8h_affced4b175e803df59f802e25d017b9b}{NUM\_ITEMS}}]\ \ =\ \{}
-\DoxyCodeLine{00040\ \ \ \ \ \{}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}Pozione\ Curativa"{}},}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ .description\ =\ \textcolor{stringliteral}{"{}ripristina\ fino\ a\ 6\ PUNTI\ VITA\ (lancia\ un\ dado\ a\ 6\ facce)"{}},}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ .cost\ =\ 4}
-\DoxyCodeLine{00044\ \ \ \ \ \},}
-\DoxyCodeLine{00045\ \ \ \ \ \{}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}Spada"{}},}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ .description\ =\ \textcolor{stringliteral}{"{}+1\ all'attacco\ dell'eroe\ (acquistabile\ una\ sola\ volta)"{}},}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ .cost\ =\ 5}
-\DoxyCodeLine{00049\ \ \ \ \ \},}
-\DoxyCodeLine{00050\ \ \ \ \ \{}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}Armatura"{}},}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ .description\ =\ \textcolor{stringliteral}{"{}-\/1\ al\ Danno\ del\ nemico/trappola\ (acquistabile\ una\ sola\ volta)"{}},}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ .cost\ =\ 10}
-\DoxyCodeLine{00054\ \ \ \ \ \},}
-\DoxyCodeLine{00055\ \ \ \ \ \{}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}Chiave\ del\ castello\ del\ SIGNORE\ OSCURO"{}},}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ .description\ =\ \textcolor{stringliteral}{"{}permette\ all'eroe\ di\ accedere\ al\ castello\ del\ SIGNORE\ OSCURO"{}},}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ .cost\ =\ -\/1}
-\DoxyCodeLine{00059\ \ \ \ \ \},}
-\DoxyCodeLine{00060\ \ \ \ \ \{}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}SPADA\ DELL'EROE"{}},}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ .description\ =\ \textcolor{stringliteral}{"{}+1\ all'attacco\ dell'eroe"{}},}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ .cost\ =\ -\/1}
-\DoxyCodeLine{00064\ \ \ \ \ \}}
-\DoxyCodeLine{00065\ \};}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#ifndef\ ITEM\_H}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ ITEM\_H}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{data_8h}{data.h}}"{}}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ NUM\_ITEMS\ 5}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ SWORD\_ID\ 1}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ ARMOR\_ID\ 10}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ KEY\_ID\ 100}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ HERO\_SWORD\_ID\ 1000}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ POTION\_ID\ 10000}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{structitem__t_a8f8f80d37794cde9472343e4487ba3eb}{name}};}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{structitem__t_a68344fa88cf4e86b5079fd69a5c22d57}{description}};}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structitem__t_aaa398efc91112baf0044148c7c57e6ab}{cost}};}
+\DoxyCodeLine{00055\ \}\ \doxymbox{\hyperlink{structitem__t}{item\_t}};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00061\ \doxymbox{\hyperlink{structitem__t}{item\_t}}\ \doxymbox{\hyperlink{item_8h_aaa28d9e1581880cabc911586d1545456}{get\_item}}(\textcolor{keywordtype}{int}\ pos\_item);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{item_8h_a5a57ee9ee8c8ec6edb2a536f5fbdaf81}{has\_item}}(\textcolor{keywordtype}{int}\ item\_id);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{item_8h_ac495f4cca4bc23d26b574029dcb1ee42}{set\_item}}(\textcolor{keywordtype}{int}\ item\_id);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{long}\ \doxymbox{\hyperlink{item_8h_a06f6731bc393e11aeb87ba1755aac140}{get\_potions}}();}
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{item_8h_a3a455470f53eea12d7c653d96274d9e4}{add\_potion}}();}
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{item_8h_ac5bdc153a921934a500ed02f96db3c64}{sub\_potion}}();}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structitem__t}{item\_t}}\ items[\doxymbox{\hyperlink{item_8h_affced4b175e803df59f802e25d017b9b}{NUM\_ITEMS}}]\ \ =\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}Pozione\ Curativa"{}},}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ .description\ =\ \textcolor{stringliteral}{"{}ripristina\ fino\ a\ 6\ PUNTI\ VITA\ (lancia\ un\ dado\ a\ 6\ facce)"{}},}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ .cost\ =\ 4}
+\DoxyCodeLine{00093\ \ \ \ \ \},}
+\DoxyCodeLine{00094\ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}Spada"{}},}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ .description\ =\ \textcolor{stringliteral}{"{}+1\ all'attacco\ dell'eroe\ (acquistabile\ una\ sola\ volta)"{}},}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ .cost\ =\ 5}
+\DoxyCodeLine{00098\ \ \ \ \ \},}
+\DoxyCodeLine{00099\ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}Armatura"{}},}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ .description\ =\ \textcolor{stringliteral}{"{}-\/1\ al\ Danno\ del\ nemico/trappola\ (acquistabile\ una\ sola\ volta)"{}},}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ .cost\ =\ 10}
+\DoxyCodeLine{00103\ \ \ \ \ \},}
+\DoxyCodeLine{00104\ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}Chiave\ del\ castello\ del\ SIGNORE\ OSCURO"{}},}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ .description\ =\ \textcolor{stringliteral}{"{}permette\ all'eroe\ di\ accedere\ al\ castello\ del\ SIGNORE\ OSCURO"{}},}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ .cost\ =\ -\/1}
+\DoxyCodeLine{00108\ \ \ \ \ \},}
+\DoxyCodeLine{00109\ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}SPADA\ DELL'EROE"{}},}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ .description\ =\ \textcolor{stringliteral}{"{}+1\ all'attacco\ dell'eroe"{}},}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ .cost\ =\ -\/1}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

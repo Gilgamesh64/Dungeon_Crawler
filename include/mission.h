@@ -1,3 +1,36 @@
+/**
+ * @file mission.h
+ * @brief handles missions and their completion
+ * 
+ * @details
+ * Each mission has its associated value that is power of ten.
+ * 
+ * @see savings.h In save files, missions are stored as a single integer value.
+ * @see item.h that uses a similar method
+ * 
+ * How? Well...
+ * 
+ * @example 
+ * Save value: 101
+ * 
+ * Starting from the right, each digit represents the binary completion state
+ * of a mission (1 = completed, 0 = not completed).
+ * 
+ * For example, the mission 'Palude Putrescente' has an ID of 0.
+ * We can get the index value by calculating 10^0 = 1 
+ * Since the first digit from right to left is 1, the player completed the mission.
+ * 
+ * The value is retrieved using the modulo ('%') operator.
+ * 
+ * 'Magione Infestata' has an ID of 1. 
+ * The index value is 10^1 = 10 
+ * Dividing 101 by 10 gives 10.
+ * Taking the modulo of this result gives 0, meaning this mission is not completed.
+ * 
+ * Each mission is associated with 10 at specific power from 0 to x. Dividing the save
+ * value by 10 ^ n and applying modulo allows us to determine mission completion.
+ */
+
 #ifndef MISSION_H
 #define MISSION_H
 

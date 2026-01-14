@@ -19,5 +19,5 @@ void click_to_continue(char* string){
     fflush(stdin);
 
     int c;
-    while (c = getchar() != '\n' && c != EOF) {}
+    while ((c = getchar()) != '\n' && c != EOF) {}
 }

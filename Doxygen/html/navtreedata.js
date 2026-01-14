@@ -37,20 +37,21 @@ var NAVTREE =
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "Globals", "globals.html", [
-        [ "All", "globals.html", null ],
+        [ "All", "globals.html", "globals_dup" ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
-    ] ]
+    ] ],
+    [ "Examples", "examples.html", "examples" ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"_main_8c.html",
-"structentity__t.html#a3a1c61edfdbeb9e42b1fb903fd6d7fa2"
+"_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2item_8h-example.html",
+"mission_8c.html#a61ae5ff9fc3d71f45929fe4f80880e7f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

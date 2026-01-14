@@ -1,3 +1,12 @@
+/**
+ * @file data.h
+ * @brief game data that needs to be serialized
+ * @see savings to know how
+ * 
+ * @details
+ * keeps useful info and allows public access to it
+ */
+
 #ifndef DATA_H
 #define DATA_H
 

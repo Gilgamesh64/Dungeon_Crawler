@@ -1,3 +1,21 @@
+/**
+ * @file savings.h
+ * @brief manages saving files
+ * 
+ * @see data.h for health
+ * @see item.h for items
+ * @see mission.h for missions
+ * 
+ * @details
+ * Handles savings as txt files inside a savings folder
+ * 
+ * @warning There has to be a 'savings' folder, if not the game will not work
+ * 
+ * Each saving file is named 'savingX' where X is the number of the file
+ * The last saving is always the one with the biggest number
+ */
+
+
 #ifndef SAVINGS_H
 #define SAVINGS_H
 

@@ -109,7 +109,8 @@ Functions</h2></td></tr>
 <tr class="memitem:ac8a43ace0c9223bedd5f32df44d254ec" id="r_ac8a43ace0c9223bedd5f32df44d254ec"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac8a43ace0c9223bedd5f32df44d254ec">trap_menu</a> ()</td></tr>
 <tr class="memitem:a0cd083ec00c0068b9ff22fcbe355301c" id="r_a0cd083ec00c0068b9ff22fcbe355301c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0cd083ec00c0068b9ff22fcbe355301c">combat_menu</a> ()</td></tr>
 <tr class="memitem:af88fcb5491892b27f2e5eddb5ad27906" id="r_af88fcb5491892b27f2e5eddb5ad27906"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af88fcb5491892b27f2e5eddb5ad27906">dragon_combat</a> ()</td></tr>
-<tr class="memitem:a872685f98efa8c800293fe2fbb12896e" id="r_a872685f98efa8c800293fe2fbb12896e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a872685f98efa8c800293fe2fbb12896e">is_in_paduvan_sequence</a> (int number)</td></tr>
+<tr class="memitem:a4deba04da9d2667a31db0fb052a78a40" id="r_a4deba04da9d2667a31db0fb052a78a40"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4deba04da9d2667a31db0fb052a78a40">is_in_padovan_sequence</a> (int number)</td></tr>
+<tr class="memitem:ab91e6a53df6d04b67c234e74a6affeaf" id="r_ab91e6a53df6d04b67c234e74a6affeaf"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ab91e6a53df6d04b67c234e74a6affeaf">padovan_element</a> (int n)</td></tr>
 <tr class="memitem:a06f81ef36ccb96e0067e18710122ee32" id="r_a06f81ef36ccb96e0067e18710122ee32"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a06f81ef36ccb96e0067e18710122ee32">apply_armor</a> ()</td></tr>
 <tr class="memitem:a353cd0335adb81951dede94c73c1d6e1" id="r_a353cd0335adb81951dede94c73c1d6e1"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a353cd0335adb81951dede94c73c1d6e1">apply_sword</a> (int room)</td></tr>
 <tr class="memitem:a2ccadb2e1c6a9dffbcd8b7d2f591afad" id="r_a2ccadb2e1c6a9dffbcd8b7d2f591afad"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2ccadb2e1c6a9dffbcd8b7d2f591afad">boss_menu</a> ()</td></tr>
@@ -236,14 +237,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a872685f98efa8c800293fe2fbb12896e" name="a872685f98efa8c800293fe2fbb12896e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a872685f98efa8c800293fe2fbb12896e">&#9670;&#160;</a></span>is_in_paduvan_sequence()</h2>
+<a id="a4deba04da9d2667a31db0fb052a78a40" name="a4deba04da9d2667a31db0fb052a78a40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4deba04da9d2667a31db0fb052a78a40">&#9670;&#160;</a></span>is_in_padovan_sequence()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool is_in_paduvan_sequence </td>
+          <td class="memname">bool is_in_padovan_sequence </td>
           <td>(</td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>number</em></span></td><td>)</td>
           <td></td>
@@ -329,6 +330,30 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>mission selection menu displayed when choosing a dungeon </p>
+
+</div>
+</div>
+<a id="ab91e6a53df6d04b67c234e74a6affeaf" name="ab91e6a53df6d04b67c234e74a6affeaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab91e6a53df6d04b67c234e74a6affeaf">&#9670;&#160;</a></span>padovan_element()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int padovan_element </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Computes the n-th element of the Padovan sequence </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>index of the element </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>value of the n-th element </dd></dl>
 
 </div>
 </div>

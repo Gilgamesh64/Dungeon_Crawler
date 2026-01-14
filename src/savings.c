@@ -156,7 +156,7 @@ void save() {
     strftime(date_str, sizeof(date_str), "%d/%m/%Y", t);
     strftime(time_str, sizeof(time_str), "%H:%M:%S", t);
 
-    fprintf(f, "%s DATA , %s ORA , %d P.VITA , %d MONETE , %d OGGETTI , %d MISSIONI COMPLETATE\n",
+    fprintf(f, "%s DATA , %s ORA , %d P.VITA , %d MONETE , %ld OGGETTI , %d MISSIONI COMPLETATE\n",
             date_str,
             time_str,
             s->health_points,
@@ -180,7 +180,7 @@ void load(const char *path) {
     printf("%s\n", line);
 
     sscanf(line,
-           "%*s DATA , %*s ORA , %d P.VITA , %d MONETE , %d OGGETTI , %d MISSIONI COMPLETATE",
+           "%*s DATA , %*s ORA , %d P.VITA , %d MONETE , %ld OGGETTI , %d MISSIONI COMPLETATE",
            &data->health_points,
            &data->coins,
            &data->items,

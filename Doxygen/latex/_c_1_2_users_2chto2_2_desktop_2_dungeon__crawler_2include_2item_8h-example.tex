@@ -1,0 +1,83 @@
+\doxysection{C:\+/\+\+Users/\+chto2/\+\+Desktop/\+\+Dungeon\+\_\+\+Crawler/\+include/\+item.\+h}
+\hypertarget{_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2item_8h-example}{}\label{_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2item_8h-example}Save value:\+ 1250101
+
+Starting from the right, each digit represents the binary possession state of an item (1 = owned, 0 = not owned).
+
+For example, the item \textquotesingle{}SWORD\textquotesingle{} has an ID of 1. Since the first digit from right to left is 1, the player owns the sword.
+
+The value is retrieved using the modulo (\textquotesingle{}\textquotesingle{}) operator.
+
+The armor item has an ID of 10. Dividing 1250101 by 10 gives 125010. Taking the modulo of this result gives 0, meaning no armor is owned.
+
+Each item is associated with a specific power of 10. Dividing the save value by that power and applying modulo allows us to determine ownership.
+
+What about potions? They do not have a binary value, they are stackable Dividing 1250101 by 10000 gives 125, which represents the number of potions. To add a potion, simply add 10000 to the save value.
+
+With this method we can represent many non stackable items and one stackable item using just a single integer
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#ifndef\ ITEM\_H}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ ITEM\_H}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{data_8h}{data.h}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ NUM\_ITEMS\ 5}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ SWORD\_ID\ 1}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ ARMOR\_ID\ 10}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ KEY\_ID\ 100}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ HERO\_SWORD\_ID\ 1000}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ POTION\_ID\ 10000}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ description;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ cost;}
+\DoxyCodeLine{\}\ \doxymbox{\hyperlink{structitem__t}{item\_t}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\doxymbox{\hyperlink{structitem__t}{item\_t}}\ \doxymbox{\hyperlink{item_8h_aaa28d9e1581880cabc911586d1545456}{get\_item}}(\textcolor{keywordtype}{int}\ pos\_item);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{item_8h_a5a57ee9ee8c8ec6edb2a536f5fbdaf81}{has\_item}}(\textcolor{keywordtype}{int}\ item\_id);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{item_8h_ac495f4cca4bc23d26b574029dcb1ee42}{set\_item}}(\textcolor{keywordtype}{int}\ item\_id);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{long}\ \doxymbox{\hyperlink{item_8h_a06f6731bc393e11aeb87ba1755aac140}{get\_potions}}();}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{item_8h_a3a455470f53eea12d7c653d96274d9e4}{add\_potion}}();}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{item_8h_ac5bdc153a921934a500ed02f96db3c64}{sub\_potion}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structitem__t}{item\_t}}\ items[\doxymbox{\hyperlink{item_8h_affced4b175e803df59f802e25d017b9b}{NUM\_ITEMS}}]\ \ =\ \{}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}Pozione\ Curativa"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .description\ =\ \textcolor{stringliteral}{"{}ripristina\ fino\ a\ 6\ PUNTI\ VITA\ (lancia\ un\ dado\ a\ 6\ facce)"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .cost\ =\ 4}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}Spada"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .description\ =\ \textcolor{stringliteral}{"{}+1\ all'attacco\ dell'eroe\ (acquistabile\ una\ sola\ volta)"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .cost\ =\ 5}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}Armatura"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .description\ =\ \textcolor{stringliteral}{"{}-\/1\ al\ Danno\ del\ nemico/trappola\ (acquistabile\ una\ sola\ volta)"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .cost\ =\ 10}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}Chiave\ del\ castello\ del\ SIGNORE\ OSCURO"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .description\ =\ \textcolor{stringliteral}{"{}permette\ all'eroe\ di\ accedere\ al\ castello\ del\ SIGNORE\ OSCURO"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .cost\ =\ -\/1}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}SPADA\ DELL'EROE"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .description\ =\ \textcolor{stringliteral}{"{}+1\ all'attacco\ dell'eroe"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .cost\ =\ -\/1}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCodeInclude}
+ 

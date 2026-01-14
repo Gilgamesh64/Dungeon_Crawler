@@ -1,3 +1,16 @@
+/**
+ * @file entity.h
+ * @brief contains 3 arrays of entities, one for each dungeon
+ * 
+ * @details
+ * Each entity's index in the array is the die roll required to spawn them -1
+ * 
+ * Traps "fatal" attribute classifies special mechanics
+ * fatal = 0 ---> nothing
+ * fatal = 1 ---> random damage
+ * fatal = 2 ---> coin flip
+ * */
+
 #ifndef ENTITY_H
 #define ENTITY_H
 
@@ -14,18 +27,6 @@ typedef struct{
     const bool trap;
 } entity_t;
 
-
-/**
- * Arrays of entities, one for each room
- * Each entry contains an entity_t
- * Their index in the array is the die roll required to spawn them -1
- */
-
-/**Traps "fatal" attribute classifies special mechanics
- * fatal = 0 ---> nothing
- * fatal = 1 ---> random damage
- * fatal = 2 ---> coin flip
- * */
 
 static entity_t PALUDE_PUTRESCENTE[6] = {
     {
@@ -164,7 +165,7 @@ static entity_t GROTTA_DI_CRISTALLO[6] = {
 
 /**
  * Array of missions, each index is a mission
- * Each index in a mission is an enemy
+ * Each index in a mission is an entity
  */
 static entity_t* LEVEL_TABLE[] = {
     PALUDE_PUTRESCENTE,
@@ -173,7 +174,7 @@ static entity_t* LEVEL_TABLE[] = {
 };
 
 /**
- * @param current_level is the index in the mission array
+ * @param current_level is the index in the LEVEL_TABLE
  * the other index is the entity spawned randomly
  * @return a pointer to a random entity of the given level
  */
@@ -185,6 +186,5 @@ entity_t* spawn_entity(int current_level);
  * @return the entity with the correct id in the specified level
  */
 entity_t* get_entity(int level, int entity_id);
-
 
 #endif

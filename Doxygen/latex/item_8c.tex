@@ -34,6 +34,14 @@ Adds 1 potion to the player\textquotesingle{}s inventory \Hypertarget{item_8c_aa
 {\footnotesize\ttfamily \label{item_8c_aaa28d9e1581880cabc911586d1545456} 
 \doxymbox{\hyperlink{structitem__t}{item\+\_\+t}} get\+\_\+item (\begin{DoxyParamCaption}\item[{int}]{pos\+\_\+item}{}\end{DoxyParamCaption})}
 
+
+\begin{DoxyParams}{Parameters}
+{\em pos\+\_\+item} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the item at the position in the array 
+\end{DoxyReturn}
 \Hypertarget{item_8c_a06f6731bc393e11aeb87ba1755aac140}\index{item.c@{item.c}!get\_potions@{get\_potions}}
 \index{get\_potions@{get\_potions}!item.c@{item.c}}
 \doxysubsubsection{\texorpdfstring{get\_potions()}{get\_potions()}}
@@ -46,12 +54,25 @@ Returns the number of potions the player has \Hypertarget{item_8c_a5a57ee9ee8c8e
 {\footnotesize\ttfamily \label{item_8c_a5a57ee9ee8c8ec6edb2a536f5fbdaf81} 
 bool has\+\_\+item (\begin{DoxyParamCaption}\item[{int}]{item\+\_\+id}{}\end{DoxyParamCaption})}
 
+
+\begin{DoxyParams}{Parameters}
+{\em item\+\_\+id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if player has item 
+\end{DoxyReturn}
 \Hypertarget{item_8c_ac495f4cca4bc23d26b574029dcb1ee42}\index{item.c@{item.c}!set\_item@{set\_item}}
 \index{set\_item@{set\_item}!item.c@{item.c}}
 \doxysubsubsection{\texorpdfstring{set\_item()}{set\_item()}}
 {\footnotesize\ttfamily \label{item_8c_ac495f4cca4bc23d26b574029dcb1ee42} 
 void set\+\_\+item (\begin{DoxyParamCaption}\item[{int}]{item\+\_\+id}{}\end{DoxyParamCaption})}
 
+Gives the item to the player 
+\begin{DoxyParams}{Parameters}
+{\em item\+\_\+id} & \\
+\hline
+\end{DoxyParams}
 \Hypertarget{item_8c_ac5bdc153a921934a500ed02f96db3c64}\index{item.c@{item.c}!sub\_potion@{sub\_potion}}
 \index{sub\_potion@{sub\_potion}!item.c@{item.c}}
 \doxysubsubsection{\texorpdfstring{sub\_potion()}{sub\_potion()}}

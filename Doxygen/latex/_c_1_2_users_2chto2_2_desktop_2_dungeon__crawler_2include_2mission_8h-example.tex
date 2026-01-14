@@ -1,0 +1,58 @@
+\doxysection{C:\+/\+\+Users/\+chto2/\+\+Desktop/\+\+Dungeon\+\_\+\+Crawler/\+include/\+mission.\+h}
+\hypertarget{_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2mission_8h-example}{}\label{_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2mission_8h-example}Save value:\+ 101
+
+Starting from the right, each digit represents the binary completion state of a mission (1 = completed, 0 = not completed).
+
+For example, the mission \textquotesingle{}Palude Putrescente\textquotesingle{} has an ID of 0. We can get the index value by calculating 10\texorpdfstring{$^\wedge$}{\string^}0 = 1 Since the first digit from right to left is 1, the player completed the mission.
+
+The value is retrieved using the modulo (\textquotesingle{}\textquotesingle{}) operator.
+
+\textquotesingle{}Magione Infestata\textquotesingle{} has an ID of 1. The index value is 10\texorpdfstring{$^\wedge$}{\string^}1 = 10 Dividing 101 by 10 gives 10. Taking the modulo of this result gives 0, meaning this mission is not completed.
+
+Each mission is associated with 10 at specific power from 0 to x. Dividing the save value by 10 \texorpdfstring{$^\wedge$}{\string^} n and applying modulo allows us to determine mission completion.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#ifndef\ MISSION\_H}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ MISSION\_H}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{entity_8h}{entity.h}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ MAX\_DIM\ 10}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ SWAMP\_ID\ 0}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ MANSION\_ID\ 1}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ CAVE\_ID\ 2}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ BOSS\_ID\ 3}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{mission_8h_a15cd3b4969a391b08783597d1cec688f}{is\_boss\_unlocked\_cheating}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{structentity__t}{entity\_t}}*\ rooms[\doxymbox{\hyperlink{mission_8h_a7ba3949b1f197baf0354d41124bdbe88}{MAX\_DIM}}];}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ current\_room;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ dungeon\_id;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ target\_entity;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ target\_count;}
+\DoxyCodeLine{\}\ \doxymbox{\hyperlink{structdungeon__t}{dungeon\_t}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \doxymbox{\hyperlink{structdungeon__t}{dungeon\_t}}\ dungeon;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{mission_8h_aa554778ecc5641aa99e55d14e3e7448c}{generate\_dungeon}}(\textcolor{keywordtype}{int}\ current\_level);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\doxymbox{\hyperlink{structdungeon__t}{dungeon\_t}}*\ \doxymbox{\hyperlink{mission_8h_a61ae5ff9fc3d71f45929fe4f80880e7f}{get\_dungeon}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{mission_8h_a031084542c909d2db3b0e08b2f3899be}{complete\_mission}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ mission\_number);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{mission_8h_af34218d43d7e26ed710dfb171da4d006}{has\_completed}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ mission\_number);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{mission_8h_a86fe16216cedd9eacbb984c81f88f127}{is\_final\_mission\_unlocked}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{mission_8h_a45c1ce7cf38f55de5c9d3c41ace01760}{get\_mission\_name}}(\textcolor{keywordtype}{int}\ mission\_number);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCodeInclude}
+ 

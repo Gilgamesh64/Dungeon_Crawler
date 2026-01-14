@@ -68,7 +68,14 @@ bool dragon_combat();
  * @param number to search
  * @return true if is in sequence
  */
-bool is_in_paduvan_sequence(int number);
+bool is_in_padovan_sequence(int number);
+
+/**
+ * Computes the n-th element of the Padovan sequence
+ * @param n index of the element
+ * @return value of the n-th element
+ */
+int padovan_element(int n);
 
 /**
  * Checks if player has the armor

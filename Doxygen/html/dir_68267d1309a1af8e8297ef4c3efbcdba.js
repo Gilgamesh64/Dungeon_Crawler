@@ -7,5 +7,5 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "menu.c", "menu_8c.html", "menu_8c" ],
     [ "mission.c", "mission_8c.html", "mission_8c" ],
     [ "savings.c", "savings_8c.html", "savings_8c" ],
-    [ "Utils.c", "_utils_8c.html", "_utils_8c" ]
+    [ "utils.c", "utils_8c.html", "utils_8c" ]
 ];

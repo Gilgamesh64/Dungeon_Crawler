@@ -42,7 +42,9 @@ void \doxymbox{\hyperlink{menu_8c_a0cd083ec00c0068b9ff22fcbe355301c}{combat\+\_\
 \item 
 bool \doxymbox{\hyperlink{menu_8c_af88fcb5491892b27f2e5eddb5ad27906}{dragon\+\_\+combat}} ()
 \item 
-bool \doxymbox{\hyperlink{menu_8c_a7c1d918da936000abf8f5c51c7fc2157}{is\+\_\+in\+\_\+paduvan\+\_\+sequence}} (int n)
+bool \doxymbox{\hyperlink{menu_8c_a6697e1d49c57d0b529ae7930e8a1d7f4}{is\+\_\+in\+\_\+padovan\+\_\+sequence}} (int n)
+\item 
+int \doxymbox{\hyperlink{menu_8c_ab91e6a53df6d04b67c234e74a6affeaf}{padovan\+\_\+element}} (int n)
 \item 
 void \doxymbox{\hyperlink{menu_8c_a06f81ef36ccb96e0067e18710122ee32}{apply\+\_\+armor}} ()
 \item 
@@ -115,11 +117,11 @@ true if damage is not taken, false otherwise
 {\footnotesize\ttfamily \label{menu_8c_af1a2147c9115a283d0e43116f50535c5} 
 void inventory\+\_\+menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-inventory menu to see stats and consume potions \Hypertarget{menu_8c_a7c1d918da936000abf8f5c51c7fc2157}\index{menu.c@{menu.c}!is\_in\_paduvan\_sequence@{is\_in\_paduvan\_sequence}}
-\index{is\_in\_paduvan\_sequence@{is\_in\_paduvan\_sequence}!menu.c@{menu.c}}
-\doxysubsubsection{\texorpdfstring{is\_in\_paduvan\_sequence()}{is\_in\_paduvan\_sequence()}}
-{\footnotesize\ttfamily \label{menu_8c_a7c1d918da936000abf8f5c51c7fc2157} 
-bool is\+\_\+in\+\_\+paduvan\+\_\+sequence (\begin{DoxyParamCaption}\item[{int}]{number}{}\end{DoxyParamCaption})}
+inventory menu to see stats and consume potions \Hypertarget{menu_8c_a6697e1d49c57d0b529ae7930e8a1d7f4}\index{menu.c@{menu.c}!is\_in\_padovan\_sequence@{is\_in\_padovan\_sequence}}
+\index{is\_in\_padovan\_sequence@{is\_in\_padovan\_sequence}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{is\_in\_padovan\_sequence()}{is\_in\_padovan\_sequence()}}
+{\footnotesize\ttfamily \label{menu_8c_a6697e1d49c57d0b529ae7930e8a1d7f4} 
+bool is\+\_\+in\+\_\+padovan\+\_\+sequence (\begin{DoxyParamCaption}\item[{int}]{number}{}\end{DoxyParamCaption})}
 
 Checks if a number is in the Padovan sequence 
 \begin{DoxyParams}{Parameters}
@@ -153,7 +155,21 @@ mission menu displayed when inside a dungeon, showing action options \Hypertarge
 {\footnotesize\ttfamily \label{menu_8c_a85771da224ef739b17cd9cb2785f7f7f} 
 void mission\+\_\+selection\+\_\+menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-mission selection menu displayed when choosing a dungeon \Hypertarget{menu_8c_a3c140165b94ad5b8f89f41d8db61d302}\index{menu.c@{menu.c}!room\_menu@{room\_menu}}
+mission selection menu displayed when choosing a dungeon \Hypertarget{menu_8c_ab91e6a53df6d04b67c234e74a6affeaf}\index{menu.c@{menu.c}!padovan\_element@{padovan\_element}}
+\index{padovan\_element@{padovan\_element}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{padovan\_element()}{padovan\_element()}}
+{\footnotesize\ttfamily \label{menu_8c_ab91e6a53df6d04b67c234e74a6affeaf} 
+int padovan\+\_\+element (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+Computes the n-\/th element of the Padovan sequence 
+\begin{DoxyParams}{Parameters}
+{\em n} & index of the element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of the n-\/th element 
+\end{DoxyReturn}
+\Hypertarget{menu_8c_a3c140165b94ad5b8f89f41d8db61d302}\index{menu.c@{menu.c}!room\_menu@{room\_menu}}
 \index{room\_menu@{room\_menu}!menu.c@{menu.c}}
 \doxysubsubsection{\texorpdfstring{room\_menu()}{room\_menu()}}
 {\footnotesize\ttfamily \label{menu_8c_a3c140165b94ad5b8f89f41d8db61d302} 

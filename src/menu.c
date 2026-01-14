@@ -170,6 +170,10 @@ void village_menu() {
         click_to_continue("Operazione effettuata");
         village_menu();
         break;
+    case 4:
+        if(!select_option("Stai uscendo dal gioco ricordati di salvare la partita per non perdere i tuoi progressi. \nSei sicuro di voler procedere? ", "SI", "NO", NULL))
+            exit(0);
+        else village_menu();
 
     default:
         break;
@@ -276,7 +280,7 @@ void inventory_menu() {
     printf("Armatura: %s\n", has_item(ARMOR_ID) ? "In possesso" : "Non in possesso");
     printf("Chiave: %s\n", has_item(KEY_ID) ? "In possesso" : "Non in possesso");
     printf("Spada dell'eroe: %s\n", has_item(HERO_SWORD_ID) ? "In possesso" : "Non in possesso");
-    printf("Pozioni: %d\n", get_potions());
+    printf("Pozioni: %ld\n", get_potions());
 
     if (get_potions() > 0) {
         if (!select_option("Desideri consumare una pozione?", "SI", "NO", NULL)) {
@@ -527,7 +531,7 @@ void combat_menu() {
 
         printf("il risultato: %d\n", player_damage);
 
-        apply_sword(room_id);
+        player_damage += apply_sword(room_id);
 
         if (player_damage >= room_entity->fatal) { // kill range
             printf("Il %s viene sconfitto (%d>%d). l'eroe rimane con %d punti vita e riceve %d monete \n",
@@ -581,7 +585,7 @@ bool dragon_combat() {
     printf("Attenzione! Stai per affrontare il Drago Antico\n");
 
     int rnd = rand() % 500 + 1;
-    bool is_in = is_in_paduvan_sequence(rnd);
+    bool is_in = is_in_padovan_sequence(rnd);
 
     char text[128];
 
@@ -599,23 +603,27 @@ bool dragon_combat() {
 }
 
 // P(n) = P(n-2) + P(n-3)
-bool is_in_paduvan_sequence(int n) {
-    int pN = 1, pNmin1 = 1, pNmin2 = 1, pNmin3 = 1;
+bool is_in_padovan_sequence(int n) {
+    if (n < 1) {
+        return false;
+    }
+    int padovan_num = 0;
 
-    if (n == 1)
-        return true;
-
-    while (pN < 500) {
-        if (pN == n) {
+    for (int i = 0; padovan_num < n; i++) {
+        padovan_num = padovan_element(i);
+        if (padovan_num == n) {
             return true;
         }
-        pN = pNmin2 + pNmin3;
-        pNmin3 = pNmin2;
-        pNmin2 = pNmin1;
-        pNmin1 = pN;
     }
 
     return false;
+}
+
+int padovan_element(int n) {
+    if (n == 0 || n == 1 || n == 2) {
+        return 1; // I primi tre valori sono 1
+    }
+    return padovan_element(n - 2) + padovan_element(n - 3);
 }
 
 void apply_armor() {
@@ -650,7 +658,8 @@ void boss_menu() {
     printf("Incontri il Signore Oscuro e inizia il combattimento!\n");
     printf("Devi vincere 3 round per sconfiggerlo!\n");
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 5 && wins < 3; i++) {
+        printf("Scontro finale: \nPunteggi: Giocatore (%d), Signore Oscuro(%d)\n", wins, i-wins);
         if (shield_magic_sword()) {
             wins++;
             printf("Hai vinto questo round!\n");
@@ -688,7 +697,7 @@ bool shield_magic_sword() {
             break;
         }
 
-        computer_choice = (roll_dice() / 2) - 1;
+        computer_choice = (roll_dice() - 1) / 2;
         switch (computer_choice) {
         case 0:
             printf("Il Signore Oscuro ha scelto lo Scudo\n");
@@ -699,9 +708,7 @@ bool shield_magic_sword() {
         case 2:
             printf("Il Signore Oscuro ha scelto la Spada\n");
             break;
-
         default:
-            printf("%d\n", computer_choice);
             break;
         }
     } while (player_choice == computer_choice && printf("Pareggio!\n\n"));

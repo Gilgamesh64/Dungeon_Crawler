@@ -1,0 +1,69 @@
+\doxysection{include/\+utils.h File Reference}
+\hypertarget{utils_8h}{}\label{utils_8h}\index{include/utils.h@{include/utils.h}}
+
+
+contains utility functions that come in handy elsewere  
+
+
+{\ttfamily \+\#include $<$stddef.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{utils_8h_a4a1583b81ce21189721fbe8bb3554d49}{DICE\+\_\+\+SIDES}}~6
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{utils_8h_a196571196a7dbd0a78b9e29ea8f440a8}{roll\+\_\+dice}} (void)
+\item 
+void \doxymbox{\hyperlink{utils_8h_abc40cd622f423abf44084c8f8595f57f}{clear\+\_\+screen}} (void)
+\item 
+void \doxymbox{\hyperlink{utils_8h_a45f8c842a83546a4acc8d6b09247db86}{click\+\_\+to\+\_\+continue}} (char \texorpdfstring{$\ast$}{*}string)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+contains utility functions that come in handy elsewere 
+
+
+
+\label{doc-define-members}
+\Hypertarget{utils_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{utils_8h_a4a1583b81ce21189721fbe8bb3554d49}\index{utils.h@{utils.h}!DICE\_SIDES@{DICE\_SIDES}}
+\index{DICE\_SIDES@{DICE\_SIDES}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{DICE\_SIDES}{DICE\_SIDES}}
+{\footnotesize\ttfamily \label{utils_8h_a4a1583b81ce21189721fbe8bb3554d49} 
+\+\#define DICE\+\_\+\+SIDES~6}
+
+
+
+\label{doc-func-members}
+\Hypertarget{utils_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{utils_8h_abc40cd622f423abf44084c8f8595f57f}\index{utils.h@{utils.h}!clear\_screen@{clear\_screen}}
+\index{clear\_screen@{clear\_screen}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{clear\_screen()}{clear\_screen()}}
+{\footnotesize\ttfamily \label{utils_8h_abc40cd622f423abf44084c8f8595f57f} 
+void clear\+\_\+screen (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Clears the terminal screen \Hypertarget{utils_8h_a45f8c842a83546a4acc8d6b09247db86}\index{utils.h@{utils.h}!click\_to\_continue@{click\_to\_continue}}
+\index{click\_to\_continue@{click\_to\_continue}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{click\_to\_continue()}{click\_to\_continue()}}
+{\footnotesize\ttfamily \label{utils_8h_a45f8c842a83546a4acc8d6b09247db86} 
+void click\+\_\+to\+\_\+continue (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{string}{}\end{DoxyParamCaption})}
+
+Waits for a user click to continue 
+\begin{DoxyParams}{Parameters}
+{\em string} & to show the user \textquotesingle{}Clicca per continuare\textquotesingle{} if empty \\
+\hline
+\end{DoxyParams}
+\Hypertarget{utils_8h_a196571196a7dbd0a78b9e29ea8f440a8}\index{utils.h@{utils.h}!roll\_dice@{roll\_dice}}
+\index{roll\_dice@{roll\_dice}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{roll\_dice()}{roll\_dice()}}
+{\footnotesize\ttfamily \label{utils_8h_a196571196a7dbd0a78b9e29ea8f440a8} 
+int roll\+\_\+dice (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+the result of the die roll 
+\end{DoxyReturn}

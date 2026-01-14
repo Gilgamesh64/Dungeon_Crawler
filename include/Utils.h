@@ -1,3 +1,9 @@
+/**
+ * @file utils.h
+ * 
+ * @brief contains utility functions that come in handy elsewere
+ */
+
 #ifndef UTILS_H
 #define UTILS_H
 

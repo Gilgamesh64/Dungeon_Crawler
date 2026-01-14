@@ -91,6 +91,9 @@ $(function(){initNavTree('entity_8h.html','',''); });
   <div class="headertitle"><div class="title">entity.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>contains 3 arrays of entities, one for each dungeon  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
 </div>
 <p><a href="entity_8h_source.html">Go to the source code of this file.</a></p>
@@ -104,7 +107,11 @@ Functions</h2></td></tr>
 <tr class="memitem:aabd0dc1f1427898ad2cfc9d0fadd0a8a" id="r_aabd0dc1f1427898ad2cfc9d0fadd0a8a"><td class="memItemLeft"><a class="el" href="structentity__t.html">entity_t</a> *&#160;</td><td class="memItemRight"><a class="el" href="#aabd0dc1f1427898ad2cfc9d0fadd0a8a">spawn_entity</a> (int current_level)</td></tr>
 <tr class="memitem:acb425dd1c21984a7513fb81c87ebba52" id="r_acb425dd1c21984a7513fb81c87ebba52"><td class="memItemLeft"><a class="el" href="structentity__t.html">entity_t</a> *&#160;</td><td class="memItemRight"><a class="el" href="#acb425dd1c21984a7513fb81c87ebba52">get_entity</a> (int level, int entity_id)</td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>contains 3 arrays of entities, one for each dungeon </p>
+<p>Each entity's index in the array is the die roll required to spawn them -1</p>
+<p>Traps "fatal" attribute classifies special mechanics fatal = 0 ---&gt; nothing fatal = 1 ---&gt; random damage fatal = 2 ---&gt; coin flip </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="acb425dd1c21984a7513fb81c87ebba52" name="acb425dd1c21984a7513fb81c87ebba52"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acb425dd1c21984a7513fb81c87ebba52">&#9670;&#160;</a></span>get_entity()</h2>
 
@@ -150,7 +157,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">current_level</td><td>is the index in the mission array the other index is the entity spawned randomly </td></tr>
+    <tr><td class="paramname">current_level</td><td>is the index in the LEVEL_TABLE the other index is the entity spawned randomly </td></tr>
   </table>
   </dd>
 </dl>

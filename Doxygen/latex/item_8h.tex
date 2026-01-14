@@ -1,5 +1,10 @@
 \doxysection{include/\+item.h File Reference}
 \hypertarget{item_8h}{}\label{item_8h}\index{include/item.h@{include/item.h}}
+
+
+handles items and collectibles  
+
+
 {\ttfamily \+\#include "{}data.\+h"{}}\newline
 {\ttfamily \+\#include $<$stdbool.\+h$>$}\newline
 \doxysubsubsection*{Data Structures}
@@ -25,7 +30,7 @@ struct \doxymbox{\hyperlink{structitem__t}{item\+\_\+t}}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\doxymbox{\hyperlink{structitem__t}{item\+\_\+t}} \doxymbox{\hyperlink{item_8h_ad3202e79b7e7b4d85d18ffbdb28da550}{get\+\_\+item}} (int)
+\doxymbox{\hyperlink{structitem__t}{item\+\_\+t}} \doxymbox{\hyperlink{item_8h_aaa28d9e1581880cabc911586d1545456}{get\+\_\+item}} (int pos\+\_\+item)
 \item 
 bool \doxymbox{\hyperlink{item_8h_a5a57ee9ee8c8ec6edb2a536f5fbdaf81}{has\+\_\+item}} (int item\+\_\+id)
 \item 
@@ -38,6 +43,18 @@ void \doxymbox{\hyperlink{item_8h_a3a455470f53eea12d7c653d96274d9e4}{add\+\_\+po
 void \doxymbox{\hyperlink{item_8h_ac5bdc153a921934a500ed02f96db3c64}{sub\+\_\+potion}} ()
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+handles items and collectibles 
+
+Each item has its associated value that is power of ten.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{savings_8h}{savings.\+h} In \doxylink{savings_8h_aae2c382151ef7c9aa913361172b30db6}{save} files, items are stored as a single integer value. 
+
+\doxylink{mission_8h}{mission.\+h} that uses a similar method
+\end{DoxySeeAlso}
+How? Well... 
 
 \label{doc-define-members}
 \Hypertarget{item_8h_doc-define-members}
@@ -66,6 +83,9 @@ void \doxymbox{\hyperlink{item_8h_ac5bdc153a921934a500ed02f96db3c64}{sub\+\_\+po
 {\footnotesize\ttfamily \label{item_8h_affced4b175e803df59f802e25d017b9b} 
 \+\#define NUM\+\_\+\+ITEMS~5}
 
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2item_8h-example}{C:\+/\+\+Users/\+chto2/\+\+Desktop/\+\+Dungeon\+\_\+\+Crawler/\+include/\+item.\+h}}.\end{Desc}
 \Hypertarget{item_8h_a4df3dc4d89ca73e449c1a65a11f02a07}\index{item.h@{item.h}!POTION\_ID@{POTION\_ID}}
 \index{POTION\_ID@{POTION\_ID}!item.h@{item.h}}
 \doxysubsubsection{\texorpdfstring{POTION\_ID}{POTION\_ID}}
@@ -89,34 +109,72 @@ void \doxymbox{\hyperlink{item_8h_ac5bdc153a921934a500ed02f96db3c64}{sub\+\_\+po
 {\footnotesize\ttfamily \label{item_8h_a3a455470f53eea12d7c653d96274d9e4} 
 void add\+\_\+potion (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-Adds 1 potion to the player\textquotesingle{}s inventory \Hypertarget{item_8h_ad3202e79b7e7b4d85d18ffbdb28da550}\index{item.h@{item.h}!get\_item@{get\_item}}
+Adds 1 potion to the player\textquotesingle{}s inventory \begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2item_8h-example}{C:\+/\+\+Users/\+chto2/\+\+Desktop/\+\+Dungeon\+\_\+\+Crawler/\+include/\+item.\+h}}.\end{Desc}
+\Hypertarget{item_8h_aaa28d9e1581880cabc911586d1545456}\index{item.h@{item.h}!get\_item@{get\_item}}
 \index{get\_item@{get\_item}!item.h@{item.h}}
 \doxysubsubsection{\texorpdfstring{get\_item()}{get\_item()}}
-{\footnotesize\ttfamily \label{item_8h_ad3202e79b7e7b4d85d18ffbdb28da550} 
+{\footnotesize\ttfamily \label{item_8h_aaa28d9e1581880cabc911586d1545456} 
 \doxymbox{\hyperlink{structitem__t}{item\+\_\+t}} get\+\_\+item (\begin{DoxyParamCaption}\item[{int}]{pos\+\_\+item}{}\end{DoxyParamCaption})}
 
+
+\begin{DoxyParams}{Parameters}
+{\em pos\+\_\+item} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the item at the position in the array 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2item_8h-example}{C:\+/\+\+Users/\+chto2/\+\+Desktop/\+\+Dungeon\+\_\+\+Crawler/\+include/\+item.\+h}}.\end{Desc}
 \Hypertarget{item_8h_a06f6731bc393e11aeb87ba1755aac140}\index{item.h@{item.h}!get\_potions@{get\_potions}}
 \index{get\_potions@{get\_potions}!item.h@{item.h}}
 \doxysubsubsection{\texorpdfstring{get\_potions()}{get\_potions()}}
 {\footnotesize\ttfamily \label{item_8h_a06f6731bc393e11aeb87ba1755aac140} 
 long get\+\_\+potions (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-Returns the number of potions the player has \Hypertarget{item_8h_a5a57ee9ee8c8ec6edb2a536f5fbdaf81}\index{item.h@{item.h}!has\_item@{has\_item}}
+Returns the number of potions the player has \begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2item_8h-example}{C:\+/\+\+Users/\+chto2/\+\+Desktop/\+\+Dungeon\+\_\+\+Crawler/\+include/\+item.\+h}}.\end{Desc}
+\Hypertarget{item_8h_a5a57ee9ee8c8ec6edb2a536f5fbdaf81}\index{item.h@{item.h}!has\_item@{has\_item}}
 \index{has\_item@{has\_item}!item.h@{item.h}}
 \doxysubsubsection{\texorpdfstring{has\_item()}{has\_item()}}
 {\footnotesize\ttfamily \label{item_8h_a5a57ee9ee8c8ec6edb2a536f5fbdaf81} 
 bool has\+\_\+item (\begin{DoxyParamCaption}\item[{int}]{item\+\_\+id}{}\end{DoxyParamCaption})}
 
+
+\begin{DoxyParams}{Parameters}
+{\em item\+\_\+id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if player has item 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2item_8h-example}{C:\+/\+\+Users/\+chto2/\+\+Desktop/\+\+Dungeon\+\_\+\+Crawler/\+include/\+item.\+h}}.\end{Desc}
 \Hypertarget{item_8h_ac495f4cca4bc23d26b574029dcb1ee42}\index{item.h@{item.h}!set\_item@{set\_item}}
 \index{set\_item@{set\_item}!item.h@{item.h}}
 \doxysubsubsection{\texorpdfstring{set\_item()}{set\_item()}}
 {\footnotesize\ttfamily \label{item_8h_ac495f4cca4bc23d26b574029dcb1ee42} 
 void set\+\_\+item (\begin{DoxyParamCaption}\item[{int}]{item\+\_\+id}{}\end{DoxyParamCaption})}
 
+Gives the item to the player 
+\begin{DoxyParams}{Parameters}
+{\em item\+\_\+id} & \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2item_8h-example}{C:\+/\+\+Users/\+chto2/\+\+Desktop/\+\+Dungeon\+\_\+\+Crawler/\+include/\+item.\+h}}.\end{Desc}
 \Hypertarget{item_8h_ac5bdc153a921934a500ed02f96db3c64}\index{item.h@{item.h}!sub\_potion@{sub\_potion}}
 \index{sub\_potion@{sub\_potion}!item.h@{item.h}}
 \doxysubsubsection{\texorpdfstring{sub\_potion()}{sub\_potion()}}
 {\footnotesize\ttfamily \label{item_8h_ac5bdc153a921934a500ed02f96db3c64} 
 void sub\+\_\+potion (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-Subtracts 1 potion from the player\textquotesingle{}s inventory 
+Subtracts 1 potion from the player\textquotesingle{}s inventory \begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_c_1_2_users_2chto2_2_desktop_2_dungeon__crawler_2include_2item_8h-example}{C:\+/\+\+Users/\+chto2/\+\+Desktop/\+\+Dungeon\+\_\+\+Crawler/\+include/\+item.\+h}}.\end{Desc}

@@ -6,5 +6,5 @@ var dir_d44c64559bbebec7f509842c48db8b23 =
     [ "menu.h", "menu_8h.html", "menu_8h" ],
     [ "mission.h", "mission_8h.html", "mission_8h" ],
     [ "savings.h", "savings_8h.html", "savings_8h" ],
-    [ "Utils.h", "_utils_8h.html", "_utils_8h" ]
+    [ "utils.h", "utils_8h.html", "utils_8h" ]
 ];
