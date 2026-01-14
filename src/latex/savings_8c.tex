@@ -1,0 +1,100 @@
+\doxysection{savings.\+c File Reference}
+\hypertarget{savings_8c}{}\label{savings_8c}\index{savings.c@{savings.c}}
+{\ttfamily \+\#include "{}savings.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{savings_8c_aeae3258787d18c9f0adc2a38146eeab7}{get\+\_\+file\+\_\+name}} (char \texorpdfstring{$\ast$}{*}buf, int index)
+\item 
+int \doxymbox{\hyperlink{savings_8c_a3f26cbdbc200bbae3eb27fc128ea4293}{get\+\_\+file\+\_\+index}} (const char \texorpdfstring{$\ast$}{*}filename)
+\item 
+int \doxymbox{\hyperlink{savings_8c_a685700028a727d0db01d3636d64d5f8b}{count\+\_\+files}} ()
+\item 
+int \doxymbox{\hyperlink{savings_8c_a382736cbbbaff5510ba74a19fc645c3b}{get\+\_\+last\+\_\+index}} ()
+\item 
+int \doxymbox{\hyperlink{savings_8c_a41a5401a9b42d5de4ba6a998f7159607}{get\+\_\+nth\+\_\+index}} (int n)
+\item 
+void \doxymbox{\hyperlink{savings_8c_a603b7cd2d3a278de4bf33f5cc5a74998}{read\+\_\+inside}} (const char \texorpdfstring{$\ast$}{*}path, char \texorpdfstring{$\ast$}{*}buf, size\+\_\+t bufsize)
+\item 
+void \doxymbox{\hyperlink{savings_8c_a59e55c111a076c6d16d8a8da5c7ff311}{get\+\_\+all\+\_\+saves}} (char \texorpdfstring{$\ast$}{*}buffers\+[$\,$]\+)
+\item 
+void \doxymbox{\hyperlink{savings_8c_aae2c382151ef7c9aa913361172b30db6}{save}} ()
+\item 
+void \doxymbox{\hyperlink{savings_8c_a7566cd98b40a972a3101a421ca874a04}{load}} (const char \texorpdfstring{$\ast$}{*}path)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{savings_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{savings_8c_a685700028a727d0db01d3636d64d5f8b}\index{savings.c@{savings.c}!count\_files@{count\_files}}
+\index{count\_files@{count\_files}!savings.c@{savings.c}}
+\doxysubsubsection{\texorpdfstring{count\_files()}{count\_files()}}
+{\footnotesize\ttfamily \label{savings_8c_a685700028a727d0db01d3636d64d5f8b} 
+int count\+\_\+files (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{savings_8c_a59e55c111a076c6d16d8a8da5c7ff311}\index{savings.c@{savings.c}!get\_all\_saves@{get\_all\_saves}}
+\index{get\_all\_saves@{get\_all\_saves}!savings.c@{savings.c}}
+\doxysubsubsection{\texorpdfstring{get\_all\_saves()}{get\_all\_saves()}}
+{\footnotesize\ttfamily \label{savings_8c_a59e55c111a076c6d16d8a8da5c7ff311} 
+void get\+\_\+all\+\_\+saves (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buffers}{\+[$\,$]\+}\end{DoxyParamCaption})}
+
+\Hypertarget{savings_8c_a3f26cbdbc200bbae3eb27fc128ea4293}\index{savings.c@{savings.c}!get\_file\_index@{get\_file\_index}}
+\index{get\_file\_index@{get\_file\_index}!savings.c@{savings.c}}
+\doxysubsubsection{\texorpdfstring{get\_file\_index()}{get\_file\_index()}}
+{\footnotesize\ttfamily \label{savings_8c_a3f26cbdbc200bbae3eb27fc128ea4293} 
+int get\+\_\+file\+\_\+index (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})}
+
+EX. savings2.\+txt, savings3.\+txt, savings10.\+txt; filename = "{}savings3.\+txt"{} returns 3 \begin{DoxyReturn}{Returns}
+the index of the file 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & to search \\
+\hline
+\end{DoxyParams}
+\Hypertarget{savings_8c_aeae3258787d18c9f0adc2a38146eeab7}\index{savings.c@{savings.c}!get\_file\_name@{get\_file\_name}}
+\index{get\_file\_name@{get\_file\_name}!savings.c@{savings.c}}
+\doxysubsubsection{\texorpdfstring{get\_file\_name()}{get\_file\_name()}}
+{\footnotesize\ttfamily \label{savings_8c_aeae3258787d18c9f0adc2a38146eeab7} 
+void get\+\_\+file\+\_\+name (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buf}{, }\item[{int}]{index}{}\end{DoxyParamCaption})}
+
+\Hypertarget{savings_8c_a382736cbbbaff5510ba74a19fc645c3b}\index{savings.c@{savings.c}!get\_last\_index@{get\_last\_index}}
+\index{get\_last\_index@{get\_last\_index}!savings.c@{savings.c}}
+\doxysubsubsection{\texorpdfstring{get\_last\_index()}{get\_last\_index()}}
+{\footnotesize\ttfamily \label{savings_8c_a382736cbbbaff5510ba74a19fc645c3b} 
+int get\+\_\+last\+\_\+index (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{savings_8c_a41a5401a9b42d5de4ba6a998f7159607}\index{savings.c@{savings.c}!get\_nth\_index@{get\_nth\_index}}
+\index{get\_nth\_index@{get\_nth\_index}!savings.c@{savings.c}}
+\doxysubsubsection{\texorpdfstring{get\_nth\_index()}{get\_nth\_index()}}
+{\footnotesize\ttfamily \label{savings_8c_a41a5401a9b42d5de4ba6a998f7159607} 
+int get\+\_\+nth\+\_\+index (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+\Hypertarget{savings_8c_a7566cd98b40a972a3101a421ca874a04}\index{savings.c@{savings.c}!load@{load}}
+\index{load@{load}!savings.c@{savings.c}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily \label{savings_8c_a7566cd98b40a972a3101a421ca874a04} 
+void load (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{path}{}\end{DoxyParamCaption})}
+
+\Hypertarget{savings_8c_a603b7cd2d3a278de4bf33f5cc5a74998}\index{savings.c@{savings.c}!read\_inside@{read\_inside}}
+\index{read\_inside@{read\_inside}!savings.c@{savings.c}}
+\doxysubsubsection{\texorpdfstring{read\_inside()}{read\_inside()}}
+{\footnotesize\ttfamily \label{savings_8c_a603b7cd2d3a278de4bf33f5cc5a74998} 
+void read\+\_\+inside (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{path}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{buf}{, }\item[{size\+\_\+t}]{bufsize}{}\end{DoxyParamCaption})}
+
+Reads inside a file and puts its content into a buffer 
+\begin{DoxyParams}{Parameters}
+{\em path} & to the file \\
+\hline
+{\em buf} & \\
+\hline
+{\em bufsize} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{savings_8c_aae2c382151ef7c9aa913361172b30db6}\index{savings.c@{savings.c}!save@{save}}
+\index{save@{save}!savings.c@{savings.c}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily \label{savings_8c_aae2c382151ef7c9aa913361172b30db6} 
+void save (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+

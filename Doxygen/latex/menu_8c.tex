@@ -1,0 +1,211 @@
+\doxysection{src/\+menu.c File Reference}
+\hypertarget{menu_8c}{}\label{menu_8c}\index{src/menu.c@{src/menu.c}}
+{\ttfamily \+\#include "{}menu.\+h"{}}\newline
+{\ttfamily \+\#include "{}data.\+h"{}}\newline
+{\ttfamily \+\#include "{}entity.\+h"{}}\newline
+{\ttfamily \+\#include "{}item.\+h"{}}\newline
+{\ttfamily \+\#include "{}mission.\+h"{}}\newline
+{\ttfamily \+\#include "{}savings.\+h"{}}\newline
+{\ttfamily \+\#include "{}utils.\+h"{}}\newline
+{\ttfamily \+\#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdio.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \+\#include $<$string.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{menu_8c_a13c8c54ba52090e4f161e08757ff6a67}{select\+\_\+option}} (const char \texorpdfstring{$\ast$}{*}prompt, const char \texorpdfstring{$\ast$}{*}first,...)
+\item 
+int \doxymbox{\hyperlink{menu_8c_a09105b34927f33f78c4452c0e8082dba}{select\+\_\+option\+\_\+array}} (const char \texorpdfstring{$\ast$}{*}prompt, const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}options, int count)
+\item 
+void \doxymbox{\hyperlink{menu_8c_a885611589f6294afada89fe88362e863}{main\+\_\+menu}} ()
+\item 
+void \doxymbox{\hyperlink{menu_8c_ad67ef6d267da530b6006a77e1123b619}{main\+\_\+menu\+\_\+cheats}} ()
+\item 
+void \doxymbox{\hyperlink{menu_8c_a6966b4dcec76606f660b5cec87d2293f}{village\+\_\+menu}} ()
+\item 
+void \doxymbox{\hyperlink{menu_8c_a85771da224ef739b17cd9cb2785f7f7f}{mission\+\_\+selection\+\_\+menu}} ()
+\item 
+void \doxymbox{\hyperlink{menu_8c_aa0e011e3fe1ae014e7a4ec553af53216}{mission\+\_\+menu}} ()
+\item 
+void \doxymbox{\hyperlink{menu_8c_af1a2147c9115a283d0e43116f50535c5}{inventory\+\_\+menu}} ()
+\item 
+void \doxymbox{\hyperlink{menu_8c_a3b0dfbf1ea01a5782db3a5bb04c2e928}{shop\+\_\+menu}} ()
+\item 
+void \doxymbox{\hyperlink{menu_8c_a87491ad00ad956d24fac53cd77c610b0}{save\+\_\+menu}} ()
+\item 
+void \doxymbox{\hyperlink{menu_8c_a3c140165b94ad5b8f89f41d8db61d302}{room\+\_\+menu}} ()
+\item 
+void \doxymbox{\hyperlink{menu_8c_ac8a43ace0c9223bedd5f32df44d254ec}{trap\+\_\+menu}} ()
+\item 
+void \doxymbox{\hyperlink{menu_8c_a0cd083ec00c0068b9ff22fcbe355301c}{combat\+\_\+menu}} ()
+\item 
+bool \doxymbox{\hyperlink{menu_8c_af88fcb5491892b27f2e5eddb5ad27906}{dragon\+\_\+combat}} ()
+\item 
+bool \doxymbox{\hyperlink{menu_8c_a7c1d918da936000abf8f5c51c7fc2157}{is\+\_\+in\+\_\+paduvan\+\_\+sequence}} (int n)
+\item 
+void \doxymbox{\hyperlink{menu_8c_a06f81ef36ccb96e0067e18710122ee32}{apply\+\_\+armor}} ()
+\item 
+int \doxymbox{\hyperlink{menu_8c_a353cd0335adb81951dede94c73c1d6e1}{apply\+\_\+sword}} (int room)
+\item 
+void \doxymbox{\hyperlink{menu_8c_a2ccadb2e1c6a9dffbcd8b7d2f591afad}{boss\+\_\+menu}} ()
+\item 
+bool \doxymbox{\hyperlink{menu_8c_a26027a2fb463fca2fcf832f75f6715aa}{shield\+\_\+magic\+\_\+sword}} (int player\+\_\+choice)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{menu_8c_aaecdc3cd4e6183dc29362d00766e778c}{has\+\_\+cheats}} = true
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{menu_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{menu_8c_a06f81ef36ccb96e0067e18710122ee32}\index{menu.c@{menu.c}!apply\_armor@{apply\_armor}}
+\index{apply\_armor@{apply\_armor}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{apply\_armor()}{apply\_armor()}}
+{\footnotesize\ttfamily \label{menu_8c_a06f81ef36ccb96e0067e18710122ee32} 
+void apply\+\_\+armor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8c_a353cd0335adb81951dede94c73c1d6e1}\index{menu.c@{menu.c}!apply\_sword@{apply\_sword}}
+\index{apply\_sword@{apply\_sword}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{apply\_sword()}{apply\_sword()}}
+{\footnotesize\ttfamily \label{menu_8c_a353cd0335adb81951dede94c73c1d6e1} 
+int apply\+\_\+sword (\begin{DoxyParamCaption}\item[{int}]{room}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8c_a2ccadb2e1c6a9dffbcd8b7d2f591afad}\index{menu.c@{menu.c}!boss\_menu@{boss\_menu}}
+\index{boss\_menu@{boss\_menu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{boss\_menu()}{boss\_menu()}}
+{\footnotesize\ttfamily \label{menu_8c_a2ccadb2e1c6a9dffbcd8b7d2f591afad} 
+void boss\+\_\+menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8c_a0cd083ec00c0068b9ff22fcbe355301c}\index{menu.c@{menu.c}!combat\_menu@{combat\_menu}}
+\index{combat\_menu@{combat\_menu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{combat\_menu()}{combat\_menu()}}
+{\footnotesize\ttfamily \label{menu_8c_a0cd083ec00c0068b9ff22fcbe355301c} 
+void combat\+\_\+menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8c_af88fcb5491892b27f2e5eddb5ad27906}\index{menu.c@{menu.c}!dragon\_combat@{dragon\_combat}}
+\index{dragon\_combat@{dragon\_combat}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{dragon\_combat()}{dragon\_combat()}}
+{\footnotesize\ttfamily \label{menu_8c_af88fcb5491892b27f2e5eddb5ad27906} 
+bool dragon\+\_\+combat (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8c_af1a2147c9115a283d0e43116f50535c5}\index{menu.c@{menu.c}!inventory\_menu@{inventory\_menu}}
+\index{inventory\_menu@{inventory\_menu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{inventory\_menu()}{inventory\_menu()}}
+{\footnotesize\ttfamily \label{menu_8c_af1a2147c9115a283d0e43116f50535c5} 
+void inventory\+\_\+menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8c_a7c1d918da936000abf8f5c51c7fc2157}\index{menu.c@{menu.c}!is\_in\_paduvan\_sequence@{is\_in\_paduvan\_sequence}}
+\index{is\_in\_paduvan\_sequence@{is\_in\_paduvan\_sequence}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{is\_in\_paduvan\_sequence()}{is\_in\_paduvan\_sequence()}}
+{\footnotesize\ttfamily \label{menu_8c_a7c1d918da936000abf8f5c51c7fc2157} 
+bool is\+\_\+in\+\_\+paduvan\+\_\+sequence (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8c_a885611589f6294afada89fe88362e863}\index{menu.c@{menu.c}!main\_menu@{main\_menu}}
+\index{main\_menu@{main\_menu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{main\_menu()}{main\_menu()}}
+{\footnotesize\ttfamily \label{menu_8c_a885611589f6294afada89fe88362e863} 
+void main\+\_\+menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8c_ad67ef6d267da530b6006a77e1123b619}\index{menu.c@{menu.c}!main\_menu\_cheats@{main\_menu\_cheats}}
+\index{main\_menu\_cheats@{main\_menu\_cheats}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{main\_menu\_cheats()}{main\_menu\_cheats()}}
+{\footnotesize\ttfamily \label{menu_8c_ad67ef6d267da530b6006a77e1123b619} 
+void main\+\_\+menu\+\_\+cheats (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8c_aa0e011e3fe1ae014e7a4ec553af53216}\index{menu.c@{menu.c}!mission\_menu@{mission\_menu}}
+\index{mission\_menu@{mission\_menu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{mission\_menu()}{mission\_menu()}}
+{\footnotesize\ttfamily \label{menu_8c_aa0e011e3fe1ae014e7a4ec553af53216} 
+void mission\+\_\+menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8c_a85771da224ef739b17cd9cb2785f7f7f}\index{menu.c@{menu.c}!mission\_selection\_menu@{mission\_selection\_menu}}
+\index{mission\_selection\_menu@{mission\_selection\_menu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{mission\_selection\_menu()}{mission\_selection\_menu()}}
+{\footnotesize\ttfamily \label{menu_8c_a85771da224ef739b17cd9cb2785f7f7f} 
+void mission\+\_\+selection\+\_\+menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8c_a3c140165b94ad5b8f89f41d8db61d302}\index{menu.c@{menu.c}!room\_menu@{room\_menu}}
+\index{room\_menu@{room\_menu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{room\_menu()}{room\_menu()}}
+{\footnotesize\ttfamily \label{menu_8c_a3c140165b94ad5b8f89f41d8db61d302} 
+void room\+\_\+menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8c_a87491ad00ad956d24fac53cd77c610b0}\index{menu.c@{menu.c}!save\_menu@{save\_menu}}
+\index{save\_menu@{save\_menu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{save\_menu()}{save\_menu()}}
+{\footnotesize\ttfamily \label{menu_8c_a87491ad00ad956d24fac53cd77c610b0} 
+void save\+\_\+menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8c_a13c8c54ba52090e4f161e08757ff6a67}\index{menu.c@{menu.c}!select\_option@{select\_option}}
+\index{select\_option@{select\_option}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{select\_option()}{select\_option()}}
+{\footnotesize\ttfamily \label{menu_8c_a13c8c54ba52090e4f161e08757ff6a67} 
+int select\+\_\+option (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{prompt}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{first}{, }\item[{}]{...}{}\end{DoxyParamCaption})}
+
+Creates a menu asking the user for a selection Ex:\+ select("{}\+Pick an option:\+ "{}, "{}\+Menu"{}, "{}\+Settings"{}, "{}\+Quit"{}, NULL) 
+\begin{DoxyParams}{Parameters}
+{\em prompt} & to ask the user for input \\
+\hline
+{\em first} & list of strings that will form the menu ended with NULL \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+selected number 
+\end{DoxyReturn}
+\Hypertarget{menu_8c_a09105b34927f33f78c4452c0e8082dba}\index{menu.c@{menu.c}!select\_option\_array@{select\_option\_array}}
+\index{select\_option\_array@{select\_option\_array}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{select\_option\_array()}{select\_option\_array()}}
+{\footnotesize\ttfamily \label{menu_8c_a09105b34927f33f78c4452c0e8082dba} 
+int select\+\_\+option\+\_\+array (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{prompt}{, }\item[{const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{options}{, }\item[{int}]{count}{}\end{DoxyParamCaption})}
+
+Creates a menu asking the user for a selection 
+\begin{DoxyParams}{Parameters}
+{\em prompt} & to ask the user for input \\
+\hline
+{\em options} & array of strings to display as menu \\
+\hline
+{\em count} & number of strings in the array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+selected number (0-\/based index) 
+\end{DoxyReturn}
+\Hypertarget{menu_8c_a26027a2fb463fca2fcf832f75f6715aa}\index{menu.c@{menu.c}!shield\_magic\_sword@{shield\_magic\_sword}}
+\index{shield\_magic\_sword@{shield\_magic\_sword}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{shield\_magic\_sword()}{shield\_magic\_sword()}}
+{\footnotesize\ttfamily \label{menu_8c_a26027a2fb463fca2fcf832f75f6715aa} 
+bool shield\+\_\+magic\+\_\+sword (\begin{DoxyParamCaption}\item[{int}]{player\+\_\+choice}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8c_a3b0dfbf1ea01a5782db3a5bb04c2e928}\index{menu.c@{menu.c}!shop\_menu@{shop\_menu}}
+\index{shop\_menu@{shop\_menu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{shop\_menu()}{shop\_menu()}}
+{\footnotesize\ttfamily \label{menu_8c_a3b0dfbf1ea01a5782db3a5bb04c2e928} 
+void shop\+\_\+menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8c_ac8a43ace0c9223bedd5f32df44d254ec}\index{menu.c@{menu.c}!trap\_menu@{trap\_menu}}
+\index{trap\_menu@{trap\_menu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{trap\_menu()}{trap\_menu()}}
+{\footnotesize\ttfamily \label{menu_8c_ac8a43ace0c9223bedd5f32df44d254ec} 
+void trap\+\_\+menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8c_a6966b4dcec76606f660b5cec87d2293f}\index{menu.c@{menu.c}!village\_menu@{village\_menu}}
+\index{village\_menu@{village\_menu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{village\_menu()}{village\_menu()}}
+{\footnotesize\ttfamily \label{menu_8c_a6966b4dcec76606f660b5cec87d2293f} 
+void village\+\_\+menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{menu_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{menu_8c_aaecdc3cd4e6183dc29362d00766e778c}\index{menu.c@{menu.c}!has\_cheats@{has\_cheats}}
+\index{has\_cheats@{has\_cheats}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{has\_cheats}{has\_cheats}}
+{\footnotesize\ttfamily \label{menu_8c_aaecdc3cd4e6183dc29362d00766e778c} 
+bool has\+\_\+cheats = true}
+
