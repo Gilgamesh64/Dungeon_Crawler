@@ -47,6 +47,8 @@ void generate_dungeon(int current_level) {
     }
 }
 
+bool is_boss_unlocked_cheating = false;
+
 void complete_mission(const int mission_number){
     get_game_data() -> missions_completed += pow(10, mission_number);
 }
@@ -56,7 +58,7 @@ bool has_completed(const int mission_number){
 }
 
 bool is_final_mission_unlocked(){
-    return has_completed(SWAMP_ID) && has_completed(MANSION_ID) && has_completed(CAVE_ID);
+    return (has_completed(SWAMP_ID) && has_completed(MANSION_ID) && has_completed(CAVE_ID)) || is_boss_unlocked_cheating;
 }
 
 char* get_mission_name(int mission_number){

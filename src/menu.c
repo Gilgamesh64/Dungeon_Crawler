@@ -65,7 +65,7 @@ int select_option_array(const char *prompt, const char **options, int count) {
     }
 
     do {
-        printf("Select [1-%d]: ", count);
+        printf("Seleziona [1-%d]: ", count);
         if (scanf("%d", &selection) != 1) {
             while (getchar() != '\n')
                 ;
@@ -75,14 +75,74 @@ int select_option_array(const char *prompt, const char **options, int count) {
     return selection - 1;
 }
 
+bool has_cheats = true;
+
 void main_menu() {
     clear_screen();
-    switch (select_option("Menu principale: ", "Nuova partita", "Carica salvataggio", NULL)) {
+    if (has_cheats) {
+        main_menu_cheats();
+        return;
+    }
+    printf("Menu principale:\n");
+    printf("1. Nuova partita\n");
+    printf("2. Carica salvataggio\n");
+
+    char *konami = "wwssadadba ";
+    int konami_index = 0;
+
+    int selection = 0;
+    char input;
+
+    while (1) {
+        printf("Seleziona [1-2]: ");
+
+        input = getchar();
+
+        while (getchar() != '\n')
+            ;
+
+        if (input == '1' || input == '2') {
+            selection = input - '1';
+            break;
+        }
+
+        if (input == konami[konami_index]) {
+            konami_index++;
+
+            if (konami[konami_index] == '\0') {
+                has_cheats = true;
+                printf("CHEATS!\n");
+                main_menu_cheats();
+            }
+        } else {
+            konami_index = 0;
+        }
+    }
+    switch (selection) {
     case 0:
+        reset_data();
         village_menu();
         break;
 
     case 1:
+        save_menu();
+        break;
+    default:
+        break;
+    }
+}
+
+void main_menu_cheats() {
+    clear_screen();
+    switch (select_option("Menu principale:", "Nuova partita", "Carica salvataggio", "Trucchi", NULL)) {
+    case 0:
+        reset_data();
+        village_menu();
+        break;
+    case 1:
+        save_menu();
+        break;
+    case 2:
         save_menu();
         break;
     default:
@@ -120,9 +180,29 @@ void village_menu() {
 void mission_selection_menu() {
     clear_screen();
 
-    if(is_final_mission_unlocked()) {
-        select_option("Menu di Selezione Missione: ", "Castello del signore Oscuro", NULL);
-        boss_menu();
+    if (is_final_mission_unlocked()) {
+        const char *available_missions[4];
+        int available_indexes[4];
+        int available_count = 0;
+
+        for (int i = 0; i < 4; i++) {
+            if (!has_completed(i)) {
+                available_missions[available_count] = get_mission_name(i);
+                available_indexes[available_count] = i;
+                available_count++;
+            }
+        }
+        int choice = select_option_array("Menu di Selezione Missione: ", available_missions, available_count);
+
+        int mission_index = available_indexes[choice];
+        if (mission_index == BOSS_ID)
+            boss_menu();
+        else {
+            generate_dungeon(mission_index);
+
+            mission_menu();
+        }
+
         return;
     }
     const char *available_missions[3];
@@ -131,7 +211,7 @@ void mission_selection_menu() {
 
     for (int i = 0; i < 3; i++) {
         if (!has_completed(i)) {
-            available_missions[available_count] = get_mission_name(i); 
+            available_missions[available_count] = get_mission_name(i);
             available_indexes[available_count] = i;
             available_count++;
         }
@@ -145,48 +225,38 @@ void mission_selection_menu() {
     mission_menu();
 }
 
-void save_menu() {
+void mission_menu() {
     clear_screen();
 
-    int file_count = count_files();
-
-    if (file_count <= 0) {
-        printf("Nessun salvataggio trovato.\n");
-        return;
-    }
-
-    char file_buffers[file_count][256];
-    const char *all_text[file_count];
-
-    for (int i = 0; i <= file_count; i++) {
-        all_text[i] = file_buffers[i];
-    }
-
-    get_all_saves((char **)all_text);
-
-    int choice = select_option_array("Seleziona un file di salvataggio:", all_text, file_count);
-
-    char filename[100];
-    get_file_name(filename, get_nth_index(choice + 1));
-
-    printf("\n");
-
-    switch (select_option("Seleziona un opzione sul salvataggio: ", "Carica", "Elimina", NULL)) {
+    switch (select_option("Menu di Missione: ", "Esplora stanza del Dungeon", "Negozio", "Inventario", "Torna al Villaggio", NULL)) {
     case 0:
-        load(filename);
-        village_menu();
+        room_menu();
+        get_dungeon()->current_room++;
+        break;
+    case 1:
+        shop_menu();
+        break;
+    case 2:
+        inventory_menu();
+        break;
+    case 3:
+        if (!select_option("Ti costera' 50 monete, sei sicuro?", "SI", "NO", NULL)) {
+            if (get_game_data()->coins >= 50) {
+                get_game_data()->coins -= 50;
+                complete_mission(get_dungeon()->dungeon);
+                click_to_continue("Ritornando al menu di villaggio\n");
+                village_menu();
+            } else {
+                printf("Non hai abbastanza monete\n");
+            }
+        }
         break;
 
-    case 1:
-        if (!select_option("Sei sicuro di voler eliminare definitivamente il salvataggio?: ", "SI", "NO", NULL)) {
-            remove(filename);
-            main_menu();
-        } else
-            save_menu();
-        break;
     default:
         break;
     }
+    click_to_continue("");
+    mission_menu();
 }
 
 void inventory_menu() {
@@ -263,38 +333,106 @@ void shop_menu() {
     printf("Comprato con successo!\n");
 }
 
-void mission_menu() {
+void save_menu() {
     clear_screen();
 
-    switch (select_option("Menu di Missione: ", "Esplora stanza del Dungeon", "Negozio", "Inventario", "Torna al Villaggio", NULL)) {
-    case 0:
-        room_menu();
-        get_dungeon()->current_room++;
-        break;
-    case 1:
-        shop_menu();
-        break;
-    case 2:
-        inventory_menu();
-        break;
-    case 3:
-        if (!select_option("Ti costera' 50 monete, sei sicuro?", "SI", "NO", NULL)) {
-            if (get_game_data()->coins >= 50) {
-                get_game_data()->coins -= 50;
-                complete_mission(get_dungeon()->dungeon);
-                click_to_continue("Ritornando al menu di villaggio\n");
-                village_menu();
-            } else {
-                printf("Non hai abbastanza monete\n");
-            }
-        }
-        break;
+    int file_count = count_files();
 
-    default:
-        break;
+    if (file_count <= 0) {
+        printf("Nessun salvataggio trovato.\n");
+        return;
     }
-    click_to_continue("");
-    mission_menu();
+
+    char file_buffers[file_count][256];
+    const char *all_text[file_count];
+
+    for (int i = 0; i <= file_count; i++) {
+        all_text[i] = file_buffers[i];
+    }
+
+    get_all_saves((char **)all_text);
+
+    if (has_cheats)
+        printf("I trucchi sono attivi!\n");
+
+    int choice = select_option_array("Seleziona un file di salvataggio:", all_text, file_count);
+
+    char filename[100];
+    get_file_name(filename, get_nth_index(choice + 1));
+
+    printf("\n");
+
+    if (!has_cheats) {
+        switch (select_option("Seleziona un opzione sul salvataggio: ", "Carica", "Elimina", NULL)) {
+        case 0:
+            load(filename);
+            village_menu();
+            break;
+
+        case 1:
+            if (!select_option("Sei sicuro di voler eliminare definitivamente il salvataggio?: ", "SI", "NO", NULL)) {
+                remove(filename);
+                main_menu();
+            } else
+                save_menu();
+            break;
+        default:
+            break;
+        }
+    } else {
+        switch (select_option("Seleziona un opzione sul salvataggio: ", "Carica", "Elimina", "Modifica", NULL)) {
+        case 0:
+            load(filename);
+            village_menu();
+            break;
+
+        case 1:
+            if (!select_option("Sei sicuro di voler eliminare definitivamente il salvataggio?: ", "SI", "NO", NULL)) {
+                remove(filename);
+                main_menu();
+            } else
+                save_menu();
+            break;
+        case 2:
+            switch (select_option("Seleziona l'opzione per i trucchi:", "Vita", "Monete", "Sblocco missione finale", NULL)) {
+            case 0:
+                int health_tmp = 0;
+                printf("Inserisci la vita del giocatore: ");
+                if (scanf("%u", &health_tmp) == 1 && health_tmp >= 0) {
+                    unsigned int health = (unsigned int)health_tmp;
+                    load(filename);
+                    get_game_data()->health_points = health;
+                    save();
+                } else
+                    printf("Valore non valido!\n");
+
+                main_menu_cheats();
+
+                break;
+            case 1:
+                int money_tmp = 0;
+                printf("Inserisci il numero di monete del giocatore: ");
+                if (scanf("%u", &money_tmp) == 1 && money_tmp >= 0) {
+                    unsigned int money = (unsigned int)money_tmp;
+                    load(filename);
+                    get_game_data()->coins = money;
+                    save();
+                } else
+                    printf("Valore non valido!\n");
+
+                main_menu_cheats();
+                break;
+            case 2:
+                is_boss_unlocked_cheating = true;
+                main_menu_cheats();
+                break;
+            default:
+                break;
+            }
+        default:
+            break;
+        }
+    }
 }
 
 void room_menu() {
@@ -362,55 +500,6 @@ void trap_menu() {
     health_control();
 }
 
-void apply_armor() {
-    if (has_item(ARMOR_ID)) {
-        get_game_data()->health_points += 1;
-        printf("Grazie all'armatura subisci 1 di danno in meno\n");
-    }
-}
-
-int apply_sword(int room) {
-    int bonus = 0;
-    if (has_item(HERO_SWORD_ID)) {
-        bonus += 2;
-        printf("Grazie alla spada dell'eroe, il giocatore effettua due di danno aggiuntivi\n");
-
-        if (!strcmp(get_dungeon()->rooms[room]->name, (&LEVEL_TABLE[0][5])->name)) { // Generale Orco della Palude Putrescente
-            bonus += 1;                                                              // il generale orco prende un danno extra dalla spada dell'eroe
-            printf("Grazie alla spada dell'eroe, il Generale Orco subisce uno di danno in più");
-        }
-
-    } else if (has_item(SWORD_ID)) {
-        bonus += 1;
-        printf("Grazie alla spada, il giocatore effettua uno di danno aggiuntivo\n");
-    }
-    return bonus;
-}
-
-/**
- * @return true if damage is not taken, false otherwise
- */
-bool dragon_combat(int room) {
-    printf("Attenzione! Stai per affrontare il Drago Antico\n");
-
-    int rnd = rand() % 500 + 1;
-    bool is_in = is_in_paduvan_sequence(rnd);
-
-    char text[128];
-
-    snprintf(
-        text,
-        sizeof(text),
-        "Il Drago ti chiede: il numero %d fa parte della sequenza di Padovan?",
-        rnd);
-
-    if (is_in == !select_option(text, "SI", "NO", NULL)) {
-        printf("Hai indovinato! Il drago non ti attacca\n");
-        return true;
-    }
-    return false;
-}
-
 void combat_menu() {
     int room = get_dungeon()->current_room;
     int player_damage;
@@ -439,7 +528,7 @@ void combat_menu() {
                    player_damage,
                    get_dungeon()->rooms[room]->fatal);
 
-            if (!strcmp(get_dungeon()->rooms[room]->name, "Drago Antico") && dragon_combat(room))
+            if (!strcmp(get_dungeon()->rooms[room]->name, "Drago Antico") && dragon_combat())
                 continue;
 
             get_game_data()->health_points -= get_dungeon()->rooms[room]->damage;
@@ -474,9 +563,76 @@ void combat_menu() {
     }
 }
 
+bool dragon_combat() {
+    printf("Attenzione! Stai per affrontare il Drago Antico\n");
+
+    int rnd = rand() % 500 + 1;
+    bool is_in = is_in_paduvan_sequence(rnd);
+
+    char text[128];
+
+    snprintf(
+        text,
+        sizeof(text),
+        "Il Drago ti chiede: il numero %d fa parte della sequenza di Padovan?",
+        rnd);
+
+    if (is_in == !select_option(text, "SI", "NO", NULL)) {
+        printf("Hai indovinato! Il drago non ti attacca\n");
+        return true;
+    }
+    return false;
+}
+
+// P(n) = P(n-2) + P(n-3)
+bool is_in_paduvan_sequence(int n) {
+    int pN = 1, pNmin1 = 1, pNmin2 = 1, pNmin3 = 1;
+
+    if (n == 1)
+        return true;
+
+    while (pN < 500) {
+        if (pN == n) {
+            return true;
+        }
+        pN = pNmin2 + pNmin3;
+        pNmin3 = pNmin2;
+        pNmin2 = pNmin1;
+        pNmin1 = pN;
+    }
+
+    return false;
+}
+
+void apply_armor() {
+    if (has_item(ARMOR_ID)) {
+        get_game_data()->health_points += 1;
+        printf("Grazie all'armatura subisci 1 di danno in meno\n");
+    }
+}
+
+int apply_sword(int room) {
+    int bonus = 0;
+    if (has_item(HERO_SWORD_ID)) {
+        bonus += 2;
+        printf("Grazie alla spada dell'eroe, il giocatore effettua due di danno aggiuntivi\n");
+
+        if (!strcmp(get_dungeon()->rooms[room]->name, (&LEVEL_TABLE[0][5])->name)) { // Generale Orco della Palude Putrescente
+            bonus += 1;                                                              // il generale orco prende un danno extra dalla spada dell'eroe
+            printf("Grazie alla spada dell'eroe, il Generale Orco subisce uno di danno in più");
+        }
+
+    } else if (has_item(SWORD_ID)) {
+        bonus += 1;
+        printf("Grazie alla spada, il giocatore effettua uno di danno aggiuntivo\n");
+    }
+    return bonus;
+}
+
 void boss_menu() {
     clear_screen();
-
+    complete_mission(BOSS_ID);
+    save();
     int wins = 0;
 
     printf("Incontri il Signore Oscuro e inizia il combattimento!\n");
@@ -504,26 +660,6 @@ void boss_menu() {
             wins++;
         }
     }
-}
-
-// P(n) = P(n-2) + P(n-3)
-bool is_in_paduvan_sequence(int n) {
-    int pN = 1, pNmin1 = 1, pNmin2 = 1, pNmin3 = 1;
-
-    if (n == 1)
-        return true;
-
-    while (pN < 500) {
-        if (pN == n) {
-            return true;
-        }
-        pN = pNmin2 + pNmin3;
-        pNmin3 = pNmin2;
-        pNmin2 = pNmin1;
-        pNmin1 = pN;
-    }
-
-    return false;
 }
 
 bool shield_magic_sword(int player_choice) {

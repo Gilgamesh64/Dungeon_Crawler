@@ -10,6 +10,8 @@
 #define CAVE_ID 2
 #define BOSS_ID 3
 
+extern bool is_boss_unlocked_cheating;
+
 typedef struct{
     const Entity* rooms[MAX_DIM];
     int current_room;
