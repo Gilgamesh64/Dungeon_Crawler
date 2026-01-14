@@ -1,0 +1,87 @@
+\doxysection{C:\+/\+\+UNIPROGRAMMING/\+\+Dungeon\+\_\+\+Crawler/\+include/\+data.h File Reference}
+\hypertarget{data_8h}{}\label{data_8h}\index{C:/UNIPROGRAMMING/Dungeon\_Crawler/include/data.h@{C:/UNIPROGRAMMING/Dungeon\_Crawler/include/data.h}}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_game_data}{Game\+Data}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{data_8h_a1da6bd0b256c5cd560a2b3e83ba792a9}{DEFAULT\+\_\+\+HEALTH}}~20
+\item 
+\+\#define \doxymbox{\hyperlink{data_8h_a14b97eeb5f84f201d880de4601ac1cd7}{DEFAULT\+\_\+\+MONEY}}~0
+\item 
+\+\#define \doxymbox{\hyperlink{data_8h_a2ec4bcefc7815c035965790d4eae700f}{DEFAULT\+\_\+\+ITEMS}}~0
+\item 
+\+\#define \doxymbox{\hyperlink{data_8h_ad9daf461f7f84db1945d55beecee801f}{DEFAULT\+\_\+\+QUESTS}}~0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_game_data}{Game\+Data}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{data_8h_ae155cb1523b14aaa677f6a92cda9d780}{get\+\_\+game\+\_\+data}} (void)
+\item 
+void \doxymbox{\hyperlink{data_8h_aa0237fad8860ec61a8b83d078db0dc3a}{print\+\_\+data}} ()
+\item 
+void \doxymbox{\hyperlink{data_8h_a29761642853e026d4b5091057dce4e2a}{reset\+\_\+data}} ()
+\item 
+void \doxymbox{\hyperlink{data_8h_aa73daa48c235907188790a183955c075}{health\+\_\+control}} ()
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{data_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{data_8h_a1da6bd0b256c5cd560a2b3e83ba792a9}\index{data.h@{data.h}!DEFAULT\_HEALTH@{DEFAULT\_HEALTH}}
+\index{DEFAULT\_HEALTH@{DEFAULT\_HEALTH}!data.h@{data.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_HEALTH}{DEFAULT\_HEALTH}}
+{\footnotesize\ttfamily \label{data_8h_a1da6bd0b256c5cd560a2b3e83ba792a9} 
+\+\#define DEFAULT\+\_\+\+HEALTH~20}
+
+\Hypertarget{data_8h_a2ec4bcefc7815c035965790d4eae700f}\index{data.h@{data.h}!DEFAULT\_ITEMS@{DEFAULT\_ITEMS}}
+\index{DEFAULT\_ITEMS@{DEFAULT\_ITEMS}!data.h@{data.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_ITEMS}{DEFAULT\_ITEMS}}
+{\footnotesize\ttfamily \label{data_8h_a2ec4bcefc7815c035965790d4eae700f} 
+\+\#define DEFAULT\+\_\+\+ITEMS~0}
+
+\Hypertarget{data_8h_a14b97eeb5f84f201d880de4601ac1cd7}\index{data.h@{data.h}!DEFAULT\_MONEY@{DEFAULT\_MONEY}}
+\index{DEFAULT\_MONEY@{DEFAULT\_MONEY}!data.h@{data.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_MONEY}{DEFAULT\_MONEY}}
+{\footnotesize\ttfamily \label{data_8h_a14b97eeb5f84f201d880de4601ac1cd7} 
+\+\#define DEFAULT\+\_\+\+MONEY~0}
+
+\Hypertarget{data_8h_ad9daf461f7f84db1945d55beecee801f}\index{data.h@{data.h}!DEFAULT\_QUESTS@{DEFAULT\_QUESTS}}
+\index{DEFAULT\_QUESTS@{DEFAULT\_QUESTS}!data.h@{data.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_QUESTS}{DEFAULT\_QUESTS}}
+{\footnotesize\ttfamily \label{data_8h_ad9daf461f7f84db1945d55beecee801f} 
+\+\#define DEFAULT\+\_\+\+QUESTS~0}
+
+
+
+\label{doc-func-members}
+\Hypertarget{data_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{data_8h_ae155cb1523b14aaa677f6a92cda9d780}\index{data.h@{data.h}!get\_game\_data@{get\_game\_data}}
+\index{get\_game\_data@{get\_game\_data}!data.h@{data.h}}
+\doxysubsubsection{\texorpdfstring{get\_game\_data()}{get\_game\_data()}}
+{\footnotesize\ttfamily \label{data_8h_ae155cb1523b14aaa677f6a92cda9d780} 
+\doxymbox{\hyperlink{struct_game_data}{Game\+Data}} \texorpdfstring{$\ast$}{*} get\+\_\+game\+\_\+data (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Returns the pointer to the static game data object \Hypertarget{data_8h_aa73daa48c235907188790a183955c075}\index{data.h@{data.h}!health\_control@{health\_control}}
+\index{health\_control@{health\_control}!data.h@{data.h}}
+\doxysubsubsection{\texorpdfstring{health\_control()}{health\_control()}}
+{\footnotesize\ttfamily \label{data_8h_aa73daa48c235907188790a183955c075} 
+void health\+\_\+control (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Checks if player health is in bounds 0\texorpdfstring{$<$}{<}health\texorpdfstring{$<$}{<}=20 \Hypertarget{data_8h_aa0237fad8860ec61a8b83d078db0dc3a}\index{data.h@{data.h}!print\_data@{print\_data}}
+\index{print\_data@{print\_data}!data.h@{data.h}}
+\doxysubsubsection{\texorpdfstring{print\_data()}{print\_data()}}
+{\footnotesize\ttfamily \label{data_8h_aa0237fad8860ec61a8b83d078db0dc3a} 
+void print\+\_\+data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Prints current game data \Hypertarget{data_8h_a29761642853e026d4b5091057dce4e2a}\index{data.h@{data.h}!reset\_data@{reset\_data}}
+\index{reset\_data@{reset\_data}!data.h@{data.h}}
+\doxysubsubsection{\texorpdfstring{reset\_data()}{reset\_data()}}
+{\footnotesize\ttfamily \label{data_8h_a29761642853e026d4b5091057dce4e2a} 
+void reset\+\_\+data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+

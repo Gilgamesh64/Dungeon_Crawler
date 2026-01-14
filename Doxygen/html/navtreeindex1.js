@@ -1,0 +1,25 @@
+var NAVTREEINDEX1 =
+{
+"struct_entity.html":[0,0,5],
+"struct_entity.html#a3a1c61edfdbeb9e42b1fb903fd6d7fa2":[0,0,5,1],
+"struct_entity.html#a42fda7754cbd9b3fd18b935ae7feba8f":[0,0,5,0],
+"struct_entity.html#a60bc99904e88d525691ba4d95eeec115":[0,0,5,2],
+"struct_entity.html#a8f8f80d37794cde9472343e4487ba3eb":[0,0,5,3],
+"struct_entity.html#aa061113ad7ac07fe91509f7c4623e3ec":[0,0,5,4],
+"struct_game_data.html":[0,0,6],
+"struct_game_data.html#a026071c2e868cf179cb874a4ec488881":[0,0,6,2],
+"struct_game_data.html#a1d87fe0313d702730e60619d35bbd715":[0,0,6,1],
+"struct_game_data.html#ab793bd9e8316c02d39301d77b78abb33":[0,0,6,3],
+"struct_game_data.html#ad7b19ae27c8e920ec00b72fb993ebd1e":[0,0,6,0],
+"struct_item.html":[0,0,7],
+"struct_item.html#a68344fa88cf4e86b5079fd69a5c22d57":[0,0,7,1],
+"struct_item.html#a8f8f80d37794cde9472343e4487ba3eb":[0,0,7,2],
+"struct_item.html#aaa398efc91112baf0044148c7c57e6ab":[0,0,7,0],
+"structdirent.html":[0,0,3],
+"structdirent.html#a0078b5647e07a71090b0c3ad9472e47e":[0,0,3,1],
+"structdirent.html#a0bc15e144b59629f870aa6721f478873":[0,0,3,2],
+"structdirent.html#a5dcf8717d3debeb6afeffea4bd800aeb":[0,0,3,4],
+"structdirent.html#a99fb04cb6bdd50269a43db3550c69415":[0,0,3,5],
+"structdirent.html#aa122f5b37f08479dc97ffe54af17ffa3":[0,0,3,0],
+"structdirent.html#acf8f6470a264ad9217c2a1ec2cf3c3ab":[0,0,3,3]
+};

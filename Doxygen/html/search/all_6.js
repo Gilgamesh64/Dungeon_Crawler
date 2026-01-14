@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['has_5fcheats_0',['has_cheats',['../menu_8c.html#aaecdc3cd4e6183dc29362d00766e778c',1,'menu.c']]],
-  ['has_5fcompleted_1',['has_completed',['../mission_8c.html#af34218d43d7e26ed710dfb171da4d006',1,'mission.c']]],
-  ['has_5fitem_2',['has_item',['../item_8c.html#a5a57ee9ee8c8ec6edb2a536f5fbdaf81',1,'item.c']]],
-  ['health_5fcontrol_3',['health_control',['../data_8c.html#aa73daa48c235907188790a183955c075',1,'data.c']]]
+  ['fatal_0',['fatal',['../struct_entity.html#a60bc99904e88d525691ba4d95eeec115',1,'Entity']]],
+  ['file_5fattribute_5fdevice_1',['FILE_ATTRIBUTE_DEVICE',['../dirent_8h.html#aacf8e3610f58598b1cb40df6d3e216a9',1,'dirent.h']]],
+  ['filename_5fmax_2',['FILENAME_MAX',['../dirent_8h.html#aada6f64b4a36eb39c9b4cfd44eef7b36',1,'dirent.h']]]
 ];

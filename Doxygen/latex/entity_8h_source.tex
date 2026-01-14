@@ -1,0 +1,167 @@
+\doxysection{entity.\+h}
+\hypertarget{entity_8h_source}{}\label{entity_8h_source}\index{C:/UNIPROGRAMMING/Dungeon\_Crawler/include/entity.h@{C:/UNIPROGRAMMING/Dungeon\_Crawler/include/entity.h}}
+\doxymbox{\hyperlink{entity_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ENTITY\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ENTITY\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{struct_entity_a8f8f80d37794cde9472343e4487ba3eb}{name}};}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_entity_a60bc99904e88d525691ba4d95eeec115}{fatal}};}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_entity_a3a1c61edfdbeb9e42b1fb903fd6d7fa2}{damage}};}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_entity_a42fda7754cbd9b3fd18b935ae7feba8f}{coins}};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{struct_entity_aa061113ad7ac07fe91509f7c4623e3ec}{trap}};}
+\DoxyCodeLine{00015\ \}\ \doxymbox{\hyperlink{struct_entity}{Entity}};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_entity}{Entity}}\ PALUDE\_PUTRESCENTE[6]\ =\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ .name\ \ =\ \textcolor{stringliteral}{"{}Cane\ Selvaggio"{}},}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ .fatal\ =\ 2,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ .damage\ =\ 1,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ .coins\ =\ 0,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ .trap\ =\ \textcolor{keyword}{false}}
+\DoxyCodeLine{00037\ \ \ \ \ \},}
+\DoxyCodeLine{00038\ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ .name\ \ =\ \textcolor{stringliteral}{"{}Goblin"{}},}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ .fatal\ =\ 3,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ .damage\ =\ 2,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ .coins\ =\ 2,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ .trap\ =\ \textcolor{keyword}{false}}
+\DoxyCodeLine{00044\ \ \ \ \ \},}
+\DoxyCodeLine{00045\ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ .name\ \ =\ \textcolor{stringliteral}{"{}Scheletro"{}},}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ .fatal\ =\ 4,}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ .damage\ =\ 2,}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ .coins\ =\ 4,}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ .trap\ =\ \textcolor{keyword}{false}}
+\DoxyCodeLine{00051\ \ \ \ \ \},}
+\DoxyCodeLine{00052\ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ .name\ \ =\ \textcolor{stringliteral}{"{}Orco"{}},}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ .fatal\ =\ 3,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ .damage\ =\ 4,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ .coins\ =\ 6,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ .trap\ =\ \textcolor{keyword}{false}}
+\DoxyCodeLine{00058\ \ \ \ \ \},}
+\DoxyCodeLine{00059\ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ .name\ \ =\ \textcolor{stringliteral}{"{}Acquitrino\ Velenoso"{}},}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ .fatal\ =\ 1,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ .damage\ =\ 0,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ .coins\ =\ 0,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ .trap\ =\ \textcolor{keyword}{true}}
+\DoxyCodeLine{00065\ \ \ \ \ \},}
+\DoxyCodeLine{00066\ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ .name\ \ =\ \textcolor{stringliteral}{"{}Generale\ Orco"{}},}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ .fatal\ =\ 6,}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ .damage\ =\ 3,}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ .coins\ =\ 12,}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ .trap\ =\ \textcolor{keyword}{false}}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_entity}{Entity}}\ MAGIONE\_INFESTATA[6]\ =\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ .name\ \ =\ \textcolor{stringliteral}{"{}Botola\ Buia"{}},}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ .fatal\ =\ 0,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ .damage\ =\ 3,}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ .coins\ =\ 0,}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ .trap\ =\ \textcolor{keyword}{true}}
+\DoxyCodeLine{00082\ \ \ \ \ \},}
+\DoxyCodeLine{00083\ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ .name\ \ =\ \textcolor{stringliteral}{"{}Pipistrello"{}},}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ .fatal\ =\ 2,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ .damage\ =\ 2,}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ .coins\ =\ 1,}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ .trap\ =\ \textcolor{keyword}{false}}
+\DoxyCodeLine{00089\ \ \ \ \ \},}
+\DoxyCodeLine{00090\ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ .name\ \ =\ \textcolor{stringliteral}{"{}Zombie"{}},}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ .fatal\ =\ 3,}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ .damage\ =\ 2,}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ .coins\ =\ 2,}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ .trap\ =\ \textcolor{keyword}{false}}
+\DoxyCodeLine{00096\ \ \ \ \ \},}
+\DoxyCodeLine{00097\ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ .name\ \ =\ \textcolor{stringliteral}{"{}Fantasma"{}},}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ .fatal\ =\ 5,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ .damage\ =\ 2,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ .coins\ =\ 4,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ .trap\ =\ \textcolor{keyword}{false}}
+\DoxyCodeLine{00103\ \ \ \ \ \},}
+\DoxyCodeLine{00104\ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ .name\ \ =\ \textcolor{stringliteral}{"{}Vampiro\ Superiore"{}},}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ .fatal\ =\ 4,}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ .damage\ =\ 4,}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ .coins\ =\ 7,}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ .trap\ =\ \textcolor{keyword}{false}}
+\DoxyCodeLine{00110\ \ \ \ \ \},}
+\DoxyCodeLine{00111\ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ .name\ \ =\ \textcolor{stringliteral}{"{}Demone\ Custode"{}},}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ .fatal\ =\ 4,}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ .damage\ =\ 6,}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ .coins\ =\ 10,}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ .trap\ =\ \textcolor{keyword}{false}}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_entity}{Entity}}\ GROTTA\_DI\_CRISTALLO[6]\ =\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ .name\ \ =\ \textcolor{stringliteral}{"{}Stanza\ Vuota"{}},}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ .fatal\ =\ 0,}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ .damage\ =\ 0,}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ .coins\ =\ 0,}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ .trap\ =\ \textcolor{keyword}{false}}
+\DoxyCodeLine{00127\ \ \ \ \ \},}
+\DoxyCodeLine{00128\ \ \ \ \ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ .name\ \ =\ \textcolor{stringliteral}{"{}Cristalli\ Cadenti"{}},}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ .fatal\ =\ 0,}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ .damage\ =\ 2,}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ .coins\ =\ 0,}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ .trap\ =\ \textcolor{keyword}{true}}
+\DoxyCodeLine{00134\ \ \ \ \ \},}
+\DoxyCodeLine{00135\ \ \ \ \ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ .name\ \ =\ \textcolor{stringliteral}{"{}Ponte\ Pericolante"{}},}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ .fatal\ =\ 0,}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ .damage\ =\ 0,}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ .coins\ =\ -\/3,}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ .trap\ =\ \textcolor{keyword}{true}}
+\DoxyCodeLine{00141\ \ \ \ \ \},}
+\DoxyCodeLine{00142\ \ \ \ \ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ .name\ \ =\ \textcolor{stringliteral}{"{}Forziere\ Misterioso"{}},}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ .fatal\ =\ 2,}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ .damage\ =\ 2,}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ .coins\ =\ 10,}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ .trap\ =\ \textcolor{keyword}{true}}
+\DoxyCodeLine{00148\ \ \ \ \ \},}
+\DoxyCodeLine{00149\ \ \ \ \ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ .name\ \ =\ \textcolor{stringliteral}{"{}Rupe\ Scoscesa"{}},}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ .fatal\ =\ 1,}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ .damage\ =\ 0,}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ .coins\ =\ 0,}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ .trap\ =\ \textcolor{keyword}{true}}
+\DoxyCodeLine{00155\ \ \ \ \ \},}
+\DoxyCodeLine{00156\ \ \ \ \ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ .name\ \ =\ \textcolor{stringliteral}{"{}Drago\ Antico"{}},}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ .fatal\ =\ 5,}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ .damage\ =\ 10,}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ .coins\ =\ 12,}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ .trap\ =\ \textcolor{keyword}{false}}
+\DoxyCodeLine{00162\ \ \ \ \ \}}
+\DoxyCodeLine{00163\ \};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00169\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_entity}{Entity}}*\ LEVEL\_TABLE[]\ =\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ PALUDE\_PUTRESCENTE,}
+\DoxyCodeLine{00171\ \ \ \ \ MAGIONE\_INFESTATA,}
+\DoxyCodeLine{00172\ \ \ \ \ GROTTA\_DI\_CRISTALLO}
+\DoxyCodeLine{00173\ \};}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00178\ \doxymbox{\hyperlink{struct_entity}{Entity}}*\ \doxymbox{\hyperlink{entity_8h_aac7901f6f68a9c06e24ecd9b3374c903}{spawn\_entity}}(\textcolor{keywordtype}{int}\ current\_level);}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

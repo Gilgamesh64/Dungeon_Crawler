@@ -1,11 +1,11 @@
-\doxysection{src/\+item.c File Reference}
-\hypertarget{item_8c}{}\label{item_8c}\index{src/item.c@{src/item.c}}
+\doxysection{C:\+/\+\+UNIPROGRAMMING/\+\+Dungeon\+\_\+\+Crawler/\+src/\+item.c File Reference}
+\hypertarget{item_8c}{}\label{item_8c}\index{C:/UNIPROGRAMMING/Dungeon\_Crawler/src/item.c@{C:/UNIPROGRAMMING/Dungeon\_Crawler/src/item.c}}
 {\ttfamily \+\#include "{}item.\+h"{}}\newline
 {\ttfamily \+\#include $<$stdio.\+h$>$}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-Item \doxymbox{\hyperlink{item_8c_ae3b20602d3ba11c03435e8df4cc9ca58}{get\+\_\+item}} (int pos\+\_\+item)
+\doxymbox{\hyperlink{struct_item}{Item}} \doxymbox{\hyperlink{item_8c_ae3b20602d3ba11c03435e8df4cc9ca58}{get\+\_\+item}} (int pos\+\_\+item)
 \item 
 bool \doxymbox{\hyperlink{item_8c_a5a57ee9ee8c8ec6edb2a536f5fbdaf81}{has\+\_\+item}} (int item\+\_\+id)
 \item 
@@ -28,11 +28,11 @@ void \doxymbox{\hyperlink{item_8c_ac5bdc153a921934a500ed02f96db3c64}{sub\+\_\+po
 {\footnotesize\ttfamily \label{item_8c_a3a455470f53eea12d7c653d96274d9e4} 
 void add\+\_\+potion (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{item_8c_ae3b20602d3ba11c03435e8df4cc9ca58}\index{item.c@{item.c}!get\_item@{get\_item}}
+Adds 1 potion to the player\textquotesingle{}s inventory \Hypertarget{item_8c_ae3b20602d3ba11c03435e8df4cc9ca58}\index{item.c@{item.c}!get\_item@{get\_item}}
 \index{get\_item@{get\_item}!item.c@{item.c}}
 \doxysubsubsection{\texorpdfstring{get\_item()}{get\_item()}}
 {\footnotesize\ttfamily \label{item_8c_ae3b20602d3ba11c03435e8df4cc9ca58} 
-Item get\+\_\+item (\begin{DoxyParamCaption}\item[{int}]{pos\+\_\+item}{}\end{DoxyParamCaption})}
+\doxymbox{\hyperlink{struct_item}{Item}} get\+\_\+item (\begin{DoxyParamCaption}\item[{int}]{pos\+\_\+item}{}\end{DoxyParamCaption})}
 
 \Hypertarget{item_8c_a06f6731bc393e11aeb87ba1755aac140}\index{item.c@{item.c}!get\_potions@{get\_potions}}
 \index{get\_potions@{get\_potions}!item.c@{item.c}}
@@ -40,7 +40,7 @@ Item get\+\_\+item (\begin{DoxyParamCaption}\item[{int}]{pos\+\_\+item}{}\end{Do
 {\footnotesize\ttfamily \label{item_8c_a06f6731bc393e11aeb87ba1755aac140} 
 long get\+\_\+potions (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{item_8c_a5a57ee9ee8c8ec6edb2a536f5fbdaf81}\index{item.c@{item.c}!has\_item@{has\_item}}
+Returns the number of potions the player has \Hypertarget{item_8c_a5a57ee9ee8c8ec6edb2a536f5fbdaf81}\index{item.c@{item.c}!has\_item@{has\_item}}
 \index{has\_item@{has\_item}!item.c@{item.c}}
 \doxysubsubsection{\texorpdfstring{has\_item()}{has\_item()}}
 {\footnotesize\ttfamily \label{item_8c_a5a57ee9ee8c8ec6edb2a536f5fbdaf81} 
@@ -58,3 +58,4 @@ void set\+\_\+item (\begin{DoxyParamCaption}\item[{int}]{item\+\_\+id}{}\end{Dox
 {\footnotesize\ttfamily \label{item_8c_ac5bdc153a921934a500ed02f96db3c64} 
 void sub\+\_\+potion (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+Subtracts 1 potion from the player\textquotesingle{}s inventory 

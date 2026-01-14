@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['clear_5fscreen_0',['clear_screen',['../_utils_8c.html#abc40cd622f423abf44084c8f8595f57f',1,'Utils.c']]],
-  ['click_5fto_5fcontinue_1',['click_to_continue',['../_utils_8c.html#a45f8c842a83546a4acc8d6b09247db86',1,'Utils.c']]],
-  ['combat_5fmenu_2',['combat_menu',['../menu_8c.html#a0cd083ec00c0068b9ff22fcbe355301c',1,'menu.c']]],
-  ['complete_5fmission_3',['complete_mission',['../mission_8c.html#a031084542c909d2db3b0e08b2f3899be',1,'mission.c']]],
-  ['count_5ffiles_4',['count_files',['../savings_8c.html#a685700028a727d0db01d3636d64d5f8b',1,'savings.c']]]
+  ['boss_5fid_0',['BOSS_ID',['../mission_8h.html#a5c27872abefadbc8cac8930bffbb99c3',1,'mission.h']]],
+  ['boss_5fmenu_1',['boss_menu',['../menu_8h.html#a2ccadb2e1c6a9dffbcd8b7d2f591afad',1,'boss_menu():&#160;menu.c'],['../menu_8c.html#a2ccadb2e1c6a9dffbcd8b7d2f591afad',1,'boss_menu():&#160;menu.c']]]
 ];

@@ -1,0 +1,45 @@
+\doxysection{mission.\+h}
+\hypertarget{mission_8h_source}{}\label{mission_8h_source}\index{C:/UNIPROGRAMMING/Dungeon\_Crawler/include/mission.h@{C:/UNIPROGRAMMING/Dungeon\_Crawler/include/mission.h}}
+\doxymbox{\hyperlink{mission_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MISSION\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MISSION\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{entity_8h}{entity.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ MAX\_DIM\ 10}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ SWAMP\_ID\ 0}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ MANSION\_ID\ 1}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ CAVE\_ID\ 2}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ BOSS\_ID\ 3}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{mission_8h_a15cd3b4969a391b08783597d1cec688f}{is\_boss\_unlocked\_cheating}};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_entity}{Entity}}*\ \doxymbox{\hyperlink{struct_dungeon_ad71e05da93bca6749a0d9d210506745b}{rooms}}[\doxymbox{\hyperlink{mission_8h_a7ba3949b1f197baf0354d41124bdbe88}{MAX\_DIM}}];}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_dungeon_a4acb40314632651c7ef3e68ac2e26721}{current\_room}};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_dungeon_a32e42b46adae7ca1da0a6778b21e3884}{dungeon}};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_dungeon_a28c9b2db0a60d4f1d15403738e8f04a7}{target\_entity}};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_dungeon_a7eefe67ec3d87f4148c708dd3665efb2}{target\_count}};}
+\DoxyCodeLine{00022\ \}\ \doxymbox{\hyperlink{struct_dungeon}{Dungeon}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{struct_dungeon}{Dungeon}}\ dungeon;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{mission_8h_aa554778ecc5641aa99e55d14e3e7448c}{generate\_dungeon}}(\textcolor{keywordtype}{int}\ current\_level);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00035\ \doxymbox{\hyperlink{struct_dungeon}{Dungeon}}*\ \doxymbox{\hyperlink{mission_8h_a28c3877de07442d4637180411f3f2592}{get\_dungeon}}();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{mission_8h_a031084542c909d2db3b0e08b2f3899be}{complete\_mission}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ mission\_number);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{mission_8h_af34218d43d7e26ed710dfb171da4d006}{has\_completed}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ mission\_number);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{mission_8h_a86fe16216cedd9eacbb984c81f88f127}{is\_final\_mission\_unlocked}}();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{mission_8h_a45c1ce7cf38f55de5c9d3c41ace01760}{get\_mission\_name}}(\textcolor{keywordtype}{int}\ mission\_number);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

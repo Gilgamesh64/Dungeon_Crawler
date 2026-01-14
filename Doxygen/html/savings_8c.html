@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dungeon Crawler: src/savings.c File Reference</title>
+<title>Dungeon Crawler: C:/UNIPROGRAMMING/Dungeon_Crawler/src/savings.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -91,13 +91,13 @@ $(function(){initNavTree('savings_8c.html','',''); });
   <div class="headertitle"><div class="title">savings.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;savings.h&quot;</code><br />
-<code>#include &quot;data.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="savings_8h_source.html">savings.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="data_8h_source.html">data.h</a>&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;time.h&gt;</code><br />
-<code>#include &lt;dirent.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="dirent_8h_source.html">dirent.h</a>&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -109,6 +109,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a603b7cd2d3a278de4bf33f5cc5a74998" id="r_a603b7cd2d3a278de4bf33f5cc5a74998"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a603b7cd2d3a278de4bf33f5cc5a74998">read_inside</a> (const char *path, char *buf, size_t bufsize)</td></tr>
 <tr class="memitem:a59e55c111a076c6d16d8a8da5c7ff311" id="r_a59e55c111a076c6d16d8a8da5c7ff311"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a59e55c111a076c6d16d8a8da5c7ff311">get_all_saves</a> (char *buffers[])</td></tr>
 <tr class="memitem:aae2c382151ef7c9aa913361172b30db6" id="r_aae2c382151ef7c9aa913361172b30db6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aae2c382151ef7c9aa913361172b30db6">save</a> ()</td></tr>
+<tr class="memdesc:aae2c382151ef7c9aa913361172b30db6"><td class="mdescLeft">&#160;</td><td class="mdescRight">save using current game_data  <br /></td></tr>
 <tr class="memitem:a7566cd98b40a972a3101a421ca874a04" id="r_a7566cd98b40a972a3101a421ca874a04"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7566cd98b40a972a3101a421ca874a04">load</a> (const char *path)</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
@@ -126,6 +127,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Counts the number of files in the savings directory </p><dl class="section return"><dt>Returns</dt><dd>the number of files in the 'savings' dir </dd></dl>
 
 </div>
 </div>
@@ -143,6 +145,17 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Reads every save file and puts its content into a new array inside a buffer </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffers</td><td>for the savings content </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="savings_8h.html#aeae3258787d18c9f0adc2a38146eeab7">get_file_name()</a> </dd>
+<dd>
+<a class="el" href="#a603b7cd2d3a278de4bf33f5cc5a74998">read_inside()</a> </dd>
+<dd>
+<a class="el" href="savings_8h.html#a382736cbbbaff5510ba74a19fc645c3b">get_last_index()</a> </dd></dl>
 
 </div>
 </div>
@@ -188,6 +201,13 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Returns the name of the saving file EX. savings2.txt, savings3.txt, savings10.txt; index = 3 puts into buf "savings3.txt" </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buf</td><td>to store the name </td></tr>
+    <tr><td class="paramname">index</td><td>of the file </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -205,6 +225,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>EX. saving2, saving4, saving10. Returns 10 </p><dl class="section return"><dt>Returns</dt><dd>the index of the file with the highest count </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="savings_8h.html#aeae3258787d18c9f0adc2a38146eeab7">get_file_name()</a> </dd></dl>
 
 </div>
 </div>
@@ -222,6 +244,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Returns the saving in the Nth position desc EX saving2, saving4, saving10; n = 1, returns 4 </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>positon </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="savings_8h.html#aeae3258787d18c9f0adc2a38146eeab7">get_file_name()</a> </dd>
+<dd>
+<a class="el" href="#a3f26cbdbc200bbae3eb27fc128ea4293">get_file_index()</a> </dd></dl>
 
 </div>
 </div>
@@ -239,6 +270,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Loads savings </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>to the savings file </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -291,6 +328,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>save using current game_data </p>
+<p>Creates a new saving file with index based on the last save file index </p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -306,7 +346,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="savings_8c.html">savings.c</a></li>
+    <li class="navelem"><a href="dir_0fd818c2dc9e41eb75e4c239c3ea6c8e.html">UNIPROGRAMMING</a></li><li class="navelem"><a href="dir_a4d0177efa10ad01c5956a9f1da24ea4.html">Dungeon_Crawler</a></li><li class="navelem"><a href="dir_f720c5e52cddbb88b6c295e6e8a5f657.html">src</a></li><li class="navelem"><a href="savings_8c.html">savings.c</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

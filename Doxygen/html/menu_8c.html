@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dungeon Crawler: src/menu.c File Reference</title>
+<title>Dungeon Crawler: C:/UNIPROGRAMMING/Dungeon_Crawler/src/menu.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -91,13 +91,13 @@ $(function(){initNavTree('menu_8c.html','',''); });
   <div class="headertitle"><div class="title">menu.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;menu.h&quot;</code><br />
-<code>#include &quot;data.h&quot;</code><br />
-<code>#include &quot;entity.h&quot;</code><br />
-<code>#include &quot;item.h&quot;</code><br />
-<code>#include &quot;mission.h&quot;</code><br />
-<code>#include &quot;savings.h&quot;</code><br />
-<code>#include &quot;utils.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="menu_8h_source.html">menu.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="data_8h_source.html">data.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="entity_8h_source.html">entity.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="item_8h_source.html">item.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mission_8h_source.html">mission.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="savings_8h_source.html">savings.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_utils_8h_source.html">utils.h</a>&quot;</code><br />
 <code>#include &lt;stdarg.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
@@ -144,6 +144,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Checks if player has the armor If yes, gives back 1 hp to player </p>
 
 </div>
 </div>
@@ -161,6 +162,19 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Checks if player has sword or hero sword </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">room,if</td><td>current enemy is 'Generale Orco' and player has hero sword you deal 1 additional damage </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if player has no sword </dd>
+<dd>
+1 if player has sword </dd>
+<dd>
+2 if player has hero sword </dd>
+<dd>
+3 if player has hero sword and room points to a 'Generale Orco' </dd></dl>
 
 </div>
 </div>
@@ -178,6 +192,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Final boss: castello del signore oscuro </p>
 
 </div>
 </div>
@@ -195,6 +210,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>combat menu managing the combat nessages when combat is triggered </p>
 
 </div>
 </div>
@@ -212,6 +228,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>true if damage is not taken, false otherwise </dd></dl>
 
 </div>
 </div>
@@ -229,6 +246,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>inventory menu to see stats and consume potions </p>
 
 </div>
 </div>
@@ -241,11 +259,18 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">bool is_in_paduvan_sequence </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>number</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Checks if a number is in the Padovan sequence </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">number</td><td>to search </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if is in sequence </dd></dl>
 
 </div>
 </div>
@@ -263,6 +288,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>main menu displayed at the start of the game </p>
 
 </div>
 </div>
@@ -280,6 +306,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>main menu when cheats are unlocked </p>
 
 </div>
 </div>
@@ -297,6 +324,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>mission menu displayed when inside a dungeon, showing action options </p>
 
 </div>
 </div>
@@ -314,6 +342,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>mission selection menu displayed when choosing a dungeon </p>
 
 </div>
 </div>
@@ -331,6 +360,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>room menu managing the interaction inside a room </p>
 
 </div>
 </div>
@@ -348,6 +378,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>inventory menu displaying current items and stats </p>
 
 </div>
 </div>
@@ -434,6 +465,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Plays rock paper scissors game </p>
 
 </div>
 </div>
@@ -451,6 +483,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>shop menu managing the shop interactions </p>
 
 </div>
 </div>
@@ -468,6 +501,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>trap menu managing the messages when a trap is triggered </p>
 
 </div>
 </div>
@@ -485,6 +519,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>village menu displayed when in the village </p>
 
 </div>
 </div>
@@ -516,7 +551,7 @@ Variables</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="menu_8c.html">menu.c</a></li>
+    <li class="navelem"><a href="dir_0fd818c2dc9e41eb75e4c239c3ea6c8e.html">UNIPROGRAMMING</a></li><li class="navelem"><a href="dir_a4d0177efa10ad01c5956a9f1da24ea4.html">Dungeon_Crawler</a></li><li class="navelem"><a href="dir_f720c5e52cddbb88b6c295e6e8a5f657.html">src</a></li><li class="navelem"><a href="menu_8c.html">menu.c</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>
