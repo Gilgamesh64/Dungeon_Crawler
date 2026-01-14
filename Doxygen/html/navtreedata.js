@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "Dungeon Crawler", "index.html", [
+    [ "Dungeon_Crawler", "md__r_e_a_d_m_e.html", null ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
@@ -49,7 +50,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_main_8c.html",
-"struct_entity.html"
+"structentity__t.html#a3a1c61edfdbeb9e42b1fb903fd6d7fa2"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

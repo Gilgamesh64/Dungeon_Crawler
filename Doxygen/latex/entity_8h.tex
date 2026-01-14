@@ -1,27 +1,50 @@
-\doxysection{C:\+/\+\+UNIPROGRAMMING/\+\+Dungeon\+\_\+\+Crawler/\+include/\+entity.h File Reference}
-\hypertarget{entity_8h}{}\label{entity_8h}\index{C:/UNIPROGRAMMING/Dungeon\_Crawler/include/entity.h@{C:/UNIPROGRAMMING/Dungeon\_Crawler/include/entity.h}}
+\doxysection{include/\+entity.h File Reference}
+\hypertarget{entity_8h}{}\label{entity_8h}\index{include/entity.h@{include/entity.h}}
 {\ttfamily \+\#include $<$stdbool.\+h$>$}\newline
 \doxysubsubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
-struct \doxymbox{\hyperlink{struct_entity}{Entity}}
+struct \doxymbox{\hyperlink{structentity__t}{entity\+\_\+t}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\doxymbox{\hyperlink{struct_entity}{Entity}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{entity_8h_aac7901f6f68a9c06e24ecd9b3374c903}{spawn\+\_\+entity}} (int current\+\_\+level)
+\doxymbox{\hyperlink{structentity__t}{entity\+\_\+t}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{entity_8h_aabd0dc1f1427898ad2cfc9d0fadd0a8a}{spawn\+\_\+entity}} (int current\+\_\+level)
+\item 
+\doxymbox{\hyperlink{structentity__t}{entity\+\_\+t}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{entity_8h_acb425dd1c21984a7513fb81c87ebba52}{get\+\_\+entity}} (int level, int entity\+\_\+id)
 \end{DoxyCompactItemize}
 
 
 \label{doc-func-members}
 \Hypertarget{entity_8h_doc-func-members}
 \doxysubsection{Function Documentation}
-\Hypertarget{entity_8h_aac7901f6f68a9c06e24ecd9b3374c903}\index{entity.h@{entity.h}!spawn\_entity@{spawn\_entity}}
+\Hypertarget{entity_8h_acb425dd1c21984a7513fb81c87ebba52}\index{entity.h@{entity.h}!get\_entity@{get\_entity}}
+\index{get\_entity@{get\_entity}!entity.h@{entity.h}}
+\doxysubsubsection{\texorpdfstring{get\_entity()}{get\_entity()}}
+{\footnotesize\ttfamily \label{entity_8h_acb425dd1c21984a7513fb81c87ebba52} 
+\doxymbox{\hyperlink{structentity__t}{entity\+\_\+t}} \texorpdfstring{$\ast$}{*} get\+\_\+entity (\begin{DoxyParamCaption}\item[{int}]{level}{, }\item[{int}]{entity\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em level} & id of the level \\
+\hline
+{\em entity\+\_\+id} & id of the entity \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the entity with the correct id in the specified level 
+\end{DoxyReturn}
+\Hypertarget{entity_8h_aabd0dc1f1427898ad2cfc9d0fadd0a8a}\index{entity.h@{entity.h}!spawn\_entity@{spawn\_entity}}
 \index{spawn\_entity@{spawn\_entity}!entity.h@{entity.h}}
 \doxysubsubsection{\texorpdfstring{spawn\_entity()}{spawn\_entity()}}
-{\footnotesize\ttfamily \label{entity_8h_aac7901f6f68a9c06e24ecd9b3374c903} 
-\doxymbox{\hyperlink{struct_entity}{Entity}} \texorpdfstring{$\ast$}{*} spawn\+\_\+entity (\begin{DoxyParamCaption}\item[{int}]{current\+\_\+level}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{entity_8h_aabd0dc1f1427898ad2cfc9d0fadd0a8a} 
+\doxymbox{\hyperlink{structentity__t}{entity\+\_\+t}} \texorpdfstring{$\ast$}{*} spawn\+\_\+entity (\begin{DoxyParamCaption}\item[{int}]{current\+\_\+level}{}\end{DoxyParamCaption})}
 
-Spawns an \doxylink{struct_entity}{Entity} from the given mission
 
-current level is the index in the main array the other index is the entity spawned randomly 
+\begin{DoxyParams}{Parameters}
+{\em current\+\_\+level} & is the index in the mission array the other index is the entity spawned randomly \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to a random entity of the given level 
+\end{DoxyReturn}

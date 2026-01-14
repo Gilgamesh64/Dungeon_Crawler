@@ -13,5 +13,5 @@ var searchData=
   ['mission_2eh_10',['mission.h',['../mission_8h.html',1,'']]],
   ['mission_5fmenu_11',['mission_menu',['../menu_8h.html#aa0e011e3fe1ae014e7a4ec553af53216',1,'mission_menu():&#160;menu.c'],['../menu_8c.html#aa0e011e3fe1ae014e7a4ec553af53216',1,'mission_menu():&#160;menu.c']]],
   ['mission_5fselection_5fmenu_12',['mission_selection_menu',['../menu_8h.html#a85771da224ef739b17cd9cb2785f7f7f',1,'mission_selection_menu():&#160;menu.c'],['../menu_8c.html#a85771da224ef739b17cd9cb2785f7f7f',1,'mission_selection_menu():&#160;menu.c']]],
-  ['missions_5fcompleted_13',['missions_completed',['../struct_game_data.html#ab793bd9e8316c02d39301d77b78abb33',1,'GameData']]]
+  ['missions_5fcompleted_13',['missions_completed',['../structgame__data__t.html#ab793bd9e8316c02d39301d77b78abb33',1,'game_data_t']]]
 ];

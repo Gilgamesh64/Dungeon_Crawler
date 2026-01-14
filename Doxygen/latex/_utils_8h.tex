@@ -1,5 +1,5 @@
-\doxysection{C:\+/\+\+UNIPROGRAMMING/\+\+Dungeon\+\_\+\+Crawler/\+include/\+\+Utils.h File Reference}
-\hypertarget{_utils_8h}{}\label{_utils_8h}\index{C:/UNIPROGRAMMING/Dungeon\_Crawler/include/Utils.h@{C:/UNIPROGRAMMING/Dungeon\_Crawler/include/Utils.h}}
+\doxysection{include/\+\+Utils.h File Reference}
+\hypertarget{_utils_8h}{}\label{_utils_8h}\index{include/Utils.h@{include/Utils.h}}
 {\ttfamily \+\#include $<$stddef.\+h$>$}\newline
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
@@ -14,10 +14,6 @@ int \doxymbox{\hyperlink{_utils_8h_a196571196a7dbd0a78b9e29ea8f440a8}{roll\+\_\+
 void \doxymbox{\hyperlink{_utils_8h_abc40cd622f423abf44084c8f8595f57f}{clear\+\_\+screen}} (void)
 \item 
 void \doxymbox{\hyperlink{_utils_8h_a45f8c842a83546a4acc8d6b09247db86}{click\+\_\+to\+\_\+continue}} (char \texorpdfstring{$\ast$}{*}string)
-\item 
-char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{_utils_8h_a81fa10a4b55994635fdcaf77b80dfe22}{get\+\_\+string}} (const char \texorpdfstring{$\ast$}{*}prompt)
-\item 
-void \doxymbox{\hyperlink{_utils_8h_a810b15a39fb2aaa3cd574073990dbb52}{get\+\_\+string\+\_\+buffer}} (char \texorpdfstring{$\ast$}{*}buffer, size\+\_\+t size, const char \texorpdfstring{$\ast$}{*}prompt)
 \end{DoxyCompactItemize}
 
 
@@ -49,36 +45,7 @@ void click\+\_\+to\+\_\+continue (\begin{DoxyParamCaption}\item[{char \texorpdfs
 
 Waits for a user click to continue 
 \begin{DoxyParams}{Parameters}
-{\em string} & to show the user \\
-\hline
-\end{DoxyParams}
-\Hypertarget{_utils_8h_a81fa10a4b55994635fdcaf77b80dfe22}\index{Utils.h@{Utils.h}!get\_string@{get\_string}}
-\index{get\_string@{get\_string}!Utils.h@{Utils.h}}
-\doxysubsubsection{\texorpdfstring{get\_string()}{get\_string()}}
-{\footnotesize\ttfamily \label{_utils_8h_a81fa10a4b55994635fdcaf77b80dfe22} 
-char \texorpdfstring{$\ast$}{*} get\+\_\+string (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{prompt}{}\end{DoxyParamCaption})}
-
-
-\begin{DoxyParams}{Parameters}
-{\em prompt} & to show the user \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-a string from the user 
-\end{DoxyReturn}
-\Hypertarget{_utils_8h_a810b15a39fb2aaa3cd574073990dbb52}\index{Utils.h@{Utils.h}!get\_string\_buffer@{get\_string\_buffer}}
-\index{get\_string\_buffer@{get\_string\_buffer}!Utils.h@{Utils.h}}
-\doxysubsubsection{\texorpdfstring{get\_string\_buffer()}{get\_string\_buffer()}}
-{\footnotesize\ttfamily \label{_utils_8h_a810b15a39fb2aaa3cd574073990dbb52} 
-void get\+\_\+string\+\_\+buffer (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buffer}{, }\item[{size\+\_\+t}]{size}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{prompt}{}\end{DoxyParamCaption})}
-
-Gets a string to the user and puts it into a given buffer 
-\begin{DoxyParams}{Parameters}
-{\em buffer} & to put the string in \\
-\hline
-{\em size} & of the buffer \\
-\hline
-{\em prompt} & to show the user \\
+{\em string} & to show the user \textquotesingle{}Clicca per continuare\textquotesingle{} if empty \\
 \hline
 \end{DoxyParams}
 \Hypertarget{_utils_8h_a196571196a7dbd0a78b9e29ea8f440a8}\index{Utils.h@{Utils.h}!roll\_dice@{roll\_dice}}

@@ -13,7 +13,7 @@ var menu_8h =
     [ "mission_selection_menu", "menu_8h.html#a85771da224ef739b17cd9cb2785f7f7f", null ],
     [ "room_menu", "menu_8h.html#a3c140165b94ad5b8f89f41d8db61d302", null ],
     [ "save_menu", "menu_8h.html#a87491ad00ad956d24fac53cd77c610b0", null ],
-    [ "shield_magic_sword", "menu_8h.html#a26027a2fb463fca2fcf832f75f6715aa", null ],
+    [ "shield_magic_sword", "menu_8h.html#a556b1069f5a3c68775a2fbcfd9e9a7dc", null ],
     [ "shop_menu", "menu_8h.html#a3b0dfbf1ea01a5782db3a5bb04c2e928", null ],
     [ "trap_menu", "menu_8h.html#ac8a43ace0c9223bedd5f32df44d254ec", null ],
     [ "village_menu", "menu_8h.html#a6966b4dcec76606f660b5cec87d2293f", null ]

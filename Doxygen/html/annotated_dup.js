@@ -4,8 +4,8 @@ var annotated_dup =
     [ "_wdirent", "struct__wdirent.html", "struct__wdirent" ],
     [ "DIR", "struct_d_i_r.html", "struct_d_i_r" ],
     [ "dirent", "structdirent.html", "structdirent" ],
-    [ "Dungeon", "struct_dungeon.html", "struct_dungeon" ],
-    [ "Entity", "struct_entity.html", "struct_entity" ],
-    [ "GameData", "struct_game_data.html", "struct_game_data" ],
-    [ "Item", "struct_item.html", "struct_item" ]
+    [ "dungeon_t", "structdungeon__t.html", "structdungeon__t" ],
+    [ "entity_t", "structentity__t.html", "structentity__t" ],
+    [ "game_data_t", "structgame__data__t.html", "structgame__data__t" ],
+    [ "item_t", "structitem__t.html", "structitem__t" ]
 ];

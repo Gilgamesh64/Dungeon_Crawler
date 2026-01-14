@@ -1,5 +1,5 @@
 \doxysection{entity.\+h}
-\hypertarget{entity_8h_source}{}\label{entity_8h_source}\index{C:/UNIPROGRAMMING/Dungeon\_Crawler/include/entity.h@{C:/UNIPROGRAMMING/Dungeon\_Crawler/include/entity.h}}
+\hypertarget{entity_8h_source}{}\label{entity_8h_source}\index{include/entity.h@{include/entity.h}}
 \doxymbox{\hyperlink{entity_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ENTITY\_H}}
@@ -8,17 +8,17 @@
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
 \DoxyCodeLine{00005\ }
 \DoxyCodeLine{00009\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
-\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{struct_entity_a8f8f80d37794cde9472343e4487ba3eb}{name}};}
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_entity_a60bc99904e88d525691ba4d95eeec115}{fatal}};}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_entity_a3a1c61edfdbeb9e42b1fb903fd6d7fa2}{damage}};}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_entity_a42fda7754cbd9b3fd18b935ae7feba8f}{coins}};}
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{struct_entity_aa061113ad7ac07fe91509f7c4623e3ec}{trap}};}
-\DoxyCodeLine{00015\ \}\ \doxymbox{\hyperlink{struct_entity}{Entity}};}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{structentity__t_a8f8f80d37794cde9472343e4487ba3eb}{name}};}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structentity__t_a60bc99904e88d525691ba4d95eeec115}{fatal}};}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structentity__t_a3a1c61edfdbeb9e42b1fb903fd6d7fa2}{damage}};}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structentity__t_a42fda7754cbd9b3fd18b935ae7feba8f}{coins}};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structentity__t_aa061113ad7ac07fe91509f7c4623e3ec}{trap}};}
+\DoxyCodeLine{00015\ \}\ \doxymbox{\hyperlink{structentity__t}{entity\_t}};}
 \DoxyCodeLine{00016\ }
 \DoxyCodeLine{00017\ }
 \DoxyCodeLine{00023\ }
 \DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_entity}{Entity}}\ PALUDE\_PUTRESCENTE[6]\ =\ \{}
+\DoxyCodeLine{00030\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{structentity__t}{entity\_t}}\ PALUDE\_PUTRESCENTE[6]\ =\ \{}
 \DoxyCodeLine{00031\ \ \ \ \ \{}
 \DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ .name\ \ =\ \textcolor{stringliteral}{"{}Cane\ Selvaggio"{}},}
 \DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ .fatal\ =\ 2,}
@@ -63,7 +63,7 @@
 \DoxyCodeLine{00072\ \ \ \ \ \}}
 \DoxyCodeLine{00073\ \};}
 \DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_entity}{Entity}}\ MAGIONE\_INFESTATA[6]\ =\ \{}
+\DoxyCodeLine{00075\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{structentity__t}{entity\_t}}\ MAGIONE\_INFESTATA[6]\ =\ \{}
 \DoxyCodeLine{00076\ \ \ \ \ \{}
 \DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ .name\ \ =\ \textcolor{stringliteral}{"{}Botola\ Buia"{}},}
 \DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ .fatal\ =\ 0,}
@@ -108,7 +108,7 @@
 \DoxyCodeLine{00117\ \ \ \ \ \}}
 \DoxyCodeLine{00118\ \};}
 \DoxyCodeLine{00119\ }
-\DoxyCodeLine{00120\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_entity}{Entity}}\ GROTTA\_DI\_CRISTALLO[6]\ =\ \{}
+\DoxyCodeLine{00120\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{structentity__t}{entity\_t}}\ GROTTA\_DI\_CRISTALLO[6]\ =\ \{}
 \DoxyCodeLine{00121\ \ \ \ \ \{}
 \DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ .name\ \ =\ \textcolor{stringliteral}{"{}Stanza\ Vuota"{}},}
 \DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ .fatal\ =\ 0,}
@@ -153,15 +153,17 @@
 \DoxyCodeLine{00162\ \ \ \ \ \}}
 \DoxyCodeLine{00163\ \};}
 \DoxyCodeLine{00164\ }
-\DoxyCodeLine{00169\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_entity}{Entity}}*\ LEVEL\_TABLE[]\ =\ \{}
+\DoxyCodeLine{00169\ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{structentity__t}{entity\_t}}*\ LEVEL\_TABLE[]\ =\ \{}
 \DoxyCodeLine{00170\ \ \ \ \ PALUDE\_PUTRESCENTE,}
 \DoxyCodeLine{00171\ \ \ \ \ MAGIONE\_INFESTATA,}
 \DoxyCodeLine{00172\ \ \ \ \ GROTTA\_DI\_CRISTALLO}
 \DoxyCodeLine{00173\ \};}
 \DoxyCodeLine{00174\ }
-\DoxyCodeLine{00178\ \doxymbox{\hyperlink{struct_entity}{Entity}}*\ \doxymbox{\hyperlink{entity_8h_aac7901f6f68a9c06e24ecd9b3374c903}{spawn\_entity}}(\textcolor{keywordtype}{int}\ current\_level);}
-\DoxyCodeLine{00179\ }
-\DoxyCodeLine{00180\ }
-\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00180\ \doxymbox{\hyperlink{structentity__t}{entity\_t}}*\ \doxymbox{\hyperlink{entity_8h_aabd0dc1f1427898ad2cfc9d0fadd0a8a}{spawn\_entity}}(\textcolor{keywordtype}{int}\ current\_level);}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00187\ \doxymbox{\hyperlink{structentity__t}{entity\_t}}*\ \doxymbox{\hyperlink{entity_8h_acb425dd1c21984a7513fb81c87ebba52}{get\_entity}}(\textcolor{keywordtype}{int}\ level,\ \textcolor{keywordtype}{int}\ entity\_id);}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

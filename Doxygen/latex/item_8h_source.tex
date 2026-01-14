@@ -1,5 +1,5 @@
 \doxysection{item.\+h}
-\hypertarget{item_8h_source}{}\label{item_8h_source}\index{C:/UNIPROGRAMMING/Dungeon\_Crawler/include/item.h@{C:/UNIPROGRAMMING/Dungeon\_Crawler/include/item.h}}
+\hypertarget{item_8h_source}{}\label{item_8h_source}\index{include/item.h@{include/item.h}}
 \doxymbox{\hyperlink{item_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ITEM\_H}}
@@ -17,12 +17,12 @@
 \DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ POTION\_ID\ 10000}}
 \DoxyCodeLine{00014\ }
 \DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{struct_item_a8f8f80d37794cde9472343e4487ba3eb}{name}};}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{struct_item_a68344fa88cf4e86b5079fd69a5c22d57}{description}};}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_item_aaa398efc91112baf0044148c7c57e6ab}{cost}};}
-\DoxyCodeLine{00019\ \}\ \doxymbox{\hyperlink{struct_item}{Item}};}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{structitem__t_a8f8f80d37794cde9472343e4487ba3eb}{name}};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{structitem__t_a68344fa88cf4e86b5079fd69a5c22d57}{description}};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structitem__t_aaa398efc91112baf0044148c7c57e6ab}{cost}};}
+\DoxyCodeLine{00019\ \}\ \doxymbox{\hyperlink{structitem__t}{item\_t}};}
 \DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \doxymbox{\hyperlink{struct_item}{Item}}\ \doxymbox{\hyperlink{item_8h_a647214265e4a30a6d6df7f6934880292}{get\_item}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00021\ \doxymbox{\hyperlink{structitem__t}{item\_t}}\ \doxymbox{\hyperlink{item_8h_ad3202e79b7e7b4d85d18ffbdb28da550}{get\_item}}(\textcolor{keywordtype}{int});}
 \DoxyCodeLine{00022\ }
 \DoxyCodeLine{00023\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{item_8h_a5a57ee9ee8c8ec6edb2a536f5fbdaf81}{has\_item}}(\textcolor{keywordtype}{int}\ item\_id);}
 \DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{item_8h_ac495f4cca4bc23d26b574029dcb1ee42}{set\_item}}(\textcolor{keywordtype}{int}\ item\_id);}
@@ -31,7 +31,7 @@
 \DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{item_8h_a3a455470f53eea12d7c653d96274d9e4}{add\_potion}}();}
 \DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{item_8h_ac5bdc153a921934a500ed02f96db3c64}{sub\_potion}}();}
 \DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \ \doxymbox{\hyperlink{struct_item}{Item}}\ items[\doxymbox{\hyperlink{item_8h_affced4b175e803df59f802e25d017b9b}{NUM\_ITEMS}}]\ \ =\ \{}
+\DoxyCodeLine{00039\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \ \doxymbox{\hyperlink{structitem__t}{item\_t}}\ items[\doxymbox{\hyperlink{item_8h_affced4b175e803df59f802e25d017b9b}{NUM\_ITEMS}}]\ \ =\ \{}
 \DoxyCodeLine{00040\ \ \ \ \ \{}
 \DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}Pozione\ Curativa"{}},}
 \DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ .description\ =\ \textcolor{stringliteral}{"{}ripristina\ fino\ a\ 6\ PUNTI\ VITA\ (lancia\ un\ dado\ a\ 6\ facce)"{}},}

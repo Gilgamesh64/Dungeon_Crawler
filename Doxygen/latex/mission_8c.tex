@@ -1,5 +1,5 @@
-\doxysection{C:\+/\+\+UNIPROGRAMMING/\+\+Dungeon\+\_\+\+Crawler/\+src/\+mission.c File Reference}
-\hypertarget{mission_8c}{}\label{mission_8c}\index{C:/UNIPROGRAMMING/Dungeon\_Crawler/src/mission.c@{C:/UNIPROGRAMMING/Dungeon\_Crawler/src/mission.c}}
+\doxysection{src/\+mission.c File Reference}
+\hypertarget{mission_8c}{}\label{mission_8c}\index{src/mission.c@{src/mission.c}}
 {\ttfamily \+\#include "{}mission.\+h"{}}\newline
 {\ttfamily \+\#include "{}utils.\+h"{}}\newline
 {\ttfamily \+\#include "{}data.\+h"{}}\newline
@@ -20,7 +20,7 @@ bool \doxymbox{\hyperlink{mission_8c_a86fe16216cedd9eacbb984c81f88f127}{is\+\_\+
 \item 
 char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{mission_8c_a45c1ce7cf38f55de5c9d3c41ace01760}{get\+\_\+mission\+\_\+name}} (int mission\+\_\+number)
 \item 
-\doxymbox{\hyperlink{struct_dungeon}{Dungeon}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{mission_8c_a28c3877de07442d4637180411f3f2592}{get\+\_\+dungeon}} ()
+\doxymbox{\hyperlink{structdungeon__t}{dungeon\+\_\+t}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{mission_8c_a61ae5ff9fc3d71f45929fe4f80880e7f}{get\+\_\+dungeon}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -43,6 +43,9 @@ Updates the missions\+\_\+completed variable and if possible unlocks the final m
 {\em mission\+\_\+number} & to set \\
 \hline
 \end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+defined constants 
+\end{DoxySeeAlso}
 \Hypertarget{mission_8c_aa554778ecc5641aa99e55d14e3e7448c}\index{mission.c@{mission.c}!generate\_dungeon@{generate\_dungeon}}
 \index{generate\_dungeon@{generate\_dungeon}!mission.c@{mission.c}}
 \doxysubsubsection{\texorpdfstring{generate\_dungeon()}{generate\_dungeon()}}
@@ -54,11 +57,11 @@ Generates a dungeon for the current level
 {\em current\+\_\+level} & index of the current level \\
 \hline
 \end{DoxyParams}
-\Hypertarget{mission_8c_a28c3877de07442d4637180411f3f2592}\index{mission.c@{mission.c}!get\_dungeon@{get\_dungeon}}
+\Hypertarget{mission_8c_a61ae5ff9fc3d71f45929fe4f80880e7f}\index{mission.c@{mission.c}!get\_dungeon@{get\_dungeon}}
 \index{get\_dungeon@{get\_dungeon}!mission.c@{mission.c}}
 \doxysubsubsection{\texorpdfstring{get\_dungeon()}{get\_dungeon()}}
-{\footnotesize\ttfamily \label{mission_8c_a28c3877de07442d4637180411f3f2592} 
-\doxymbox{\hyperlink{struct_dungeon}{Dungeon}} \texorpdfstring{$\ast$}{*} get\+\_\+dungeon (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{mission_8c_a61ae5ff9fc3d71f45929fe4f80880e7f} 
+\doxymbox{\hyperlink{structdungeon__t}{dungeon\+\_\+t}} \texorpdfstring{$\ast$}{*} get\+\_\+dungeon (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 \begin{DoxyReturn}{Returns}
 the current dungeon 
@@ -69,6 +72,17 @@ the current dungeon
 {\footnotesize\ttfamily \label{mission_8c_a45c1ce7cf38f55de5c9d3c41ace01760} 
 char \texorpdfstring{$\ast$}{*} get\+\_\+mission\+\_\+name (\begin{DoxyParamCaption}\item[{int}]{mission\+\_\+number}{}\end{DoxyParamCaption})}
 
+
+\begin{DoxyParams}{Parameters}
+{\em mission\+\_\+number} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+defined constants 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+the name of the mission 
+\end{DoxyReturn}
 \Hypertarget{mission_8c_af34218d43d7e26ed710dfb171da4d006}\index{mission.c@{mission.c}!has\_completed@{has\_completed}}
 \index{has\_completed@{has\_completed}!mission.c@{mission.c}}
 \doxysubsubsection{\texorpdfstring{has\_completed()}{has\_completed()}}
@@ -80,6 +94,9 @@ bool has\+\_\+completed (\begin{DoxyParamCaption}\item[{const int}]{mission\+\_\
 {\em mission\+\_\+number} & of the mission \\
 \hline
 \end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+defined constants 
+\end{DoxySeeAlso}
 \begin{DoxyReturn}{Returns}
 true if the mission has been completed 
 \end{DoxyReturn}
@@ -103,3 +120,4 @@ true if the final mission has been unlocked
 {\footnotesize\ttfamily \label{mission_8c_a15cd3b4969a391b08783597d1cec688f} 
 bool is\+\_\+boss\+\_\+unlocked\+\_\+cheating = false}
 
+Set to true with cheats 

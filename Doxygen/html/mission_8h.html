@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dungeon Crawler: C:/UNIPROGRAMMING/Dungeon_Crawler/include/mission.h File Reference</title>
+<title>Dungeon Crawler: include/mission.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -97,7 +97,7 @@ $(function(){initNavTree('mission_8h.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:Dungeon" id="r_Dungeon"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_dungeon.html">Dungeon</a></td></tr>
+<tr class="memitem:dungeon_5Ft" id="r_dungeon_5Ft"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structdungeon__t.html">dungeon_t</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -110,7 +110,7 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa554778ecc5641aa99e55d14e3e7448c" id="r_aa554778ecc5641aa99e55d14e3e7448c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa554778ecc5641aa99e55d14e3e7448c">generate_dungeon</a> (int current_level)</td></tr>
-<tr class="memitem:a28c3877de07442d4637180411f3f2592" id="r_a28c3877de07442d4637180411f3f2592"><td class="memItemLeft"><a class="el" href="struct_dungeon.html">Dungeon</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a28c3877de07442d4637180411f3f2592">get_dungeon</a> ()</td></tr>
+<tr class="memitem:a61ae5ff9fc3d71f45929fe4f80880e7f" id="r_a61ae5ff9fc3d71f45929fe4f80880e7f"><td class="memItemLeft"><a class="el" href="structdungeon__t.html">dungeon_t</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a61ae5ff9fc3d71f45929fe4f80880e7f">get_dungeon</a> ()</td></tr>
 <tr class="memitem:a031084542c909d2db3b0e08b2f3899be" id="r_a031084542c909d2db3b0e08b2f3899be"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a031084542c909d2db3b0e08b2f3899be">complete_mission</a> (const int mission_number)</td></tr>
 <tr class="memitem:af34218d43d7e26ed710dfb171da4d006" id="r_af34218d43d7e26ed710dfb171da4d006"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af34218d43d7e26ed710dfb171da4d006">has_completed</a> (const int mission_number)</td></tr>
 <tr class="memitem:a86fe16216cedd9eacbb984c81f88f127" id="r_a86fe16216cedd9eacbb984c81f88f127"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a86fe16216cedd9eacbb984c81f88f127">is_final_mission_unlocked</a> ()</td></tr>
@@ -212,6 +212,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd>defined constants </dd></dl>
 
 </div>
 </div>
@@ -238,14 +239,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a28c3877de07442d4637180411f3f2592" name="a28c3877de07442d4637180411f3f2592"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28c3877de07442d4637180411f3f2592">&#9670;&#160;</a></span>get_dungeon()</h2>
+<a id="a61ae5ff9fc3d71f45929fe4f80880e7f" name="a61ae5ff9fc3d71f45929fe4f80880e7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61ae5ff9fc3d71f45929fe4f80880e7f">&#9670;&#160;</a></span>get_dungeon()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_dungeon.html">Dungeon</a> * get_dungeon </td>
+          <td class="memname"><a class="el" href="structdungeon__t.html">dungeon_t</a> * get_dungeon </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -270,6 +271,14 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mission_number</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>defined constants </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the name of the mission </dd></dl>
 
 </div>
 </div>
@@ -293,6 +302,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd>defined constants </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the mission has been completed </dd></dl>
 
 </div>
@@ -335,6 +345,7 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Set to true with cheats </p>
 
 </div>
 </div>
@@ -351,7 +362,7 @@ Variables</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_0fd818c2dc9e41eb75e4c239c3ea6c8e.html">UNIPROGRAMMING</a></li><li class="navelem"><a href="dir_a4d0177efa10ad01c5956a9f1da24ea4.html">Dungeon_Crawler</a></li><li class="navelem"><a href="dir_7917408e75ee27fa1b09096a0f911da1.html">include</a></li><li class="navelem"><a href="mission_8h.html">mission.h</a></li>
+    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="mission_8h.html">mission.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

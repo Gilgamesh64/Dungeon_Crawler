@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dungeon Crawler: C:/UNIPROGRAMMING/Dungeon_Crawler/src/data.c File Reference</title>
+<title>Dungeon Crawler: src/data.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -100,63 +100,44 @@ $(function(){initNavTree('data_8c.html','',''); });
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae155cb1523b14aaa677f6a92cda9d780" id="r_ae155cb1523b14aaa677f6a92cda9d780"><td class="memItemLeft"><a class="el" href="struct_game_data.html">GameData</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ae155cb1523b14aaa677f6a92cda9d780">get_game_data</a> (void)</td></tr>
-<tr class="memitem:aa73daa48c235907188790a183955c075" id="r_aa73daa48c235907188790a183955c075"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa73daa48c235907188790a183955c075">health_control</a> ()</td></tr>
-<tr class="memitem:aa0237fad8860ec61a8b83d078db0dc3a" id="r_aa0237fad8860ec61a8b83d078db0dc3a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa0237fad8860ec61a8b83d078db0dc3a">print_data</a> ()</td></tr>
+<tr class="memitem:a0966f9eff6bf9846759f969f20010d8d" id="r_a0966f9eff6bf9846759f969f20010d8d"><td class="memItemLeft"><a class="el" href="structgame__data__t.html">game_data_t</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a0966f9eff6bf9846759f969f20010d8d">get_game_data</a> (void)</td></tr>
+<tr class="memitem:acd27370209ba7d6c61d40bf39ec29d60" id="r_acd27370209ba7d6c61d40bf39ec29d60"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acd27370209ba7d6c61d40bf39ec29d60">data_control</a> ()</td></tr>
 <tr class="memitem:a29761642853e026d4b5091057dce4e2a" id="r_a29761642853e026d4b5091057dce4e2a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a29761642853e026d4b5091057dce4e2a">reset_data</a> ()</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="ae155cb1523b14aaa677f6a92cda9d780" name="ae155cb1523b14aaa677f6a92cda9d780"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae155cb1523b14aaa677f6a92cda9d780">&#9670;&#160;</a></span>get_game_data()</h2>
+<a id="acd27370209ba7d6c61d40bf39ec29d60" name="acd27370209ba7d6c61d40bf39ec29d60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd27370209ba7d6c61d40bf39ec29d60">&#9670;&#160;</a></span>data_control()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_game_data.html">GameData</a> * get_game_data </td>
+          <td class="memname">void data_control </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks if player health is in bounds 0&lt;health&lt;=20 and if money is &gt;= 0 </p>
+
+</div>
+</div>
+<a id="a0966f9eff6bf9846759f969f20010d8d" name="a0966f9eff6bf9846759f969f20010d8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0966f9eff6bf9846759f969f20010d8d">&#9670;&#160;</a></span>get_game_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structgame__data__t.html">game_data_t</a> * get_game_data </td>
           <td>(</td>
           <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns the pointer to the static game data object </p>
-
-</div>
-</div>
-<a id="aa73daa48c235907188790a183955c075" name="aa73daa48c235907188790a183955c075"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa73daa48c235907188790a183955c075">&#9670;&#160;</a></span>health_control()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void health_control </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Checks if player health is in bounds 0&lt;health&lt;=20 </p>
-
-</div>
-</div>
-<a id="aa0237fad8860ec61a8b83d078db0dc3a" name="aa0237fad8860ec61a8b83d078db0dc3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0237fad8860ec61a8b83d078db0dc3a">&#9670;&#160;</a></span>print_data()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void print_data </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Prints current game data </p>
+<dl class="section return"><dt>Returns</dt><dd>a pointer to the static game data object </dd></dl>
 
 </div>
 </div>
@@ -174,6 +155,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Resets game data to default </p>
 
 </div>
 </div>
@@ -190,7 +172,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_0fd818c2dc9e41eb75e4c239c3ea6c8e.html">UNIPROGRAMMING</a></li><li class="navelem"><a href="dir_a4d0177efa10ad01c5956a9f1da24ea4.html">Dungeon_Crawler</a></li><li class="navelem"><a href="dir_f720c5e52cddbb88b6c295e6e8a5f657.html">src</a></li><li class="navelem"><a href="data_8c.html">data.c</a></li>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="data_8c.html">data.c</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

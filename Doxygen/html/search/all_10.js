@@ -39,9 +39,9 @@ var searchData=
   ['select_5foption_36',['select_option',['../menu_8c.html#a13c8c54ba52090e4f161e08757ff6a67',1,'menu.c']]],
   ['select_5foption_5farray_37',['select_option_array',['../menu_8c.html#a09105b34927f33f78c4452c0e8082dba',1,'menu.c']]],
   ['set_5fitem_38',['set_item',['../item_8h.html#ac495f4cca4bc23d26b574029dcb1ee42',1,'set_item(int item_id):&#160;item.c'],['../item_8c.html#ac495f4cca4bc23d26b574029dcb1ee42',1,'set_item(int item_id):&#160;item.c']]],
-  ['shield_5fmagic_5fsword_39',['shield_magic_sword',['../menu_8h.html#a26027a2fb463fca2fcf832f75f6715aa',1,'shield_magic_sword(int player_choice):&#160;menu.c'],['../menu_8c.html#a26027a2fb463fca2fcf832f75f6715aa',1,'shield_magic_sword(int player_choice):&#160;menu.c']]],
+  ['shield_5fmagic_5fsword_39',['shield_magic_sword',['../menu_8h.html#a556b1069f5a3c68775a2fbcfd9e9a7dc',1,'shield_magic_sword():&#160;menu.c'],['../menu_8c.html#a556b1069f5a3c68775a2fbcfd9e9a7dc',1,'shield_magic_sword():&#160;menu.c']]],
   ['shop_5fmenu_40',['shop_menu',['../menu_8h.html#a3b0dfbf1ea01a5782db3a5bb04c2e928',1,'shop_menu():&#160;menu.c'],['../menu_8c.html#a3b0dfbf1ea01a5782db3a5bb04c2e928',1,'shop_menu():&#160;menu.c']]],
-  ['spawn_5fentity_41',['spawn_entity',['../entity_8h.html#aac7901f6f68a9c06e24ecd9b3374c903',1,'spawn_entity(int current_level):&#160;entity.c'],['../entity_8c.html#aac7901f6f68a9c06e24ecd9b3374c903',1,'spawn_entity(int current_level):&#160;entity.c']]],
+  ['spawn_5fentity_41',['spawn_entity',['../entity_8h.html#aabd0dc1f1427898ad2cfc9d0fadd0a8a',1,'spawn_entity(int current_level):&#160;entity.c'],['../entity_8c.html#aabd0dc1f1427898ad2cfc9d0fadd0a8a',1,'spawn_entity(int current_level):&#160;entity.c']]],
   ['sub_5fpotion_42',['sub_potion',['../item_8h.html#ac5bdc153a921934a500ed02f96db3c64',1,'sub_potion():&#160;item.c'],['../item_8c.html#ac5bdc153a921934a500ed02f96db3c64',1,'sub_potion():&#160;item.c']]],
   ['swamp_5fid_43',['SWAMP_ID',['../mission_8h.html#a16d643719b9cb09db3da7391564ef9ce',1,'mission.h']]],
   ['sword_5fid_44',['SWORD_ID',['../item_8h.html#aeb49310324d24b8a207717006e8bd967',1,'item.h']]]

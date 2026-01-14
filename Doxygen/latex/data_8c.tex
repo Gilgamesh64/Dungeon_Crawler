@@ -1,5 +1,5 @@
-\doxysection{C:\+/\+\+UNIPROGRAMMING/\+\+Dungeon\+\_\+\+Crawler/\+src/\+data.c File Reference}
-\hypertarget{data_8c}{}\label{data_8c}\index{C:/UNIPROGRAMMING/Dungeon\_Crawler/src/data.c@{C:/UNIPROGRAMMING/Dungeon\_Crawler/src/data.c}}
+\doxysection{src/\+data.c File Reference}
+\hypertarget{data_8c}{}\label{data_8c}\index{src/data.c@{src/data.c}}
 {\ttfamily \+\#include "{}data.\+h"{}}\newline
 {\ttfamily \+\#include "{}entity.\+h"{}}\newline
 {\ttfamily \+\#include "{}item.\+h"{}}\newline
@@ -9,11 +9,9 @@
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\doxymbox{\hyperlink{struct_game_data}{Game\+Data}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{data_8c_ae155cb1523b14aaa677f6a92cda9d780}{get\+\_\+game\+\_\+data}} (void)
+\doxymbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{data_8c_a0966f9eff6bf9846759f969f20010d8d}{get\+\_\+game\+\_\+data}} (void)
 \item 
-void \doxymbox{\hyperlink{data_8c_aa73daa48c235907188790a183955c075}{health\+\_\+control}} ()
-\item 
-void \doxymbox{\hyperlink{data_8c_aa0237fad8860ec61a8b83d078db0dc3a}{print\+\_\+data}} ()
+void \doxymbox{\hyperlink{data_8c_acd27370209ba7d6c61d40bf39ec29d60}{data\+\_\+control}} ()
 \item 
 void \doxymbox{\hyperlink{data_8c_a29761642853e026d4b5091057dce4e2a}{reset\+\_\+data}} ()
 \end{DoxyCompactItemize}
@@ -22,27 +20,25 @@ void \doxymbox{\hyperlink{data_8c_a29761642853e026d4b5091057dce4e2a}{reset\+\_\+
 \label{doc-func-members}
 \Hypertarget{data_8c_doc-func-members}
 \doxysubsection{Function Documentation}
-\Hypertarget{data_8c_ae155cb1523b14aaa677f6a92cda9d780}\index{data.c@{data.c}!get\_game\_data@{get\_game\_data}}
+\Hypertarget{data_8c_acd27370209ba7d6c61d40bf39ec29d60}\index{data.c@{data.c}!data\_control@{data\_control}}
+\index{data\_control@{data\_control}!data.c@{data.c}}
+\doxysubsubsection{\texorpdfstring{data\_control()}{data\_control()}}
+{\footnotesize\ttfamily \label{data_8c_acd27370209ba7d6c61d40bf39ec29d60} 
+void data\+\_\+control (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Checks if player health is in bounds 0\texorpdfstring{$<$}{<}health\texorpdfstring{$<$}{<}=20 and if money is \texorpdfstring{$>$}{>}= 0 \Hypertarget{data_8c_a0966f9eff6bf9846759f969f20010d8d}\index{data.c@{data.c}!get\_game\_data@{get\_game\_data}}
 \index{get\_game\_data@{get\_game\_data}!data.c@{data.c}}
 \doxysubsubsection{\texorpdfstring{get\_game\_data()}{get\_game\_data()}}
-{\footnotesize\ttfamily \label{data_8c_ae155cb1523b14aaa677f6a92cda9d780} 
-\doxymbox{\hyperlink{struct_game_data}{Game\+Data}} \texorpdfstring{$\ast$}{*} get\+\_\+game\+\_\+data (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{data_8c_a0966f9eff6bf9846759f969f20010d8d} 
+\doxymbox{\hyperlink{structgame__data__t}{game\+\_\+data\+\_\+t}} \texorpdfstring{$\ast$}{*} get\+\_\+game\+\_\+data (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-Returns the pointer to the static game data object \Hypertarget{data_8c_aa73daa48c235907188790a183955c075}\index{data.c@{data.c}!health\_control@{health\_control}}
-\index{health\_control@{health\_control}!data.c@{data.c}}
-\doxysubsubsection{\texorpdfstring{health\_control()}{health\_control()}}
-{\footnotesize\ttfamily \label{data_8c_aa73daa48c235907188790a183955c075} 
-void health\+\_\+control (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
-
-Checks if player health is in bounds 0\texorpdfstring{$<$}{<}health\texorpdfstring{$<$}{<}=20 \Hypertarget{data_8c_aa0237fad8860ec61a8b83d078db0dc3a}\index{data.c@{data.c}!print\_data@{print\_data}}
-\index{print\_data@{print\_data}!data.c@{data.c}}
-\doxysubsubsection{\texorpdfstring{print\_data()}{print\_data()}}
-{\footnotesize\ttfamily \label{data_8c_aa0237fad8860ec61a8b83d078db0dc3a} 
-void print\+\_\+data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
-
-Prints current game data \Hypertarget{data_8c_a29761642853e026d4b5091057dce4e2a}\index{data.c@{data.c}!reset\_data@{reset\_data}}
+\begin{DoxyReturn}{Returns}
+a pointer to the static game data object 
+\end{DoxyReturn}
+\Hypertarget{data_8c_a29761642853e026d4b5091057dce4e2a}\index{data.c@{data.c}!reset\_data@{reset\_data}}
 \index{reset\_data@{reset\_data}!data.c@{data.c}}
 \doxysubsubsection{\texorpdfstring{reset\_data()}{reset\_data()}}
 {\footnotesize\ttfamily \label{data_8c_a29761642853e026d4b5091057dce4e2a} 
 void reset\+\_\+data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+Resets game data to default 

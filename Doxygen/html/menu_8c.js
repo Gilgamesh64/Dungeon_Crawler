@@ -15,7 +15,7 @@ var menu_8c =
     [ "save_menu", "menu_8c.html#a87491ad00ad956d24fac53cd77c610b0", null ],
     [ "select_option", "menu_8c.html#a13c8c54ba52090e4f161e08757ff6a67", null ],
     [ "select_option_array", "menu_8c.html#a09105b34927f33f78c4452c0e8082dba", null ],
-    [ "shield_magic_sword", "menu_8c.html#a26027a2fb463fca2fcf832f75f6715aa", null ],
+    [ "shield_magic_sword", "menu_8c.html#a556b1069f5a3c68775a2fbcfd9e9a7dc", null ],
     [ "shop_menu", "menu_8c.html#a3b0dfbf1ea01a5782db3a5bb04c2e928", null ],
     [ "trap_menu", "menu_8c.html#ac8a43ace0c9223bedd5f32df44d254ec", null ],
     [ "village_menu", "menu_8c.html#a6966b4dcec76606f660b5cec87d2293f", null ],

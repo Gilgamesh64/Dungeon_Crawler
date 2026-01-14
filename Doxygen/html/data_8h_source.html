@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dungeon Crawler: C:/UNIPROGRAMMING/Dungeon_Crawler/include/data.h Source File</title>
+<title>Dungeon Crawler: include/data.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -100,41 +100,36 @@ $(function(){initNavTree('data_8h_source.html','',''); });
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="data_8h.html#ad9daf461f7f84db1945d55beecee801f">    7</a></span><span class="preprocessor">#define DEFAULT_QUESTS 0</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="struct_game_data.html">    9</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="struct_game_data.html#a1d87fe0313d702730e60619d35bbd715">   10</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_game_data.html#a1d87fe0313d702730e60619d35bbd715">health_points</a>;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="struct_game_data.html#ad7b19ae27c8e920ec00b72fb993ebd1e">   11</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_game_data.html#ad7b19ae27c8e920ec00b72fb993ebd1e">coins</a>;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="struct_game_data.html#a026071c2e868cf179cb874a4ec488881">   12</a></span>    <span class="keywordtype">long</span> <a class="code hl_variable" href="struct_game_data.html#a026071c2e868cf179cb874a4ec488881">items</a>;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="struct_game_data.html#ab793bd9e8316c02d39301d77b78abb33">   13</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_game_data.html#ab793bd9e8316c02d39301d77b78abb33">missions_completed</a>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>} <a class="code hl_struct" href="struct_game_data.html">GameData</a>;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="structgame__data__t.html">    9</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="structgame__data__t.html#a1d87fe0313d702730e60619d35bbd715">   10</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structgame__data__t.html#a1d87fe0313d702730e60619d35bbd715">health_points</a>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="structgame__data__t.html#ad7b19ae27c8e920ec00b72fb993ebd1e">   11</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structgame__data__t.html#ad7b19ae27c8e920ec00b72fb993ebd1e">coins</a>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="structgame__data__t.html#a026071c2e868cf179cb874a4ec488881">   12</a></span>    <span class="keywordtype">long</span> <a class="code hl_variable" href="structgame__data__t.html#a026071c2e868cf179cb874a4ec488881">items</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="structgame__data__t.html#ab793bd9e8316c02d39301d77b78abb33">   13</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structgame__data__t.html#ab793bd9e8316c02d39301d77b78abb33">missions_completed</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>} <a class="code hl_struct" href="structgame__data__t.html">game_data_t</a>;</div>
 </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><a class="code hl_struct" href="struct_game_data.html">GameData</a> *<a class="code hl_function" href="data_8h.html#ae155cb1523b14aaa677f6a92cda9d780">get_game_data</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keywordtype">void</span> <a class="code hl_function" href="data_8h.html#aa0237fad8860ec61a8b83d078db0dc3a">print_data</a>();</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keywordtype">void</span> <a class="code hl_function" href="data_8h.html#a29761642853e026d4b5091057dce4e2a">reset_data</a>();</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keywordtype">void</span> <a class="code hl_function" href="data_8h.html#aa73daa48c235907188790a183955c075">health_control</a>();</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="adata_8h_html_a29761642853e026d4b5091057dce4e2a"><div class="ttname"><a href="data_8h.html#a29761642853e026d4b5091057dce4e2a">reset_data</a></div><div class="ttdeci">void reset_data()</div><div class="ttdef"><b>Definition</b> data.c:37</div></div>
-<div class="ttc" id="adata_8h_html_aa0237fad8860ec61a8b83d078db0dc3a"><div class="ttname"><a href="data_8h.html#aa0237fad8860ec61a8b83d078db0dc3a">print_data</a></div><div class="ttdeci">void print_data()</div><div class="ttdef"><b>Definition</b> data.c:25</div></div>
-<div class="ttc" id="adata_8h_html_aa73daa48c235907188790a183955c075"><div class="ttname"><a href="data_8h.html#aa73daa48c235907188790a183955c075">health_control</a></div><div class="ttdeci">void health_control()</div><div class="ttdef"><b>Definition</b> data.c:14</div></div>
-<div class="ttc" id="adata_8h_html_ae155cb1523b14aaa677f6a92cda9d780"><div class="ttname"><a href="data_8h.html#ae155cb1523b14aaa677f6a92cda9d780">get_game_data</a></div><div class="ttdeci">GameData * get_game_data(void)</div><div class="ttdef"><b>Definition</b> data.c:9</div></div>
-<div class="ttc" id="astruct_game_data_html"><div class="ttname"><a href="struct_game_data.html">GameData</a></div><div class="ttdef"><b>Definition</b> data.h:9</div></div>
-<div class="ttc" id="astruct_game_data_html_a026071c2e868cf179cb874a4ec488881"><div class="ttname"><a href="struct_game_data.html#a026071c2e868cf179cb874a4ec488881">GameData::items</a></div><div class="ttdeci">long items</div><div class="ttdef"><b>Definition</b> data.h:12</div></div>
-<div class="ttc" id="astruct_game_data_html_a1d87fe0313d702730e60619d35bbd715"><div class="ttname"><a href="struct_game_data.html#a1d87fe0313d702730e60619d35bbd715">GameData::health_points</a></div><div class="ttdeci">int health_points</div><div class="ttdef"><b>Definition</b> data.h:10</div></div>
-<div class="ttc" id="astruct_game_data_html_ab793bd9e8316c02d39301d77b78abb33"><div class="ttname"><a href="struct_game_data.html#ab793bd9e8316c02d39301d77b78abb33">GameData::missions_completed</a></div><div class="ttdeci">int missions_completed</div><div class="ttdef"><b>Definition</b> data.h:13</div></div>
-<div class="ttc" id="astruct_game_data_html_ad7b19ae27c8e920ec00b72fb993ebd1e"><div class="ttname"><a href="struct_game_data.html#ad7b19ae27c8e920ec00b72fb993ebd1e">GameData::coins</a></div><div class="ttdeci">int coins</div><div class="ttdef"><b>Definition</b> data.h:11</div></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><a class="code hl_struct" href="structgame__data__t.html">game_data_t</a> *<a class="code hl_function" href="data_8h.html#a0966f9eff6bf9846759f969f20010d8d">get_game_data</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keywordtype">void</span> <a class="code hl_function" href="data_8h.html#a29761642853e026d4b5091057dce4e2a">reset_data</a>();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keywordtype">void</span> <a class="code hl_function" href="data_8h.html#acd27370209ba7d6c61d40bf39ec29d60">data_control</a>();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="adata_8h_html_a0966f9eff6bf9846759f969f20010d8d"><div class="ttname"><a href="data_8h.html#a0966f9eff6bf9846759f969f20010d8d">get_game_data</a></div><div class="ttdeci">game_data_t * get_game_data(void)</div><div class="ttdef"><b>Definition</b> data.c:9</div></div>
+<div class="ttc" id="adata_8h_html_a29761642853e026d4b5091057dce4e2a"><div class="ttname"><a href="data_8h.html#a29761642853e026d4b5091057dce4e2a">reset_data</a></div><div class="ttdeci">void reset_data()</div><div class="ttdef"><b>Definition</b> data.c:27</div></div>
+<div class="ttc" id="adata_8h_html_acd27370209ba7d6c61d40bf39ec29d60"><div class="ttname"><a href="data_8h.html#acd27370209ba7d6c61d40bf39ec29d60">data_control</a></div><div class="ttdeci">void data_control()</div><div class="ttdef"><b>Definition</b> data.c:14</div></div>
+<div class="ttc" id="astructgame__data__t_html"><div class="ttname"><a href="structgame__data__t.html">game_data_t</a></div><div class="ttdef"><b>Definition</b> data.h:9</div></div>
+<div class="ttc" id="astructgame__data__t_html_a026071c2e868cf179cb874a4ec488881"><div class="ttname"><a href="structgame__data__t.html#a026071c2e868cf179cb874a4ec488881">game_data_t::items</a></div><div class="ttdeci">long items</div><div class="ttdef"><b>Definition</b> data.h:12</div></div>
+<div class="ttc" id="astructgame__data__t_html_a1d87fe0313d702730e60619d35bbd715"><div class="ttname"><a href="structgame__data__t.html#a1d87fe0313d702730e60619d35bbd715">game_data_t::health_points</a></div><div class="ttdeci">int health_points</div><div class="ttdef"><b>Definition</b> data.h:10</div></div>
+<div class="ttc" id="astructgame__data__t_html_ab793bd9e8316c02d39301d77b78abb33"><div class="ttname"><a href="structgame__data__t.html#ab793bd9e8316c02d39301d77b78abb33">game_data_t::missions_completed</a></div><div class="ttdeci">int missions_completed</div><div class="ttdef"><b>Definition</b> data.h:13</div></div>
+<div class="ttc" id="astructgame__data__t_html_ad7b19ae27c8e920ec00b72fb993ebd1e"><div class="ttname"><a href="structgame__data__t.html#ad7b19ae27c8e920ec00b72fb993ebd1e">game_data_t::coins</a></div><div class="ttdeci">int coins</div><div class="ttdef"><b>Definition</b> data.h:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_0fd818c2dc9e41eb75e4c239c3ea6c8e.html">UNIPROGRAMMING</a></li><li class="navelem"><a href="dir_a4d0177efa10ad01c5956a9f1da24ea4.html">Dungeon_Crawler</a></li><li class="navelem"><a href="dir_7917408e75ee27fa1b09096a0f911da1.html">include</a></li><li class="navelem"><a href="data_8h.html">data.h</a></li>
+    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="data_8h.html">data.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

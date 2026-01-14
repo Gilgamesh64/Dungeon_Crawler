@@ -1,5 +1,5 @@
-\doxysection{C:\+/\+\+UNIPROGRAMMING/\+\+Dungeon\+\_\+\+Crawler/\+src/\+menu.c File Reference}
-\hypertarget{menu_8c}{}\label{menu_8c}\index{C:/UNIPROGRAMMING/Dungeon\_Crawler/src/menu.c@{C:/UNIPROGRAMMING/Dungeon\_Crawler/src/menu.c}}
+\doxysection{src/\+menu.c File Reference}
+\hypertarget{menu_8c}{}\label{menu_8c}\index{src/menu.c@{src/menu.c}}
 {\ttfamily \+\#include "{}menu.\+h"{}}\newline
 {\ttfamily \+\#include "{}data.\+h"{}}\newline
 {\ttfamily \+\#include "{}entity.\+h"{}}\newline
@@ -50,12 +50,12 @@ int \doxymbox{\hyperlink{menu_8c_a353cd0335adb81951dede94c73c1d6e1}{apply\+\_\+s
 \item 
 void \doxymbox{\hyperlink{menu_8c_a2ccadb2e1c6a9dffbcd8b7d2f591afad}{boss\+\_\+menu}} ()
 \item 
-bool \doxymbox{\hyperlink{menu_8c_a26027a2fb463fca2fcf832f75f6715aa}{shield\+\_\+magic\+\_\+sword}} (int player\+\_\+choice)
+bool \doxymbox{\hyperlink{menu_8c_a556b1069f5a3c68775a2fbcfd9e9a7dc}{shield\+\_\+magic\+\_\+sword}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-bool \doxymbox{\hyperlink{menu_8c_aaecdc3cd4e6183dc29362d00766e778c}{has\+\_\+cheats}} = true
+bool \doxymbox{\hyperlink{menu_8c_aaecdc3cd4e6183dc29362d00766e778c}{has\+\_\+cheats}} = false
 \end{DoxyCompactItemize}
 
 
@@ -199,11 +199,11 @@ Creates a menu asking the user for a selection
 \begin{DoxyReturn}{Returns}
 selected number (0-\/based index) 
 \end{DoxyReturn}
-\Hypertarget{menu_8c_a26027a2fb463fca2fcf832f75f6715aa}\index{menu.c@{menu.c}!shield\_magic\_sword@{shield\_magic\_sword}}
+\Hypertarget{menu_8c_a556b1069f5a3c68775a2fbcfd9e9a7dc}\index{menu.c@{menu.c}!shield\_magic\_sword@{shield\_magic\_sword}}
 \index{shield\_magic\_sword@{shield\_magic\_sword}!menu.c@{menu.c}}
 \doxysubsubsection{\texorpdfstring{shield\_magic\_sword()}{shield\_magic\_sword()}}
-{\footnotesize\ttfamily \label{menu_8c_a26027a2fb463fca2fcf832f75f6715aa} 
-bool shield\+\_\+magic\+\_\+sword (\begin{DoxyParamCaption}\item[{int}]{player\+\_\+choice}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{menu_8c_a556b1069f5a3c68775a2fbcfd9e9a7dc} 
+bool shield\+\_\+magic\+\_\+sword (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 Plays rock paper scissors game \Hypertarget{menu_8c_a3b0dfbf1ea01a5782db3a5bb04c2e928}\index{menu.c@{menu.c}!shop\_menu@{shop\_menu}}
 \index{shop\_menu@{shop\_menu}!menu.c@{menu.c}}
@@ -232,5 +232,5 @@ village menu displayed when in the village
 \index{has\_cheats@{has\_cheats}!menu.c@{menu.c}}
 \doxysubsubsection{\texorpdfstring{has\_cheats}{has\_cheats}}
 {\footnotesize\ttfamily \label{menu_8c_aaecdc3cd4e6183dc29362d00766e778c} 
-bool has\+\_\+cheats = true}
+bool has\+\_\+cheats = false}
 
