@@ -1,3 +1,11 @@
+/**
+ * @file menu.h
+ * 
+ * @brief contains all menus
+ * 
+ * Allows to control where the player is in the different menus
+ */
+
 #ifndef MENU_H
 #define MENU_H
 

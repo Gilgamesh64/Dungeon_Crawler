@@ -10,7 +10,6 @@
  * 
  * How? Well...
  * 
- * @example 
  * Save value: 101
  * 
  * Starting from the right, each digit represents the binary completion state
